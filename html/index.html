@@ -1,622 +1,2506 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>首页</title>
-	<link rel="stylesheet" href="../css/common/common.css" />
-	<style>
-	
-		body{min-width: 1000px;-webkit-font-smoothing: antialiased;}
-		/*头部*/
-		#box-header{display:block;z-index: 101;position: relative;height: 168px;background-color: #777777;}
-		body #vip-common-header{display: block;height: 28px;background-color: #808080;overflow: hidden;}
-		.top-nav,#main-nav{display: block;}
-		header{position: relative;color: #333;font-size: 12px;height: 28px;}
-		.top-nav{z-index:21;height:28px;line-height:26px;position: relative;background-color:#F5F5F5;color: #777;}
-		.head-inner{width: 1000px;margin: 0 auto;position: relative;}
-		.sel-area{margin:0;padding:0;float: left;position: relative;z-index: 10;}
-		.sel-area .sel-area-change{color: #555;margin: 0; padding: 0;}
-		.sel-area .sel-area-btn{height: 28px;padding: 0 14px 0 17px;border-left:1px solid #F5F5F5 ;border-right:1px solid #F5F5F5 ;cursor: pointer;position: relative;}
-		/*.sel-area .selected .sel-area-btn{color:#f10180 ;}*/
-		.sel-area .sel-area-change,.sel-area .sel-provice{color: #555;}
-		/*.selected .sel-provice{color: #f10180;}*/
-		 .icon-dis{margin-top:7px;border-width:4px;vertical-align:middle;border-color: #999 transparent transparent transparent;border-style:solid dashed dotted dashed;}
-		header i{font-style:normal;display: inline-block;}
-		.sel-area-box{position: absolute;top: 26px;left: 0;z-index: 10;width: 295px;line-height: 26px;border: 1px solid #cdcdcd;background-color:#fff;font-size: 12px;}
-		/*p{display: block;-webkit-margin-before:1em ;-webkit-margin-after:1em ;-webkit-margin-statr:0px;-webkit-margin-end:0 ;}*/
-		.sab-table{border-collapse:collapse ; border-spacing:0 ;width: 100%;color: #343434;}
-		.sab-tit { margin: 0 0 14px 0; padding-left: 4px;height: 30px;line-height: 30px;border-bottom: 1px dotted #666;font-weight: 700;text-align: left;color: #000;font-size: 14px;}
-		table{border-collapse:collapse ; border-spacing:0 ;}
-		table{border-collapse:separate ; border-spacing:2px ;}
-		.top-nav-tool{width:666px;height:28px;float:right;position: relative;border: transparent 1px solid;}
-		.top-nav-tool li{float: left;}
-		 header li{list-style: none;}
-		 .top-nav-tool .register_hasnoname, .top-nav-tool .vip-order, .top-nav-tool .vip-phone, .top-nav-tool .vip-service, .top-nav-tool .vip-user {
-		    position: relative;
-		    border: transparent 1px solid;
-		    border: #f5f5f5 1px solid;
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>主页</title>
+		<link rel="stylesheet" href="../css/common/common.css" />
+		<link rel="stylesheet" href="../css/common/header.css" />
+		<link rel="stylesheet" href="../css/common/footer.css" />
+		<link rel="stylesheet" href="../css/index.css" />
+		<style>
+		.banner-box{height:392px;width:100%;background:url(../img/index/banner-bg.jpg) no-repeat center center;position: relative;top:40px;display: block;}
+		.banner{width:976px;height:380px;position:relative;overflow: hidden;margin:0 auto;box-shadow:0 1px 3px rgba(167,167,167,.4);padding: 12px;padding-bottom: 0; background: rgba(255,255,255,.86);}
+		.banner .slider{width: 976px;height:340px;background:deepskyblue;position: absolute;}
+		.slider .slider-list{float:left;width: 976px;height:340px;position: absolute;top: 0;left: 0;}
+		.slider-list img{width: 976px;height:340px;display: block;}
+		.slider-btn {
+				    background: #ccc;
+				    background: rgba(0,0,0,.2);
+				    border-radius: 2px;
+				    position: absolute;
+				    width: 33px;
+				    height: 66px;
+				    line-height: 66px;
+				    font-size: 24px;
+				    cursor: pointer;
+				    top: 50%;
+				    margin-top: -53px;
+				    z-index: 2;
+				    text-align: center;
+				    -webkit-transition: all .3s ease-in;
+		   			 }
+		.prev, .next {width:50px; height:50px; position:absolute; top:0; bottom:0; margin:auto 0; background:black; cursor: pointer; font:50px/50px "宋体"; color:white; text-align: center; opacity: 0;}
+		.next {right:0px;}
+		.slider-bottom{
+				    text-align: center;
+				    width: 976px;
+				    left: 50%;
+				    margin-left: -488px;
+				    height: 40px;
+				    position: absolute;
+				    /*z-index: 2;*/
+				    bottom: 2px;
+				    background: #fff;
+				    cursor: pointer;
+				}
+		.slider-bottom-list{width: 100%;height:40px;text-align: center;}
+		.slider-bottom-list li{float: left;width: 195px;height:40px;line-height: 40px;padding-left: 40px;}
+		.active{border-bottom: #e6057d 3px solid;}
+		
+	/*楼梯*/
+		#loutiNav{
+			width: 68px;
+			position: fixed;
+			left: 40px;
+			top: 25%;
+			border: 1px solid #ccc;
+			background: #fff;
 		}
-		.top-nav-tool .vip-fav .vip-order{position: relative;border: transparent 1px solid;}
-		.vip-order{z-index: 11;width: 48px;text-align: left;padding-left: 13px;padding-right: 20px;}
-		.order-in{color: #ccc;}
-		.vip-fav-nav .fav-in{position: absolute;z-index: 23;}
-		.top-nav-tool a{color: #666;}
-		header a{text-decoration: none;vertical-align: top;}
-		a{outline: 0;-webkit-tap-highlight-color: rgba(255,255,255,0);}
-		.top-nav-list{position: absolute;top: 20px;}
-		.vip-fav-nav{padding-left: 13px;width: 60px; padding-right: 20px; text-align: left;height: 26px;}
-		.vip-service{width:80px;padding-left: 13px;padding-right: 20px;height: 26px;text-align: left;}
-		.service-infor{/*display: none;*//*display: block;*/left: 1px;}
-		.icon-dis{margin-top: 5px;width: 0;height: 0;line-height: 0;vertical-align: middle;border-width: 4px;border-color: #999 transparent transparent transparent;border-style: solid dashed dotted dashed;}
-		.service-infor .top-nav-list span{width: 100%; display: block;margin: 5px 0;}
-					/*登录*/
-		.vip-login{width: 72px;padding-left: 13px;padding-right: 20px;height: 26px;text-align: left;}
-	    .vip-severice .service-infor{display:none;width: 150px;text-align: left;top: 25px;left: -7px;padding: 0 10px 10px 0;}
-		.vip-login .login-in{width: 150px;}
-		.login,.img1{float: left;}
-		
-		/*我的收藏*/
-		.vip-fav-nav .service-infor{width: 120px;text-align: left;top:25px;left: -7px;padding: 0 10px 10px 0;}
-		.vip-fav-nav.ico-arw-bodder {width: 99px;left: -1px;display: none;background-color: #fff; height: 27px;top: -27px; border-left: 1px solid #cdcdcd; border-top:1px solid #cdcdcd;}
-	
-		/*会员服务*/
-		.vip-member{width: 72px;padding-left: 13px;padding-right: 20px;height: 26px;text-align: left;}
-		.vip-member .service-infor{width: 101px;text-align: left;top: 25px;left: -7px;padding: 0 10px 10px 0;}
-		/*客户服务*/
-		.vip-service{width:75px;padding-left: 13px;padding-right: 20px;height: 20px;text-align: left;}
-		.vip-service .service-infor{display:none;width: 99px; text-align: left;top: 25px;left: -7px; padding: 0 10px 10px 0;}
-		.vip-service .ico-arw-bodder {width: 109px;left: -1px; display: none;background-color: #fff;height: 27px; top: -27px;border-left: 1px solid #cdcdcd;} border-top: 1px solid #cdcdcd;
-		/*手机*/
-		.vip-phone{padding-left: 13px;width: 51px;padding-right: 20px;text-align: left;height: 26px;}
-		.vip-phone .phone-infor{display:none;height:190px;width: 185px; position:absolute;top:0;left:-70px;text-align: center; right: -1px; top: 25px; padding-bottom: 0;}
-		.vip-phone .ico-arw-bodder {display:none;width: 90px;right: -1px;/*background-color: #fff;*/height: 26px;top: -27px;/*border-left: 1px solid #cdcdcd;border-top: 1px solid #cdcdcd;border-right: 1px solid #cdcdcd;*/}
-		.vip-phone .phone-in{position: absolute;z-index: 23;width: 50px;}
-		.vip-phone .ico-mob{margin-left: 1px;margin-right: 3px;margin-top: -3px; width: 10px; height: 14px;vertical-align: middle;background:url("../img/index/header.png") no-repeat -100px -150px;}
-		
-		.vip-phone .phone-infor p{font-size: 14px;font-weight: 700;line-height: 42px;position: absolute;top: 140px;left: 40px;}
-		.hidden{display: block;}
-		/*更多*/
-		.vip-bussiness{width: 36px;padding-left:35px;padding-right: 20px;height: 26px;text-align: left;z-index: 11;}
-		.vip-bussiness .service-in{position: absolute;z-index: 23;margin-left: 50px;}
-		.service-infor-more{width:300px;right: -1px;/*display: block;*/display: none;position: absolute;top:25px ; left:500px;}
-		.wp-business .ico-arw-bodder {width: 75px;left: 100%; margin-left: -76px;display: none;background-color: #fff;height: 26px;top: -27px;border-left: 1px solid #cdcdcd;border-top: 1px solid #cdcdcd;}
-		.service-infor-more .service-more-hd  padding: 0 20px; text-align: left;width: 260px;height: 25px;line-height: 25px;margin-top: 5px;font-weight: 700;font-size: 14px;}
-		.service-infor-more .top-nav-list {text-align: left;padding: 0 20px;display: block; width: 260px;float: none;}
-		.service-infor-more .top-nav-list a {display: inline;margin-right: 10px;}
-		.service-infor-more .service-more-hd2 {padding-top: 20px;position: relative;}
-		.service-infor-more .service-more-p{margin-bottom: 12px;}
-			/*	尾部*/
-			.footer{font-size:12px;display:block;clear: both; overflow:hidden;line-height:22px;padding-top:0;border-top:1px solid #ebebeb; background-color: #fcfcfc;color:#4d4d4d;}
-			.footer-inner{width:960px;margin:0 auto;overflow:hidden;}
-			.footer-vip{overflow:hidden;position: relative;}
-			.footer-vip li{float:left;}
-			.footer-vip i{display:block;margin-top: 30px;margin-left:10px;margin-right:45px;width:66px;height: 96px;font-size:0;text-indent:-100%}
-			.footer-vip-ico01{background-position: 10px 9px;background:url("../img/index/footer_vip.png") no-repeat -10px -9px;}
-			.footer-vip-ico02{background-position: 148px 9px;background: url("../img/index/footer_vip.png") no-repeat  -148px -9px;}
-			.footer-vip-ico03{background-position: 295px 9px;background: url("../img/index/footer_vip.png") no-repeat -295px -9px;;}
-			.footer-vip-ico04{background-position: 443px 9px;background: url("../img/index/footer_vip.png") no-repeat -443px -9px;}
-			.footer-vip-ico05{background-position: 590px 9px;background: url("../img/index/footer_vip.png") no-repeat -590px -9px;}
-			.footer-vip-ico06{background-position: 738px 9px;background: url("../img/index/footer_vip.png") no-repeat -738px -9px;}
-			.footer-vip-ico07{background-position: 885px 9px;background: url("../img/index/footer_vip.png") no-repeat -885px -9px;}
-			.footer-list{overflow:hidden;zoom:1;margin:37px 0 25px;line-height: 20px;}
-			.footer-list .link-anim a{color:gray;}
-			.footer-list .link-anim a:hover{color:#d7237e;}
-			.footer-list dl{float: left;width:145px;height: 146px;padding-left: 16px;border-right:1px solid #e0e0e0;}
-			.footer-list dt{margin-bottom:4px;color:#4d4d4d;}
-			.footer-list .tc{padding-left:0;width:136px;text-align:center;}
-			.footer-list .tc dd{background:0 0;padding-left:0;}
-			.footer-list .last{border-right:0;display:block;}
-			.footer-infor{text-align: center;color:#fff;margin-bottom:0;}
-			.footer-infor-link{background-color:#d7237e; line-height: 30px;}
-			.footer-infor-link a{margin-left: 2px;margin-right:2px;color:#fff;}
-			.footer-infor-link a:hover{color:#999999;}
-			.footer-infor-txt{color:#999;margin:14px 0; line-height: 19px;}
-			.footer-infor-txt a{color:#999;}
-			.footer-infor-txt a:hover{color:#d7237e;}
-			.footer-ft{padding:4px 0 4px;background: #fff;}
-			.footer-pic{position:relative;margin: 0 auto;width: 960px;height: 40px;text-align: center;overflow: hidden;}
-			.footer-pic-ico01,.footer-pic-ico04,.footer-pic-ico05,.footer-pic-ico06,.footer-pic-ico07,.footer-pic-ico09,.footer-pic-ico10{
-				display: inline-block;
-				margin-right: 9px;
-				height:40px;
-				background-image:url(../img/index/footerlast.png);
-				background-repeat:no-repeat ;
+		#loutiNav ul li{
+			width: 68px;
+			height: 40px;
+			position: relative;
+			list-style: none;
+			text-align: center;
+			line-height: 40px;
+			font-size: 12px;
+			border-bottom: 1px dotted #aaa;
+			cursor: pointer;
+		}
+		#loutiNav ul li span{
+			width: 65px;
+			height: 35px;
+			position: absolute;
+			top: 2px;
+			left: 1px;
+			color:#676767;
+			background: #fff;
+			display: none;
+		}
+		#loutiNav ul li:hover span{
+			display: block;
+			color: #F10180;
+			background:#fff;
+			
+		}
+		#loutiNav ul li span.active{
+			width:65px;
+			border-radius:3px ;
+			display: block;
+			color: #fff;
+			background:#F10180;
+		}
+		/*一楼*/
+		#first, #main, #last{
+			width: 1000px;
+			margin:0 auto;
+			text-align: center;
+			font-size: 40px;
+			font-weight: bold;
+			
+		}
+		#first{
+				height: 80px;
+				line-height: 80px;
+				background:#fff;
+				margin-top: 30px;
 			}
-			.footer-pic-ico01{width: 105px;background-position: 0 0;}
-			.footer-pic-ico04{width: 99px;background-position: 0 -150px;}
-			.footer-pic-ico05{width: 66px;background-position: 0 -200px;}
-			.footer-pic-ico06{width: 70px;background-position: 0 -250px;}
-			.footer-pic-ico07{width: 75px;background-position: 0 -300px;}
-			.footer-pic-ico09{width: 76px;background-position: 0 -400px;}
-			.footer-pic-ico10{width: 76px;background-position: 0 -450px;}
-			.footer li{list-style: none;}
-			.footer dd,.footer dl,.footer dt{margin:0;padding-left:5px;}
-			.footer a{text-decoration: none;}
-			a{outline:0}
-			a,img{vertical-align: top;}
-			 ul{display: block;   
-				list-style:none;
-			 	/*-webkit-margin-before: 1em;
-			    -webkit-margin-after: 1em;
-			    -webkit-margin-start: 0px;
-			    -webkit-margin-end: 0px;
-			    -webkit-padding-start: 40px;}*/
-			li {
-				    display: list-item;
-				    text-align: -webkit-match-parent;
+		 #last{
+			height: 500px;
+			line-height: 500px;
+			background: darkcyan;
+		}
+		 .louti{
+			height:3540px;
+			line-height: 3540px;
+			
+		}
+		 #first img{width: 1000px;height: 80px;}
+		 #main .floor1{height: 1280px;border-bottom: 0 none;}
+		.floor1-inner{float: left;
+			text-align: center;
+			position: relative;
+			overflow: hidden;
+			width:480px;
+			height:300px;
+			margin-right:10px;
+			margin-left:10px;
+			margin-bottom: 20px;
+			background: #fff;
+			
+		}
+		.floor1-inner .floor1-img{width: 490px;height: 300px;}
+		.floor1-inner .floor1-img:hover{-webkit-filter: blur(5px)};
+		.floor1-inner .floor1-brand{
+		    position: absolute;
+		    bottom: 20px;
+		    width: 320px;
+		    height: 100px;
+		    left: 50%;
+		    margin-left: -160px;
+		    background: #fff;
+		    background: rgba(255,255,255,.9);
+		    border-radius: 4px;
+		    line-height: 1.2;
+		}
+		.floor1-brand-img{width: 100px;height:50px;margin:6px 0 3px;display: inline;}
+		.floor1-brand-name1{
+		    font-size: 14px;
+		    color: #333;
+		    font-weight: 700;
+		    margin: 0 55px;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		    white-space: nowrap;
+		   }
+		.floor1-brand-name2{
+		    margin: 0 55px;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		    white-space: nowrap;
+		    font-size: 12px;
+		    width: 210px;
+		    height: 14px;
+		    color: #333;
+		    }
+		.floor1-inner:hover .floor1-brand{display: none;}
+		.floor1-inner:hover .floor1-inner-hover{display:block;visibility: visible;opacity: 1;pointer-events: auto;}
+		.floor1-inner-hover{
+		   		width: 450px;
+			   	height: 260px;
+				position: absolute;
+				top:20px;
+				left: 20px;
+				background-color:#FFF;
+				background-position: center 100px;
+				border-radius: 4PX;
+				overflow: hidden;
+				display: none;
+			
+						   }
+		.floor1-inner-hove .floor1-img:hover{-webkit-filter: blur(5px)};
+		.floor1-inner-hover .inner-hover-list{background-color:#fff;margin-top: 14px;padding-left: 30px;height: 184px;border-bottom: 1px dotted #333;}
+		.inner-hover-list .list-item{float: left;margin-right:16px;width: 121px;height: 83px;}
+		.inner-hover-list .list-item .inner-hover-img{height: 153px;width: 121px;opacity: 1;}
+		.floor1-price{line-height:30px;font-weight:700;font-size:14px;color:#333;}
+		.floor1-inner-hover-logo{float:left;width: 100px;height:50px;margin: 6px 0 3px;}
+		.love{float:left;width:85px;height:22px;margin-top: 20px;line-height: 22px;margin-right:40px;cursor: pointer;}
+		.ground{margin-top: 18px;position: absolute;right: 30px;bottom: 20px;width: 117px;height: 22px;border: 1px solid #333;color:#333;text-align: center;line-height: 22px;background:#fff;border-radius: 2px;font-size:12px;cursor:pointer;}
+		.ground:hover{background-color: #000000;color: #fff;}
+		/*一楼--end*/
+		.louti-name{
+			height: 44px;
+		    border-bottom: 1px #1a1a1a solid;
+		    position: relative;
+		 
+		    }
+		.louti-inner{height:3540px;}
+		.shop-all-btn{
+			    position: absolute;
+			    right: 0;
+			    bottom: 0px;
+			    font-size: 14px;
+			    color: #333;
+			    height: 24px;
+			    line-height: 24px;
+			    }
+		.louti-title{width:273px;height: 43px;position: absolute;top: 0;left: 0;}
+		.brand-item{
+				width: 490px;
+			    height: 275px;
+			    float: left;
+			    position: relative;
+			    margin-bottom: 20px;
+			    margin-right: 5px;
+			    margin-left: 5px;
+			    background: #fff;
+			    
+			    }	
+		.brand-img{width: 490px;height: 235px;opacity: 1;}	
+		.brand-item-bottom{
+			    position: absolute;
+			    top: 205px;
+			    left: 0;
+			    background: rgba(0,0,0,.6);
+			    height: 30px;
+			    line-height: 30px;
+			    width: 365px;
+			    padding: 0 100px 0 25px;
+			    overflow: hidden;
+			    text-overflow: ellipsis;
+			    white-space: nowrap;
+			    color: #fff;
+			    font-size: 12px;
+			    }
+		.item-bottom-tip{
+				width: 193px;
+				height: 16px;
+				position: absolute;
+			    top: 10px;
+			    left: 15px;
+			    line-height: 16px;
+			}
+		.brand-item-bottom .item-icon{
+				   background-image:url(../img/index/brand-ico.png);
+				    background-position:0 0;
+				    width: 15px;
+				    height: 16px;
+				    margin-right: 5px;
+				    position: absolute;
+				    top: 15px;
+				    left: 0;
+				    display: inline-block;
+			}
+		.brand-info{
+				    height: 40px;
+				    line-height: 40px;
+				    background-color: #fff;
+				    padding: 0 120px 0 10px;
+				    position:absolute;
+				    top: 235px;
+				    display: block;
+				    }
+		.brand-item .brand-discount {
+				    color: #4d4d4d;
+				    margin-right: 10px;
+				    overflow: hidden;
+				    text-overflow: ellipsis;
+				    white-space: nowrap;
+				    max-width: 100px;
+				   display: inline-block;
+				   font-size: 14px;
 				}
-			dl {
-					  display: block;
-					  -webkit-margin-before: 1em;
-					  -webkit-margin-after: 1em;
-					  -webkit-margin-start: 0px;
-					  -webkit-margin-end: 0px;
+		.brand-item .brand-discount .salebg2 {
+				    font-size: 24px;
+				    color: #f10582;
+				    margin-right: 3px;
+				    font-weight: 700;
 				}
-				dt{display:block;}
-				dd{display:block;-webkit-margin-start: 40px;}
-			/*	头尾结束*/
-				
-		
-		body #box-header #logo{display: block;margin-top:20px;height: 100px;width:800px;background-color: #808080;z-index: 1000;clear: both;}
-		/*#logo{height: 100px;width:1000px;background-color: #555555;}*/
-		 .logo-left{width:266px;height:100px;background-color: red;}
-		
-		/*#logo #logo-left img{ width: 266px;height: 78px;}*/
-	
-	</style>
+		.brand-info-name{
+			    cursor: pointer;
+			    font-size: 14px;
+			    color: #4d4d4d;
+			    overflow: hidden;
+			    text-overflow: ellipsis;
+			    white-space: nowrap;
+			    width: 230px;
+			    display: inline-block;
+			    }
+		.brand-item .brand-time {
+			    color: #4d4d4d;
+			    position: absolute;
+			    bottom: -3px;
+			    right: -45px;
+			    }
+		.brand-item .brand-time .time-icon {
+				    background-image:url(../img/index/brand-ico.png);
+				    background-position: -50px 0;
+				    width: 16px;
+				    height: 16px;
+				    margin-right: 5px;
+				    position: relative;
+				    top: 4px;
+				    display: inline-block;
+				}
+		.time-day{font-size: 13px;color: #333}
+			
+	/*右边侧栏导航*/
+  		#sidebar{position: fixed;right: 0;top: 0;z-index: 101px;width: 36px;height: 100%;font-family: "Microsoft YaHei";}
+		#sidebar .sidebar-nav{position: relative;background: #262626;height: 100%;}
+		#sidebar .sidebar-nav .sidebar-nav-top{margin-top: -200px;height: 400px;position: absolute;top: 38%;right: 0;}
+		.count,.asset,.brand,.goods.shop-cart{width: 36px;position: relative;}				    
+		.i-count{background-position:-40px 0;}
+		.i-count:hover{background-position: -120px 0;}
+		.i-asset{background-position: -40px -44px;}
+		.i-asset:hover{background-position: -120px -44px;}
+		.i-brand{background-position: -80px -44px;}
+		.i-brand:hover{background-position: -80px  0;}
+		.i-goods{background-position: -160px 0;margin-bottom:30px;}
+		.i-goods:hover{background-position: -160px -44px;}
+		.i-shop-cart{margin:-1px auto 0;width:36px;border-top:1px solid #4c4c4c;background-position:0 -129px;}
+		.shop-cart:hover .i-shop-cart{border-top: 1px solid #df147f;background-position: -120px -88px;background-color: #df147f;}
+		.i-count,.i-asset,.i-brand,.i-shop-cart{ block;margin: 20px auto;width: 36px;height: 40px;background-image: url(../img/index/sidebar.png);background-repeat: no-repeat;background-color: #262626;cursor: pointer;}
+		.i-goods{block;margin: 20px auto;width: 36px;height: 40px;background-image: url(../img/index/sidebar.png);background-repeat: no-repeat;background-color: #262626;cursor: pointer;}
+		#count-tip {
+			    position: absolute;
+			    right:-300px;
+			    top: 0px;
+			    z-index: -1;
+			    overflow: hidden;
+			    width: 246px;
+			    height: 300px;
+			    padding: 0 14px;
+			    background-color: #fff;
+			    border: 1px solid #cecece;
+			    border-right: none;
+			    -webkit-transition: right .2s linear;
+			    transition: right .2s linear;
+			    box-shadow: -5px 1px 8px rgba(0,0,0,.15);
+			    display: block;
+			}
+		.i-side-dm{
+				display: block;
+			    float: right;
+			    margin-top: 15px;
+			    width: 18px;
+			    height: 14px;
+			    background-position: -100px -169px;
+			    cursor: pointer;
+			}
+		.count-tip-img{
+				display: block;
+			    margin: 30px auto 20px;
+			    width: 66px;
+			    height: 66px;
+			    border: 1px solid #fff;
+			    box-shadow: 0 1px 3px #ddd;
+			}
+		.count-tip-title{padding-bottom: 20px;text-align: center;}
+		.count-tip-title a{margin:0 3px;color: #F10180;}
+		.hidden{display: none;}
+		#count-tip-bottom{
+				clear: both;
+			    overflow: hidden;
+			    margin: 0 -14px;
+			    width: 274px;
+			    height: 106px;
+			    padding: 6px 0;
+			    border-top: 1px solid #e5e5e5;
+			    border-bottom: 1px solid #e5e5e5;
+			    background-color: #f8f8f8;
+			    }
+		.myorder{width: 136px;
+   				 border-right: 1px solid #e5e5e5;
+   				 }
+   		.myorder,.mymsg{
+   				 	float: left;
+				    position: relative;
+				    width: 135px;
+				    height: 66px;
+				    padding-top: 10px;
+				    text-align: center;
+				    font-size: 9px;
+   				 }
+   		.myorder-count,.mymsg-count{
+   				display: none;
+			    width: 20px;
+			    height: 20px;
+			    line-height: 19px;
+			    position: absolute;
+			    right: 8px;
+			    top: -5px;
+			    background: #df147f;
+			    color: #fff;
+			    font-size: 10px;
+			    border-radius: 50%;
+			}
+   		.myorder-logo{
+   				background-position: -148px -129px;
+   			}
+   		.mymsg-logo{
+   				background-position: -30px -169px;
+			}
+   		.myorder-logo,.mymsg-logo{
+   				width: 26px;
+			    height: 26px;
+			    margin-bottom: 10px;
+			    margin-left: auto;
+			    margin-right: auto;
+   			}
+   		.myorder-logo,.mymsg-logo{
+   				display: block;
+			    background-image:url(../img/index/sidebar.png);
+			    background-repeat: no-repeat;
+   			}
+   		.vipclub{/*padding: 12px;*/text-align:right;}
+   		.sidebar-inner{
+   				position: absolute;
+			    right: -300px;
+			    top: 20px;
+			    z-index: -1;
+			    width: 100px;
+			    height: 38px;
+			    line-height: 35px;
+			    padding: 0 8px;
+			    border-radius: 3px 0 0 3px;
+			    background-color: #fff;
+			    border: 1px solid #ddd;
+			    border-right: none;
+			    font-size: 14px;
+			    text-align: center;
+			    -webkit-transition: .3s linear;
+			    transition: .3s linear;}
+		.goods-inner{
+   				position: absolute;
+			    right: -300px;
+			    top: 270px;
+			    z-index: -1;
+			    width: 100px;
+			    height: 38px;
+			    line-height: 35px;
+			    padding: 0 8px;
+			    border-radius: 3px 0 0 3px;
+			    background-color: #fff;
+			    border: 1px solid #ddd;
+			    border-right: none;
+			    font-size: 14px;
+			    text-align: center;
+			    -webkit-transition: .3s linear;
+			    transition: .3s linear;
+			  }
+		.shop-cart-text {
+				    margin: 0 auto;
+				    width: 36px;
+				    line-height: 18px;
+				    word-wrap: break-word;
+				    word-break: nomal;
+				    font-size: 12px;
+				    color: #d1bdc6;
+				}
+		.cart-num{
+					    margin-top: 5px;
+					    width: 20px;
+					    height: 20px;
+					    line-height: 22px;
+					    padding-bottom: 8px;
+					    border-bottom: 1px solid #4c4c4c;
+					    background-position: -200px -59px;
+					    text-align: center;
+					    color: #fff;
+					    display: block;
+					    margin: 20px auto;
+					   	background-image:url(../img/index/sidebar.png);
+					    background-repeat: no-repeat;
+					    background-color: #262626;
+					    cursor: pointer;
+			}
+		.shop-cart-box:hover{background-color: #df147f;height:124px;cursor: pointer;}
+		.shop-cart-box:hover .cart-num{
+				margin-top: 5px;
+			    width: 36px;
+			    height: 20px;
+			    line-height: 22px;
+			    padding-bottom: 8px;
+    			text-align: center;
+    			background:url(../img/index/sidebar.png);
+    			background-repeat: no-repeat;
+    			/*background-position:-200px -87px ;*/
+    			display: block;
+    			margin:20px auto;
+    			
+   				}
+   		.sidebar-nav-bottom{    
+		   	position: absolute;
+		    bottom: 10px;
+		    right: 0;
+		}
+		.vip-words,.return-top{position: relative;width: 36px;}
+		.vip-words .vip-inner{
+   				position: absolute;
+			    right: -300px;
+			    top:0px;
+			    z-index: -1;
+			    width: 100px;
+			    height: 38px;
+			    line-height: 35px;
+			    padding: 0 8px;
+			    border-radius: 3px 0 0 3px;
+			    background-color: #fff;
+			    border: 1px solid #ddd;
+			    border-right: none;
+			    font-size: 14px;
+			    text-align: center;
+			    -webkit-transition: .3s linear;
+			    transition: .3s linear;
+			    }
+		 .return-top .return-inner{
+		 		position: absolute;
+			    right: -300px;
+			    top: 0px;
+			    z-index: -1;
+			    width: 100px;
+			    height: 38px;
+			    line-height: 35px;
+			    padding: 0 8px;
+			    border-radius: 3px 0 0 3px;
+			    background-color: #fff;
+			    border: 1px solid #ddd;
+			    border-right: none;
+			    font-size: 14px;
+			    text-align: center;
+			    -webkit-transition: .3s linear;
+			    transition: .3s linear;
+		 	}
+		.i-logo{
+					display: block;
+				    margin: 20px auto;
+				    width: 36px;
+				    height: 36px;
+				    background-image:url(../img/index/sidebar.png);
+				    background-repeat: no-repeat;
+				    background-color: #262626;
+				    cursor: pointer;
+				    background-position: -80px -88px;
+				    }
+		.i-logo:hover{ background-position: -40px -88px;}
+		.i-lreturn{
+			display: block;
+		    margin: 20px auto;
+		    width: 36px;
+		    height: 36px;
+		    background-image: url(../img/index/sidebar.png);
+		    background-repeat: no-repeat;
+		    background-color: #262626;
+		    cursor: pointer;
+		    background-position: -40px -129px;
+		    }
+		.i-lreturn:hover{ background-position: -160px -88px;} 
+		</style>
 	</head>
 	<body>
-		<!--头部header-->
-		<div id="box-header">
-		<header id="vip-common-header" class="header vip-common-header clearfix">
-			<nav class="top-nav">
-				<div id="j_top_nav" class="head-inner">
-					<!--选择分区-->
-					<div class="sel-area">
-						<div class="sel-area-change selected" id="j_areaselect_btn" mars_sead="home_header_location">
-							<div class="sel-area-btn">
-							<span id="j_selected_province" class="sel-provice">四川</span>
-							<i class="icon-dis"></i>
-								<div class="sel-area-box" id="j_selarea_content" style="display:none;">
-									<div class="sel-area-box-inner" id="j_selareainner">
-										<i class="icon-arw-bodder" style="width: 85px;"></i>
-										<p class="sab-tit">请选择所在地的收获地区</p>
-										<table class="sab-table">
-											<tbody>
-												<tr>
-													<th>A</th>
-													<td>
-														<span class="sel-item">安徽</span>
-														<span class="sel-item">澳门</span>
-													</td>
-												</tr>
-												<tr>
-													<th>B</th>
-													<td>
-														<span class="sel-item">安徽</span>
-														<span class="sel-item">澳门</span>
-													</td>
-												</tr>
-												<tr>
-													<th>C</th>
-													<td>
-														<span class="sel-item">安徽</span>
-														<span class="sel-item">澳门</span>
-														<span class="sel-item">澳门</span>
-														<span class="sel-item">澳门</span>
-													</td>
-												</tr>
-												<tr>
-													<th>D</th>
-													<td>
-														<span class="sel-item">安徽</span>
-														<span class="sel-item">澳门</span>
-													</td>
-												</tr>
-												<tr>
-													<th>E</th>
-													<td>
-														<span class="sel-item">安徽</span>
-														<span class="sel-item">澳门</span>
-													</td>
-												</tr>
-												<tr>
-													<th>F</th>
-													<td>
-														<span class="sel-item">安徽</span>
-														<span class="sel-item">澳门</span>
-													</td>
-												</tr>
-												<tr>
-													<th>G</th>
-													<td>
-														<span class="sel-item">安徽</span>
-														<span class="sel-item">澳门</span>
-													</td>
-												</tr>
-												<tr>
-													<th>H</th>
-													<td>
-														<span class="sel-item">安徽</span>
-														<span class="sel-item">澳门</span>
-													</td>
-												</tr>
-												<tr>
-													<th>I</th>
-													<td>
-														<span class="sel-item">安徽</span>
-														<span class="sel-item">澳门</span>
-													</td>
-												</tr>
-												<tr>
-													<th>J</th>
-													<td>
-														<span class="sel-item">安徽</span>
-														<span class="sel-item">澳门</span>
-													</td>
-												</tr>
-												<tr>
-													<th>K</th>
-													<td>
-														<span class="sel-item">安徽</span>
-														<span class="sel-item">澳门</span>
-													</td>
-												</tr>
-												<tr>
-													<th>L</th>
-													<td>
-														<span class="sel-item">安徽</span>
-														<span class="sel-item">澳门</span>
-													</td>
-												</tr>
-												<tr>
-													<th>M</th>
-													<td>
-														<span class="sel-item">安徽</span>
-														<span class="sel-item">澳门</span>
-													</td>
-												</tr>
-												<tr>
-													<th>N</th>
-													<td>
-														<span class="sel-item">安徽</span>
-														<span class="sel-item">澳门</span>
-													</td>
-												</tr>
-												<tr>
-													<th>O</th>
-													<td>
-														<span class="sel-item">安徽</span>
-														<span class="sel-item">澳门</span>
-													</td>
-												</tr>
-											</tbody>
-										</table>
+		<div id="header"></div>
+		<!--这里是内容-->
+	 	<div id="container">
+	 	<!--banner-->
+		<div class="banner-box">
+		  <div class="banner">
+				<ul class="slider">
+					<li class="slider-list">
+						<a href="#">
+							<img src="../img/index/banner.jpg" data-original="http://b.appsimg.com/2016/10/10/2807/14760894622473.jpg" class="fbc_list_img" alt="迪桑娜品牌日 满598减50">
+						</a>
+					</li>
+					<li class="slider-list">
+						<a href="#">
+							<img src="http://b.appsimg.com/2016/10/13/391/14763631420076.jpg" data-original="http://b.appsimg.com/2016/10/13/391/14763631420076.jpg" class="fbc_list_img" alt="爱在唯品家 最高满298减80">
+						</a>
+					</li>
+					<li class="slider-list">
+						<a href="#">
+							<img src="http://b.appsimg.com/2016/10/11/2101/14761560387246.jpg" data-original="http://b.appsimg.com/2016/10/11/2101/14761560387246.jpg" class="fbc_list_img" alt="影儿集团VIP大牌日">
+						</a>
+					</li>
+					<li class="slider-list">
+						<a href="#">
+						<img src="http://b.appsimg.com/2016/10/10/9725/14760943551731.jpg" data-original="http://b.appsimg.com/2016/10/10/9725/14760943551731.jpg" class="fbc_list_img" alt="男装外套节 满498减80">
+						</a>
+					</li>
+					<div class="prev"><</div>
+					<div class="next">></div>
+				</ul>
+		</div>
+			 <div class="slider-bottom">
+			 	<ul class="slider-bottom-list">
+			 		<li class="active">玖姿集团钜献 跨品牌满598减80</li>
+			 		<li>迪桑娜品牌日 满598减50</li>
+			 		<li>影儿集团VIP大牌日</li>
+			 		<li>男装外套节 满498减80</li>
+			 	</ul>
+			 
+			 </div>
+			
+		</div>
+		
+		<!--banner-end->
+		<!--楼梯-->
+		<div id="loutiNav">
+		<ul>
+			<li>精选<span class="active">精选</span></li>
+			<li>女装<span>女装</span></li>
+			<li>鞋包<span>鞋包</span></li>
+			<li>男士<span>男士</span></li>
+			<li>运动<span>运动</span></li>
+			<li>饰品<span>饰品</span></li>
+			<li>美妆<span>美妆</span></li>
+			<li>母婴<span>母婴</span></li>
+			<li>居家<span>居家</span></li>
+			<li>国际<span>国际</span></li>
+			<li>生活<span>生活</span></li>
+			<li>预告<span>预告</span></li>
+			
+			
+		</ul>
+		</ul>
+	</div>
+	<div id="first">
+		<img src="../img/index/louti-title.png">
+	</div>
+	<div id="main">
+		<!--floor1-->
+		<div class=" louti floor1">
+			<!--<div class="floor1-inner">
+				<a href="#">
+					<img class="floor1-img" src="../img/index/louti-first.jpg" alt="JUZUI时光依存 凝聚风尚">
+				</a>
+				<a href="#" class="floor1-brand">
+					<img src="../img/index/floor-brand.png" class="floor-brand-img"/>
+					<p class="floor1-brand-name1">JUZUI时光依存 凝聚风尚</p>
+					<p class="floor1-brand-name2">跨专场，购物满598减80，上不封顶</p>
+					<div class="floor1-inner-hover" >
+						<div class="inner-hover-list">
+							<a href="#" class="list-item">
+								<img class="inner-hover-img" src="../img/index/inner-hover-img.jpg"/>
+							<p class="floor1-price">￥163</p>
+							</a>
+							<a href="#" class="list-item">
+								<img class="inner-hover-img" src="../img/index/inner-hover-img.jpg"/>
+							<p class="floor1-price">￥163</p>
+							</a>
+							<a href="#" class="list-item">
+								<img class="inner-hover-img" src="../img/index/inner-hover-img.jpg"/>
+							<p class="floor1-price">￥163</p>
+							</a>
+						</div>
+						<a href="#" >
+							<img class="floor1-inner-hover-logo" src="../img/index/floor-brand.png"/>
+						</a>
+						<span class="love"><img src="../img/index/love_03.png"/></span>
+						<a href="#" class="ground">进入专场</a>
+					</div>
+				</a>
+			</div>
+			<div class="floor1-inner">
+				<a href="#">
+					<img class="floor1-img" src="../img/index/louti-first.jpg" alt="JUZUI时光依存 凝聚风尚">
+				</a>
+				<a href="#" class="floor1-brand">
+					<img src="../img/index/floor-brand.png" class="floor-brand-img"/>
+					<p class="floor1-brand-name1">JUZUI时光依存 凝聚风尚</p>
+					<p class="floor1-brand-name2">跨专场，购物满598减80，上不封顶</p>
+					<div class="floor1-inner-hover" >
+						<div class="inner-hover-list">
+							<a href="#" class="list-item">
+								<img class="inner-hover-img" src="../img/index/inner-hover-img.jpg"/>
+							<p class="floor1-price">￥163</p>
+							</a>
+							<a href="#" class="list-item">
+								<img class="inner-hover-img" src="../img/index/inner-hover-img.jpg"/>
+							<p class="floor1-price">￥163</p>
+							</a>
+							<a href="#" class="list-item">
+								<img class="inner-hover-img" src="../img/index/inner-hover-img.jpg"/>
+							<p class="floor1-price">￥163</p>
+							</a>
+						</div>
+						<a href="#" >
+							<img class="floor1-inner-hover-logo" src="../img/index/floor-brand.png"/>
+						</a>
+						<span class="love"><img src="../img/index/love_03.png"/></span>
+						<a href="#" class="ground">进入专场</a>
+					</div>
+				</a>
+			</div>
+			<div class="floor1-inner">
+				<a href="#">
+					<img class="floor1-img" src="../img/index/louti-first.jpg" alt="JUZUI时光依存 凝聚风尚">
+				</a>
+				<a href="#" class="floor1-brand">
+					<img src="../img/index/floor-brand.png" class="floor-brand-img"/>
+					<p class="floor1-brand-name1">JUZUI时光依存 凝聚风尚</p>
+					<p class="floor1-brand-name2">跨专场，购物满598减80，上不封顶</p>
+					<div class="floor1-inner-hover" >
+						<div class="inner-hover-list">
+							<a href="#" class="list-item">
+								<img class="inner-hover-img" src="../img/index/inner-hover-img.jpg"/>
+							<p class="floor1-price">￥163</p>
+							</a>
+							<a href="#" class="list-item">
+								<img class="inner-hover-img" src="../img/index/inner-hover-img.jpg"/>
+							<p class="floor1-price">￥163</p>
+							</a>
+							<a href="#" class="list-item">
+								<img class="inner-hover-img" src="../img/index/inner-hover-img.jpg"/>
+							<p class="floor1-price">￥163</p>
+							</a>
+						</div>
+						<a href="#" >
+							<img class="floor1-inner-hover-logo" src="../img/index/floor-brand.png"/>
+						</a>
+						<span class="love"><img src="../img/index/love_03.png"/></span>
+						<a href="#" class="ground">进入专场</a>
+					</div>
+				</a>
+			</div>
+			<div class="floor1-inner">
+				<a href="#">
+					<img class="floor1-img" src="../img/index/louti-first.jpg" alt="JUZUI时光依存 凝聚风尚">
+				</a>
+				<a href="#" class="floor1-brand">
+					<img src="../img/index/floor-brand.png" class="floor-brand-img"/>
+					<p class="floor1-brand-name1">JUZUI时光依存 凝聚风尚</p>
+					<p class="floor1-brand-name2">跨专场，购物满598减80，上不封顶</p>
+					<div class="floor1-inner-hover" >
+						<div class="inner-hover-list">
+							<a href="#" class="list-item">
+								<img class="inner-hover-img" src="../img/index/inner-hover-img.jpg"/>
+							<p class="floor1-price">￥163</p>
+							</a>
+							<a href="#" class="list-item">
+								<img class="inner-hover-img" src="../img/index/inner-hover-img.jpg"/>
+							<p class="floor1-price">￥163</p>
+							</a>
+							<a href="#" class="list-item">
+								<img class="inner-hover-img" src="../img/index/inner-hover-img.jpg"/>
+							<p class="floor1-price">￥163</p>
+							</a>
+						</div>
+						<a href="#" >
+							<img class="floor1-inner-hover-logo" src="../img/index/floor-brand.png"/>
+						</a>
+						<span class="love"><img src="../img/index/love_03.png"/></span>
+						<a href="#" class="ground">进入专场</a>
+					</div>
+				</a>
+			</div>
+			<div class="floor1-inner">
+				<a href="#">
+					<img class="floor1-img" src="../img/index/louti-first.jpg" alt="JUZUI时光依存 凝聚风尚">
+				</a>
+				<a href="#" class="floor1-brand">
+					<img src="../img/index/floor-brand.png" class="floor-brand-img"/>
+					<p class="floor1-brand-name1">JUZUI时光依存 凝聚风尚</p>
+					<p class="floor1-brand-name2">跨专场，购物满598减80，上不封顶</p>
+					<div class="floor1-inner-hover" >
+						<div class="inner-hover-list">
+							<a href="#" class="list-item">
+								<img class="inner-hover-img" src="../img/index/inner-hover-img.jpg"/>
+							<p class="floor1-price">￥163</p>
+							</a>
+							<a href="#" class="list-item">
+								<img class="inner-hover-img" src="../img/index/inner-hover-img.jpg"/>
+							<p class="floor1-price">￥163</p>
+							</a>
+							<a href="#" class="list-item">
+								<img class="inner-hover-img" src="../img/index/inner-hover-img.jpg"/>
+							<p class="floor1-price">￥163</p>
+							</a>
+						</div>
+						<a href="#" >
+							<img class="floor1-inner-hover-logo" src="../img/index/floor-brand.png"/>
+						</a>
+						<span class="love"><img src="../img/index/love_03.png"/></span>
+						<a href="#" class="ground">进入专场</a>
+					</div>
+				</a>
+			</div>
+			<div class="floor1-inner">
+				<a href="#">
+					<img class="floor1-img" src="../img/index/louti-first.jpg" alt="JUZUI时光依存 凝聚风尚">
+				</a>
+				<a href="#" class="floor1-brand">
+					<img src="../img/index/floor-brand.png" class="floor-brand-img"/>
+					<p class="floor1-brand-name1">JUZUI时光依存 凝聚风尚</p>
+					<p class="floor1-brand-name2">跨专场，购物满598减80，上不封顶</p>
+					<div class="floor1-inner-hover" >
+						<div class="inner-hover-list">
+							<a href="#" class="list-item">
+								<img class="inner-hover-img" src="../img/index/inner-hover-img.jpg"/>
+							<p class="floor1-price">￥163</p>
+							</a>
+							<a href="#" class="list-item">
+								<img class="inner-hover-img" src="../img/index/inner-hover-img.jpg"/>
+							<p class="floor1-price">￥163</p>
+							</a>
+							<a href="#" class="list-item">
+								<img class="inner-hover-img" src="../img/index/inner-hover-img.jpg"/>
+							<p class="floor1-price">￥163</p>
+							</a>
+						</div>
+						<a href="#" >
+							<img class="floor1-inner-hover-logo" src="../img/index/floor-brand.png"/>
+						</a>
+						<span class="love"><img src="../img/index/love_03.png"/></span>
+						<a href="#" class="ground">进入专场</a>
+					</div>
+				</a>
+			</div>
+			<div class="floor1-inner">
+				<a href="#">
+					<img class="floor1-img" src="../img/index/louti-first.jpg" alt="JUZUI时光依存 凝聚风尚">
+				</a>
+				<a href="#" class="floor1-brand">
+					<img src="../img/index/floor-brand.png" class="floor-brand-img"/>
+					<p class="floor1-brand-name1">JUZUI时光依存 凝聚风尚</p>
+					<p class="floor1-brand-name2">跨专场，购物满598减80，上不封顶</p>
+					<div class="floor1-inner-hover" >
+						<div class="inner-hover-list">
+							<a href="#" class="list-item">
+								<img class="inner-hover-img" src="../img/index/inner-hover-img.jpg"/>
+							<p class="floor1-price">￥163</p>
+							</a>
+							<a href="#" class="list-item">
+								<img class="inner-hover-img" src="../img/index/inner-hover-img.jpg"/>
+							<p class="floor1-price">￥163</p>
+							</a>
+							<a href="#" class="list-item">
+								<img class="inner-hover-img" src="../img/index/inner-hover-img.jpg"/>
+							<p class="floor1-price">￥163</p>
+							</a>
+						</div>
+						<a href="#" >
+							<img class="floor1-inner-hover-logo" src="../img/index/floor-brand.png"/>
+						</a>
+						<span class="love"><img src="../img/index/love_03.png"/></span>
+						<a href="#" class="ground">进入专场</a>
+					</div>
+				</a>
+			</div>
+			<div class="floor1-inner">
+				<a href="#">
+					<img class="floor1-img" src="../img/index/louti-first.jpg" alt="JUZUI时光依存 凝聚风尚">
+				</a>
+				<a href="#" class="floor1-brand">
+					<img src="../img/index/floor-brand.png" class="floor-brand-img"/>
+					<p class="floor1-brand-name1">JUZUI时光依存 凝聚风尚</p>
+					<p class="floor1-brand-name2">跨专场，购物满598减80，上不封顶</p>
+					<div class="floor1-inner-hover" >
+						<div class="inner-hover-list">
+							<a href="#" class="list-item">
+								<img class="inner-hover-img" src="../img/index/inner-hover-img.jpg"/>
+							<p class="floor1-price">￥163</p>
+							</a>
+							<a href="#" class="list-item">
+								<img class="inner-hover-img" src="../img/index/inner-hover-img.jpg"/>
+							<p class="floor1-price">￥163</p>
+							</a>
+							<a href="#" class="list-item">
+								<img class="inner-hover-img" src="../img/index/inner-hover-img.jpg"/>
+							<p class="floor1-price">￥163</p>
+							</a>
+						</div>
+						<a href="#" >
+							<img class="floor1-inner-hover-logo" src="../img/index/floor-brand.png"/>
+						</a>
+						<span class="love"><img src="../img/index/love_03.png"/></span>
+						<a href="#" class="ground">进入专场</a>
+					</div>
+				</a>
+			</div>-->
+
+		</div>
+		<!--floor1---end-->
+		<div class="louti floor2" style="background: #999933;">
+			<div class="louti-name">
+				<img class="louti-title" src="../img/index/louti-name.png" style="inline" />
+				<a class="shop-all-btn" href="http://lady.vip.com" target="_blank" >
+					全部女装品牌
+					<i class="vipFont">图标</i>
+				</a>
+			</div>
+			<div class="louti-inner">
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>			
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>			
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>			
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="louti floor3" style="background: #ccff33;">
+			<div class="louti-name">
+				<img class="louti-title" src="../img/index/shoe.png" style="inline" />
+				<a class="shop-all-btn" href="http://lady.vip.com" target="_blank" >
+					全部女装品牌
+					<i class="vipFont">图标</i>
+				</a>
+			</div>
+			<div class="louti-inner">
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>			
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>			
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="louti floor4" style="background: #006633;">
+			<div class="louti-name">
+				<img class="louti-title" src="../img/index/men.png" style="inline" />
+				<a class="shop-all-btn" href="http://lady.vip.com" target="_blank" >
+					全部女装品牌
+					<i class="vipFont">图标</i>
+				</a>
+			</div>
+				<div class="louti-inner">
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>			
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>			
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="louti floor5" style="background: #6666cc;">
+			<div class="louti-name">
+				<img class="louti-title" src="../img/index/sport.png" style="inline" />
+				<a class="shop-all-btn" href="http://lady.vip.com" target="_blank" >
+					全部女装品牌
+					<i class="vipFont">图标</i>
+				</a>
+			</div>
+			<div class="louti-inner">
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>			
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>			
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="louti floor6" style="background: #ff6600;">
+			<div class="louti-name">
+				<img class="louti-title" src="../img/index/watch.png" style="inline" />
+				<a class="shop-all-btn" href="http://lady.vip.com" target="_blank" >
+					全部女装品牌
+					<i class="vipFont">图标</i>
+				</a>
+			</div>
+		</div>
+		<div class="louti floor7" style="background: #ffff00;">
+			<div class="louti-name">
+				<img class="louti-title" src="../img/index/beauty_wrf (1).png" style="inline" />
+				<a class="shop-all-btn" href="http://lady.vip.com" target="_blank" >
+					全部女装品牌
+					<i class="vipFont">图标</i>
+				</a>
+			</div>
+		</div>
+		<div class="louti floor8" style="background: #3333ff;">
+				<div class="louti-name">
+				<img class="louti-title" src="../img/index/kid_zZb.png" style="inline" />
+				<a class="shop-all-btn" href="http://lady.vip.com" target="_blank" >
+					全部女装品牌
+					<i class="vipFont">图标</i>
+				</a>
+			</div>
+		</div>
+		<div class="louti floor9" style="background: #ff00cc;">
+				<div class="louti-name">
+				<img class="louti-title" src="../img/index/home_zhs.png" style="inline" />
+				<a class="shop-all-btn" href="http://lady.vip.com" target="_blank" >
+					全部女装品牌
+					<i class="vipFont">图标</i>
+				</a>
+			</div>
+		</div>
+		<div class="louti floor10" style="background: #669900;">
+				<div class="louti-name">
+				<img class="louti-title" src="../img/index/vipglobal_hbS_odfu.png" style="inline" />
+				<a class="shop-all-btn" href="http://lady.vip.com" target="_blank" >
+					全部女装品牌
+					<i class="vipFont">图标</i>
+				</a>
+			</div>
+		</div>
+		<div class="louti floor11" style="background: #ff66cc;">
+				<div class="louti-name">
+				<img class="louti-title" src="../img/index/life-titel.png" style="inline" />
+				<a class="shop-all-btn" href="http://lady.vip.com" target="_blank" >
+					全部女装品牌
+					<i class="vipFont">图标</i>
+				</a>
+			</div>
+		</div>
+		<div class="louti floor12" style="background: #ff66cc;">
+				<div id="first">
+				<img src="../img/index/louti-title.png">
+				</div>
+				<div class="louti-inner">
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>			
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>			
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>			
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+				<div class="brand-item">
+					<a href="#" target="_blank">
+						<img class="brand-img" src="../img/index/brand-img.jpg"/>
+						<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">
+							<i class="item-icon"></i>
+							<span class="item-bottom-tip">跨专场，购物满598减80，上不封顶</span>
+						</div>
+						<div class="brand-info">
+							<span class="brand-discount">
+								<span class="salebg2">1</span>
+								折起
+							</span>
+							<span class="brand-info-name">
+								女装专场特卖大优惠
+								</span>
+								<p class="brand-time">
+									<i class="time-icon"></i>
+									<span class="time-day">剩五天</span>
+								</p>
+								
+							
+						</div>
+					</a>
+				</div>
+			</div>
+	</div>
+	
+		<!--楼梯-->
+	
+	</div><!--这里是内容end-->
+	<div id="sidebar">
+		<div class="sidebar-nav">
+			<div class="sidebar-nav-top">
+				<ul class="sidebar-nav-list">
+					<li class="count">
+						<div class="count-box">
+							<i class="i-count"></i>
+							<div id="count-tip">
+								<i class="i-side-dm"></i>
+									<a href="#" target="_blank">
+										<img class="count-tip-img" src="../img/index/avatar-default.jpg"/>
+									</a>
+									<P class="count-tip-title">你好
+										<a class="count-tip-login" href="#">登录</a>
+										<a class="count-tip-reg" href="#">注册</a>
+									</P>
+									<P class="count-tip-title hidden">
+										你好
+										<span id="count-tip-username">Aomize</span>
+										请
+											<a class="count-tip-login" href="#">登录</a>
+									</P>
+									<div id="count-tip-bottom">
+										<P class="myorder">
+											<i class="myorder-count"></i>
+											<a href="#" target="_blank"><i class="myorder-logo"></i>
+												我的订单
+											</a>
+										</P>
+										<P class="mymsg">
+											<i class="mymsg-count">0</i>
+											<a href="#" target="_blank">
+												<i class="mymsg-logo"></i>
+												我的消息
+											</a>
+										</P>
+								
 									</div>
-								</div>
+								<div class="vipclub">
+										<a class="vipclub-cloor" href="#" >会员俱乐部</a>
+									</div>
 							</div>
 						</div>
-					</div>
-					<!--right nav-->
-					<ul class="top-nav-tool f-top-login-usercookie" id="j_topnavTool">
-						<!--登录-->
-						<li class="vip-severice  vip-login" data-hover = "vip-service-hover">
-							<span class="service-in">
-								<a href="###">登录</a>
-								<i class="icon-dis"></i>
-							</span>
-							<div class="top-nav-dis service-infor login-in">
-								<i class="ico-arw-bodder"></i>
-								<a class="top-nav-pic-avater" href="//myi.vip.com/index.html" target="_blank"><img id="J_userAvatar" mars_sead="top_nav2_log_my2" src="//shop.vipstatic.com/img/te/common/avatar-default.jpg" data-original="//shop.vipstatic.com/img/te/common/avatar-default.jpg" width="38" height="38"></a>
-								<h5 class="login clearfix"><a>欢迎回来[请登录]</a></h5>
-								<p class="login-list-one">
-									<a href="#" target="_blank" rel="nofollow">我的收藏</a>
-									<a href="#" target="_blank" rel="nofollow">我的订单</a>
-									
-								</p>
-								
-								<p class="login-list-two">
-									<a href="#" target="_blank" rel="nofollow">我的优惠券</a>
-									<a href="#" target="_blank" rel="nofollow">我的唯品币</a>
-								</p>
-								<p class="login-list-three">
-									<a href="#" target="_blank" rel="nofollow">我的钱包</a>
-									<a href="#" target="_blank" rel="nofollow">我的唯品币</a>
-								</p>
-							</div>
-						</li>
-						<!--我的订单-->
-						<li class="vip-order" data-hover = "vip-order-hover">
-							<span class="order-in">
-							<a href="#" target="_blank">我的订单</a>
-							</span>
-						</li>
-						<li class="vip-service vip-fav-nav" data-hover = "vip-fav-nav" id="j_favs">
-							<span class="service-in">
-								<a href="#" target="_blank" mars_sead="home_top_nav2_collect"rel="nofolloow">我的收藏</a>
-								<i class="icon-dis"></i>
-							</span>
-							<div class="top-nav-dis service-infor fav-nav-drop">
-								<i class="ico-arw-bodder"></i>
-								<p class="top-nav-list">
-									<span><a href="#" target="_blank">收藏的品牌</a>
-									<i id="j_favBrand_count">(3)</i>	
-									</span>
-									<span><a href="#" target="_blank">收藏的品牌</a>
-									<i id="j_favBrand_count">(3)</i>	
-									</span>
-								</p>
-							</div>
-						</li>
-						<li class="vip-service vip-member" data-hover = "vip-service-hover">
-							<span class="sever-in">
-								<a href="#" target="_blank">会员俱乐部</a>
-								<i class="icon-dis"></i>
-							</span>
-							<div class="top-nav-dis service-infor">
-								<i class="ico-arw-bodder"></i>
-								<p class="top-nav-list">
-									<span><a href="#" target="_blank">俱乐部首页</a></span>
-									<span><a href="#" target="_blank">唯品币兑换</a></span>
-									<span><a href="#" target="_blank">免费抽大奖</a></span>
-								</p>
-							</div>
-						</li>
-						<li class="vip-service" data-hover = "vip-service-hover" >
-							<span class="sever-in">
-								<a href="#" target="_blank">客户服务</a>
-								<i class="icon-dis"></i>
-							</span>
-							<div class="top-nav-dis service-infor">
-								<i class="ico-arw-bodder"></i>
-								<p class="top-nav-list">
-									<span><a href="#" target="_blank">联系客服</a></span>
-									<span><a href="#" target="_blank">帮助中心</a></span>
-									<span><a href="#" target="_blank">服务中心</a></span>
-									<span><a href="#" target="_blank">知识产权投诉</a></span>
-								</p>
-								</p>
-							</div>
-						</li>
-						<li class="vip-phone" data-j-hover = "vip-phone-hover" id="j_phone_tip">
-							<span class="phone-in">
-								<a href="#" target="_blank">
-								<i class="ico-mob"></i>手机版</a>
-							</span>
-							<div class="top-nav-dis phone-infor" id="j_phoneTip_con">
-								<i class="ico-arw-bodder"></i>
-								<span class="phone-close hidden" id="j_phone_close"></span>
-								<div class="tc" id="j_phoneTip_wrap">
-									<a href="#" target="_blank"><img src="../img/index/headervip.jpg" width="161" height="161" alt="二维码" /></a>
-									<p class="top-nav-list">
-										<a href="#" target="_blank">随时逛 及时抢</a>
-									</p>
-								</div>
-								
-							</div>
-						</li>
-						<!--更多-->
-						<li class="vip-severice vip-bussiness" data-hover = "vip-service-hover">
-							<span class="service-in">
-								<a href="###">更多</a>
-								<i class="icon-dis"></i>
-							</span>
-							<div class="top-nav-dis service-infor-more">
-								<i class="ico-arw-bodder"></i>
-								<h5 class="service-more-hd clearfix">合作专区</h5>
-								<p class="top-nav-list clearfix">
-									<a href="#" target="_blank" rel="nofollow">联名卡申请</a>
-									<a href="#" target="_blank" rel="nofollow">唯品卡</a>
-									<a href="#" target="_blank" rel="nofollow">支付专区</a>
-								</p>
-								<h5 class="service-more-hd clearfix service-more-hd2">关于我们</h5>
-								<p class="top-nav-list clearfix service-more-p">
-									<a href="#" target="_blank" rel="nofollow">品牌招商</a>
-									<a href="#" target="_blank" rel="nofollow">官方博客</a>
-									
-								</p>
-							</div>
-						</li>
-					</ul>
-					<!--right nav end-->
-				</div>
-			
-			</nav>
-		</header><!--头部header结束-->
-			<!--logo-->
-				<div id="logo">
-					<div class="logo-left">
-						HAHAHAHHAH
-					</div>
-					<div id="logo-right"></div>
-					<div id="logo-middle"></div>
-					
-				</div><!--logo-->
-				
-			<!--main-nav-->
-			
-		<!--footer-->
-		<footer id="footer" class="footer">
-			<div class="footer-inner">
-				<ul class="footer-vip">
-					<li>
-						<i class="footer-vip-ico01">正品采购</i>
 					</li>
-					<li>
-						<i class="footer-vip-ico02">正品保险</i>
+					<li class="asset">
+						<div class="asset-box">
+							<i class="i-asset"></i>
+							<p class="sidebar-inner">我的优惠券</p>
+						</div>
 					</li>
-					<li>
-						<i class="footer-vip-ico03">美国上市</i>
+					<li class="brand">
+						<div class="brand-box">
+							<i class="i-brand"></i>
+							<p class="sidebar-inner">我收藏的品牌</p>
+						</div>
 					</li>
-					<li>
-						<i class="footer-vip-ico04">专业配送</i>
+					<li class="goods">
+						<div class="goods-box">
+							<i class="i-goods"></i>
+							<p class="goods-inner">我收藏的商店</p>
+						</div>
 					</li>
-					<li>
-						<i class="footer-vip-ico05">金牌服务</i>
-					</li>
-					<li>
-						<i class="footer-vip-ico06">万千信赖</i>
-					</li>
-					<li>
-						<i class="footer-vip-ico07">权威荣誉</i>
+					<li class="shop-cart">
+						<div class="shop-cart-box">
+							<i class="i-shop-cart"></i>
+							<p class="shop-cart-text">购物袋</p>
+							<i id="cart-count" class="cart-num">0</i>
+						</div>
 					</li>
 				</ul>
-				<div class="footer-list">
-					<dl class="link-anim">
-						<dt>服务保障</dt>
-						<dd>
-							<a href="#" target="_blank" rel="nofollow">正品保证</a>
-						</dd>
-						<dd>
-							<a href="#" target="_blank" rel="nofollow">7天无理由放心退</a>
-						</dd>
-						<dd>
-							<a href="#" target="_blank" rel="nofollow">退货返运费</a>
-						</dd>
-						<dd>
-							<a href="#" target="_blank" rel="nofollow">7x15小时客户服务</a>
-						</dd>
-					</dl>
-					<dl class="link-anim">
-						<dt>购物指南</dt>
-						<dd>
-							<a href="#" target="_blank" rel="nofollow">导购演示</a>
-						</dd>
-						<dd>
-							<a href="#" target="_blank" rel="nofollow">订单操作</a>
-						</dd>
-						<dd>
-							<a href="#" target="_blank" rel="nofollow">会员注册</a>
-						</dd>
-						<dd>
-							<a href="#" target="_blank" rel="nofollow">账户管理</a>
-						</dd>
-						<dd>
-							<a href="#" target="_blank" rel="nofollow">收货样品</a>
-						</dd>
-						<dd>
-							<a href="#" target="_blank" rel="nofollow">会员等级</a>
-						</dd>
-					</dl>
-					<dl class="link-anim">
-						<dt>支付方式</dt>
-						<dd>
-							<a href="#" target="_blank" rel="nofollow">快捷支付</a>
-						</dd>
-						<dd>
-							<a href="#" target="_blank" rel="nofollow">23家主流网银支付</a>
-						</dd>
-						<dd>
-							<a href="#" target="_blank" rel="nofollow">货到付款</a>
-						</dd>
-						<dd>
-							<a href="#" target="_blank" rel="nofollow">支付宝，银联等支付</a>
-						</dd>
-						<dd>
-							<a href="#" target="_blank" rel="nofollow">信用卡支付</a>
-						</dd>
-						<dd>
-							<a href="#" target="_blank" rel="nofollow">唯品钱包支付</a>
-						</dd>
-					</dl>
-					<dl class="link-anim">
-						<dt>配送方式</dt>
-						<dd>
-							<a href="#" target="_blank" rel="nofollow">正品保证</a>
-						</dd>
-						<dd>
-							<a href="#" target="_blank" rel="nofollow">7天无理由放心退</a>
-						</dd>
-						<dd>
-							<a href="#" target="_blank" rel="nofollow">退货返运费</a>
-						</dd>
-						<dd>
-							<a href="#" target="_blank" rel="nofollow">7x15小时客户服务</a>
-						</dd>
-					</dl>
-					<dl class="link-anim">
-						<dt>售后服务</dt>
-						<dd>
-							<a href="#" target="_blank" rel="nofollow">正品保证</a>
-						</dd>
-						<dd>
-							<a href="#" target="_blank" rel="nofollow">7天无理由放心退</a>
-						</dd>
-						<dd>
-							<a href="#" target="_blank" rel="nofollow">退货返运费</a>
-						</dd>
-						<dd>
-							<a href="#" target="_blank" rel="nofollow">7x15小时客户服务</a>
-						</dd>
-					</dl>
-					<dl class="tc last">
-						<dt>唯品会APP二维码</dt>
-						<dd>
-							<img class="lazy"src="../img/index/VIPFAPP.png" width="100" height="100" alt="唯品会APP二维码"/>
-						</dd>
-						<dd>下载唯品会移动APP</dd>
-					</dl>
+				
+			</div>
+			<div class="sidebar-nav-bottom">
+				<div class="vip-words">
+					<a  href="http://feedback.vip.com/feedback!hotFeedback.do" target="_blank">
+                        <i class="i-logo"></i>
+                   	 </a>
+						<P class="sidebar-inner vip-inner">会员反馈</P>
 				</div>
-				<div class="footer-infor">
-					<p class="footer-infor-link">
-						<a target="_blank" rel="nofollow" href="http://support.vip.com/contact/" title="关于我们">关于我们</a>|
-						<a target="_blank" rel="nofollow" href="http://support.vip.com/contact/" title="About us">About us</a>|
-						<a target="_blank" rel="nofollow" href="http://support.vip.com/contact/" title="About us">About us</a>|
-						<a target="_blank" rel="nofollow" href="http://support.vip.com/contact/" title="关于我们">关于我们</a>|
-						<a target="_blank" rel="nofollow" href="http://support.vip.com/contact/" title="About us">About us</a>|
-						<a target="_blank" rel="nofollow" href="http://support.vip.com/contact/" title="About us">About us</a>|
-						<a target="_blank" rel="nofollow" href="http://support.vip.com/contact/" title="关于我们">关于我们</a>|
-						<a target="_blank" rel="nofollow" href="http://support.vip.com/contact/" title="About us">About us</a>|
-						<a target="_blank" rel="nofollow" href="http://support.vip.com/contact/" title="About us">About us</a>|
-						<a target="_blank" rel="nofollow" href="http://support.vip.com/contact/" title="关于我们">关于我们</a>|
-						<a target="_blank" rel="nofollow" href="http://support.vip.com/contact/" title="About us">About us</a>|
-						<a target="_blank" rel="nofollow" href="http://support.vip.com/contact/" title="About us">About us</a>|
-						<a target="_blank" rel="nofollow" href="http://support.vip.com/contact/" title="About us">About us</a>|
-					</p>
-					<p class="footer-infor-txt">
-						Copyright @ 2008-2016 vip,All Right Reserved
-						<a rel="nofollow" href="http://www.miibeian.gov.cn/publish/query/indexFirst.action">粤ICP备08114786号</a>
-						<a rel="nofollow" href="http://www.miibeian.gov.cn">IC经营许可证：粤B2-20080329</a>
-						<a rel="nofollow" href="http://sq.ccm.gov.cn/ccnt/sczr/service/business/emark/toDetail/61e6abe320e7462baf61aab32a67f256">网络文化经营许可证：粤网文(2015)1525-229</a><br />
-						<a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44010302111111" target="_blank">
-							<img src="../img/index/fpolice.png" "width=14" "height=14" "style=margin:2px 3px 0 0;">
-							粤公网安备44010302111111号
-						</a>
-						&nbsp;使用本网站表示接受
-						<a rel="nofollow" href="http://support.vip.com/clause/">唯品用户协议</a>
-						。版权所有
-						<a rel="nofollow" href="http://www.vip.com/">广州唯品会信息科技有限公司</a>
-					</p>
+				<!--返回顶部-->
+				<div class="return-top">
+					 <i class="i-lreturn"></i>
+                   	<P id="return" class="sidebar-inner return-inner">返回顶部</P>
 				</div>
 			</div>
-			<div class="footer-ft">
-				<P class="footer-pic">
-					<a rel="nofollow" target="_blank" href="https://www.95516.com/static/union/pages/index/index.html">
-						<i class="footer-pic-ico01" title="银联特约商户"></i>
-					</a>
-					<a rel="nofollow" target="_blank" href="http://weiquan.vip.com/">
-						<i class="footer-pic-ico04" title="消费维权服务站"></i>
-					</a>
-					<a rel="nofollow" target="_blank" href="http://netadreg.gzaic.gov.cn/ntmm/WebSear/WebLogoPub.aspx?logo=440103103022008082200055">
-						<i class="footer-pic-ico05" title="红盾电子链接标识"></i>
-					</a>
-					<a rel="nofollow" target="_blank" href="http://www.gzjd.gov.cn/">
-						<i class="footer-pic-ico06" title="网络警察报警平台"></i>
-					</a>
-						
-					<a rel="nofollow" target="_blank" href="#">
-						<i class="footer-pic-ico07" title="公安局网络警察支队"></i>
-					</a>
-					<a rel="nofollow" target="_blank" href="https://credit.cecdc.com/CX20160725023666090470.html">
-						<i class="footer-pic-ico09" title="诚信网站"></i>
-					</a>
-					<a rel="nofollow" target="_blank" href="https://ss.knet.cn/verifyseal.dll?sn=2011022400100006603&ct=df&a=1&pa=0.801643806276843">
-						<i class="footer-pic-ico10" title="可信网站"></i>
-					</a>
-				</P>
-			</div>
-		</footer>
-		<!--footer-end-->
-	</body>
+		</div>
+	</div>
 	
+	<div id="footer"></div>
+		
+		<script src="../js/common/jquery-1.12.3.js"></script>
+		<script type="text/javascript" src="../js/common/common.js" ></script>
+		<script type="text/javascript" src="../js/common/move.js" ></script>
+		<script type="text/javascript" src="../js/index.js" ></script>
+		<script>
+			loadHtml("common/header.html", "header");
+			loadHtml("common/footer.html", "footer");
+		</script>
+	</body>
 </html>
