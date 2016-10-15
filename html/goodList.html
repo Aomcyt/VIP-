@@ -2,7 +2,636 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>属性选择器</title>
+	<title>商品列表</title>
+	<link rel="stylesheet" href="../css/common/common.css" />
+	<link rel="stylesheet" href="../css/common/sidenav.css" />
 	</head>
+	<style >
+		.wrapper{position: relative;}
+		.mst-pingou {position: relative; overflow: hidden; zoom:1;}
+		.mst-pingou-wrap { width: 1000px; margin: 0 auto; position: absolute; z-index: 10; top: 0; margin-left:-500px; left:50%;}
+		
+		.mst-pingou .mst-pingou-bg {width: auto; height: auto; position: relative; left: 50%; top:0; z-index: 1; display: block !important;}
+		.mst-pingou .link { position: absolute; background:url(about:blank);}
+		
+		.mst-pingou .mst-sale-out {width: 84px; height: 84px; margin: -42px 0 0 -42px; position: absolute; left: 50%; top: 50%;
+		    background-image: url('http://mst.vip.com/demo/pc/images/icon-sale-out.png');
+		    -webkit-background-size: cover;
+		    background-size: cover;
+		    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://mst.vip.com/demo/pc/images/icon-sale-out.png', sizingMethod='scale');
+		    background-image: none\9;
+		}
+		.pro-impress{width:1020px;margin: 0 auto;}
+		.pro-list-fav {
+		    height: 24px;
+		    padding: 9px 10px;
+		    background-color: #f5f5f5;
+		    margin-top: 15px;
+		    margin-bottom: 15px;
+		}
+		.pro-fav-name {
+		    font-size: 16px;
+		    float: left;
+		    margin-right: 10px;
+		}
+		.pro-fav-name dt {
+		    float: left;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		    white-space: nowrap;
+		    margin-right: 10px;
+		    max-width: 214px;
+		    }
+		 .pro-fav-name dd {
+		    float: left;
+		    line-height: 25px;
+		    font-size: 18px;
+		}
+		.salebg2 {color: #f43499;}
+		.pro-fav-time-tip {margin: 0 10px;float: left;line-height: 25px;color: #000;font-size: 12px;}
+		.pro-fav-time-out .if-countdown, .pro-fav-time-tip .if-countdown {
+		    margin-right: 5px;
+		    vertical-align: top;
+		    color: #f10582;
+		}
+		.vipFont {
+		    font-family: vipFont;
+		    speak: none;
+		    font-style: normal;
+		    font-weight: 400;
+		    font-variant: normal;
+		    text-transform: none;
+		    font-size: 16px;
+		    -webkit-font-smoothing: antialiased;
+	    }
+	    .hidden {display:none;}
+		.pro-fav-share-phone {
+		    position: absolute;
+		    right: 0;
+		    bottom: 0;
+		    z-index: 101;
+		    width: 112px;
+		    height: 122px;
+		    border: 1px solid #dfdfdf;
+		    background-color: #fff;
+		    font-size: 14px;
+		    color: #666;
+		}
+		.f-right {float: right;}
+		.pro-fav-oper .ui-btn-fav {
+   		 display: inline-block;
+	     vertical-align: middle;
+		}
+	.z-fav-liked {color: #fff;}
+	.ui-btn-fav {
+	    display: block;
+	    width: auto;
+	    height: 21px;
+	    line-height: 21px;
+	    min-width: 34px;
+	    transition: .2s linear;
+	}
+	.ui-btn-fav {
+	   border-radius: 11px;
+	    font-size: 12px;
+	    background-color: #f2f2f2;
+	    text-align: center;
+	    overflow: hidden;
+	    transform: translateZ(0);
+	  }
+.pro-fav-oper .ui-btn-fav .ui-btn-fav-like {
+width: auto;
+}
+.z-fav-liked .ui-btn-fav-like {
+    display: none;
+}
+.ui-btn-fav .ui-btn-fav-like {
+    background: #ededed;
+    padding: 0 8px;
+    
+}
+.ui-btn-fav a {
+   transition: .3s;
+}
+.ui-btn-fav-like {
+   color: #f32b80;
+}
+.z-fav-liked .ui-btn-fav-cancel {
+    display: block;
+}
+.ui-btn-fav a {
+  transition: .3s;
+}
+.z-fav-liked .ui-btn-fav-cancel .liked {
+    padding: 0 5px;
+}
+.z-fav-liked .ui-btn-fav-cancel span {
+    color: #fff;
+}
+.z-fav-liked .liked {
+    background-color: #f32b80;
+}
+.ui-btn-fav-cancel span {
+	display: block;
+}
+.impress-hd {
+    background-color: #f5f5f5;
+    overflow: hidden;
+}
+.pro_choose{
+	 width: 1020px;
+    margin: 0 auto;
+    position: relative;
+    margin: 0 auto;
+    z-index: 9;
+}
+
+.pro_cover{
+	position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    opacity: .85;
+  	z-index: -1;
+}
+.pro_search {
+    position: relative;
+    z-index: 12;
+    line-height: 22px;
+    box-shadow: none;
+    border-bottom: 1px solid #f0f0f0;
+}
+.pro-sortbar-all {
+    position: relative;
+    background-color: #fafafa;
+    border-top: #f0f0f0 1px solid;
+}
+.pro-sortbar-name {
+    float: left;
+    width: 88px;
+    text-align: center;
+    padding-top: 21px;
+    padding-bottom: 21px;
+    color: #999;
+}
+.pro-sortbar-cnt {
+    float: left;
+    width: 912px;
+    min-height: 68px;
+    background-color: #fff;
+    position: relative;
+}
+.pro-sortbar-category .list-category {
+    position: relative;
+    width: 860px;
+}
+.pro-sortbar-category .pro-sortbar-choice {
+   max-height: 100%;
+}
+.pro-sortbar-choice {
+    float: left;
+    min-height: 45px;
+}
+.pro-sortbar-choice {
+    padding: 25px 20px 0 20px;
+}
+.pro-sortbar-all ul li {
+    display: inline-block;
+    padding: 0 15px 8px 0;
+}
+.list-cat-items {
+    float: left;
+    width: 150px;
+    height: 30px;
+    margin-right: 1px;
+}
+.pro_search .pro_selected {
+    border: 1px solid #f43499;
+    background: #fef7fb;
+    color: #f10180;
+}
+.pro-sortbar-all ul li a {
+    padding: 2px 5px;
+  	border-radius: 2px;
+    line-height: 1.1;
+    display: inline-block;
+}
+.list-cat-items .cat-items-name {
+    float: left;
+    max-width: 72px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.cat-items-num {
+    float: left;
+}
+.fn-ov-hidden {
+    overflow: hidden;
+}
+.pro-sortbar-all {
+    position: relative;
+    background-color: #fafafa;
+    border-top: #f0f0f0 1px solid;
+    height: 70px;
+}
+.pro-sortbar-choice a:hover{color: #F1037F;}
+.pro-list-oper {
+    min-height: 42px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    position: relative;
+    zoom: 1;
+}
+.pro-oper{float: left;}
+.pro-paging {
+    float: right;
+    padding: 5px 8px 0 0;
+    font-size: 14px;
+}
+.z-oper-current-selected {
+    background-color: #ffe5f2;
+    color: #f10180;
+}
+.oper-hd-discot, .oper-hd-general, .oper-hd-price {
+    cursor: pointer;
+}
+.oper-hd-discot, .oper-hd-general, .oper-hd-price {
+    position: relative;
+    z-index: 3;
+    border-right: #fff 1px solid;
+}
+.oper-hd-discot, .oper-hd-general, .oper-hd-hastock, .oper-hd-price {
+    float: left;
+    height: 42px;
+    line-height: 42px;
+}
+.oper-discount-txt .db-arrow-change .i-cat-dis-down, .oper-price-txt .db-arrow-change .i-cat-dis-down {
+    position: absolute;
+    top: -11px;
+}
+.oper-hd-hastock {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.oper-hd-discot, .oper-hd-general, .oper-hd-hastock, .oper-hd-price {
+    float: left;
+    height: 42px;
+    line-height: 42px;
+}
+.ui-checkbox {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+    font-size: 0;
+    line-height: 0;
+}
+:root .ui-checkbox-normal {
+    display: none;
+}
+.ui-checkbox-normal {
+    vertical-align: text-top;
+}
+
+:root .ui-checkbox-simulation {
+    display: block;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    background-image:url(../img/goodList/sprite.png);
+    background-position: -48px 0;
+    width: 19px;
+    height: 16px;
+    cursor:pointer;
+}
+.pro-paging {
+    float: right;
+    padding: 5px 8px 0 0;
+    font-size: 14px;
+}
+.page .page-total {
+    margin-right: 10px;
+    line-height: 12px;
+}
+.page a, .page span {
+    display: inline-block;
+}
+.page-nub {
+    color: #f10180;
+}
+.page-nub {
+    color: #f10180;
+}
+.page-next, .page-pre {
+    background: #fcfafc;
+    border: 1px solid #e5e3e5;
+    color: #e5e3e5;
+}
+.page .page-next-txt {
+    width: auto;
+    padding: 0 6px;
+    font-size: 14px;
+    font-family: Microsoft yahei;
+}
+.page a {
+    background-color: #fff;
+    border: 1px solid #b8b8b8;
+    color: #828282;
+}
+.goods-list{
+	width: 1020px;
+    margin: 0 auto;
+    background: red;
+    padding-bottom:10px;
+    background-color:  rgba(255,255,255,.85);
+    min-height: 300px;
+}
+.goods-list-row{
+	height: 375px;
+	zoom:1;
+}
+.goods-list-item {
+   float: left;
+   padding: 10px 7px 0 8px;
+   width: 235px;
+   background: #e1e1e1;
+   }
+.c-goods {
+    position: relative;
+    z-index: 1;
+    width: 235px;
+    min-height: 365px;
+}
+	</style>
+	<body>
+		<div class="wrapper"></div>
+		<div class="plugin plugin-loaded" data-index="0" data-loaded="true" style="height: auto;">
+			<div class="plugin-pingou">
+			<div class="mst-pingou" style="height: 887px;">
+				<div style="background:url(../img/goodList/bg4.jpg) 50% 0% no-repeat;">
+					<img class="mst-pingou-bg mst-lazy-load" src="../img/goodList/bg4.jpg" isloaded="yes" style="display: none; visibility: hidden;">
+				</div>
+				<div class="mst-pingou-wrap">
+				</div>
+			</div>
+
+		</div></div>
+		<div class="plugin plugin-loaded" data-index="1" data-loaded="true" style="height: auto;">
+			<div class="plugin-pingou">
+			<div class="mst-pingou" style="height: 904px;">
+				<div style="background:url(../img/goodList/bg6.jpg) 50% 0% no-repeat;">
+					<img class="mst-pingou-bg mst-lazy-load" src="../img/goodList/bg6.jpg" isloaded="yes" style="display: none; visibility: hidden;">
+				</div>
+				<div class="mst-pingou-wrap">
+				</div>
+			</div>
+
+		</div></div>
+		<div class="plugin plugin-loaded" data-index="2" data-loaded="true" style="height: auto;">
+			<div class="plugin-pingou">
+			<div class="mst-pingou" style="height: 887px;">
+				<div style="background:url(../img/goodList/bg3.jpg) 50% 0% no-repeat;">
+					<img class="mst-pingou-bg mst-lazy-load" src="../img/goodList/bg3.jpg" isloaded="yes" style="display: none; visibility: hidden;">
+				</div>
+				<div class="mst-pingou-wrap">
+				</div>
+			</div>
+
+		</div></div>
+		<div class="plugin plugin-loaded" data-index="3" data-loaded="true" style="height: auto;">
+			<div class="plugin-pingou">
+			<div class="mst-pingou" style="height: 832px;">
+				<div style="background:url(../img/goodList/bg1.jpg) 50% 0% no-repeat;">
+					<img class="mst-pingou-bg mst-lazy-load" src="../img/goodList/bg1.jpg" isloaded="yes" style="display: none; visibility: hidden;">
+				</div>
+				<div class="mst-pingou-wrap">
+				</div>
+			</div>
+
+		</div></div>
+		<div class="plugin plugin-loaded" data-index="4" data-loaded="true" style="height: auto;">
+			<div class="plugin-pingou">
+			<div class="mst-pingou" style="height: 895px;">
+				<div style="background:url(../img/goodList/bg5.jpg) 50% 0% no-repeat;">
+					<img class="mst-pingou-bg mst-lazy-load" src="../img/goodList/bg5.jpg" isloaded="yes" style="display: none; visibility: hidden;">
+				</div>
+				<div class="mst-pingou-wrap">
+				</div>
+			</div>
+
+		</div></div>
+		<div class="plugin plugin-loaded" data-index="5" data-loaded="true" style="height: auto;">
+			<div class="plugin-pingou">
+			<div class="mst-pingou" style="height: 712px;">
+				<div style="background:url(../img/goodList/bg2.jpg) 50% 0% no-repeat;">
+					<img class="mst-pingou-bg mst-lazy-load" src="../img/goodList/bg2.jpg" isloaded="yes" style="display: none; visibility: hidden;">
+				</div>
+				<div class="mst-pingou-wrap">
+				</div>
+			</div>
+
+		</div></div>
+		<div class="pro-impress clearfix">
+        <!-- 收藏品牌悬浮模块 .pro-list-fav-bottombar底部悬浮时 -->
+        <div class="pro-list-fav" id="J_pro_list_fav">
+            <!-- 普通列表页品牌栏 -->
+
+		<dl class="pro-fav-name">
+		    <dt>秋壳女装混合专场</dt>
+		    <dd class="">
+		        <span class="salebg2">0.8</span>折起    </dd>
+		</dl>
+		<div class="pro-fav-time-tip">
+		    <em class="vipFont if-countdown"></em>
+		    剩余
+		    <em class="J_brand_countDownDay">7</em>天
+		    <em class="J_brand_countDownHour">16</em>小时
+		    <em class="J_brand_countDownMin">11</em>分
+		    <em class="J_brand_countDownSec">40</em>秒
+		    <i class="ico-time-countdown"></i>
+		</div>
+		<!-- 分享 -->
+		<div class="pro-fav-share-phone hidden list-weixin-active" id="J-list-weixin">
+		    <a href="javascript:void(0)" class="pro-fav-share-close" id="J-pro-fav-share-close">
+		        <i class="vipFont"></i>
+		    </a>
+		    <p>分享到微信</p>
+		    <div id="J-list-weixin-con-img" title="http://weixin.vip.com/brand-869471.html?pcshare=1"><canvas width="86" height="86" style="display: none;"></canvas>
+		    	<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFYAAABWCAYAAABVVmH3AAAEXElEQVR4Xu2c4XLbMAyDnfd/6Ox6vqZOapofAsleNuznTpYoEAQhxe5tWZb7MvDf/f4z3e12k2aunt3+fzVhtZbzrBT8y+CvnQdYkQAE8AewJLOELeo8hNVkTmee7bNkLYJDgF2WJcAe1OBHMFYNkmS8GuP8/xZn0vhGrUXW3ZWCALtC5+AQYA809iOA3ZYPCZiUWyW5xEur0qGudRpjA6ypLcQHhrEH9oaUEjHS5BSjykKkQEX16/wN7iKcMeRZkuiP0FiykVFjpgKrEmnGAaFqdkSCnIMA6RFE4k67K1A3G2DhJcZ/C6xa/qphPrOE1SSq9o9gddpFd4Al6TD9rcOo2Qkyt/94/HZ32mAThfo7FBk/aswoAEuHEGDnQBzGzsF12W1e5PRBtI54UbIvosnVycuZnzxb7THAQh9OQN4SIMDOBrYyB8Q8q8aCzEkY4ly8kPO+M397V0BACLBrCp76zvcrRmHsCs4on9zex44CnHR2wnxSQapDUGND16R7jEUPghfJiCUja1WWhuiwmqxRMYex8L0CAvgTAb6PtFPKYcNqIimEXYS96gFnxkHmcaQNsL+bl5PoAPsi1Krml0faTgpI6ZEmUo0hrCAWiMQww1EEWPiGj2rVAuzZwHYnLyIFpAuTUiVsIU2WzEP2ReSrkpf2roAEEGB/pyDAmhJRMna0K1BPKEQiiCu4SiKq/bY+lkhBpWmOJyTrkiSSpFTJJfYswL6g5/hnQqT2pxmSTXIPoHbqGevOjkH6zWvGBglbZqwbYA86GtFtVRtJA600v9VY0iyItqhjyKaITyZVQJJC4iFjdt+EUTNOOi+Z0znpBFiS7oMOTpLo6PMb4e0+0p681PIh48kYVZocQFRXgyqru4RxQCABqyXsAEgAcRL69nsFKggB9oAGDpiE7U5TIwwkmkzuGVQc2m8Q1AnJ+d0pNyIFqj0LsARV87NQlRgVSdq7AjWbaulBrB7DyMaJBJGTFKmsso/s/d0tJ/gAu6YjjIUvHhPCPDG8+0txxDKR7qyWvFqGZOMzHMg2zl0fq4JDgiSOggDugEYcAomBjAmwBKU3xjwBe/UHdKSDk+ogFUfWUiWoWvfyD+jIZgPsS/pUbXQa5V/H2M4VqFJDGpYKuBODuhZpdmiPAbb+M6ckKaXGBtjJwBJ6l9kB3xqQblua7WJ+lVGkUZI4iVy0P80QfRsVcIA96P6E+cQ+qRdBVVLUW6ypjJ2xcdVKkQQRaSIVR8ao8bcf0Dn+kEiEqpMEBEIMMo9aBU9s7z75DLArAh/BWMJS55cL0rUJGx2puUQKAuyBEKldm7Bo1JxkrY9mrGp1RjW7URVBfHV7pHWyrAJCGgEZo25crQh1/tNcQRh7YCeI3yMd3LFtToJULVU9cFUFU+8KSJCkPAMsfL2HaBfRWDLmcsaSkidjVAZWbCTgq2MckNW7i/ZtQwIm2SAJTLVJZF2i7eSEReLfdQUqgCRgYsP+Vcb+AaRwbRAbB+jIAAAAAElFTkSuQmCC" style="display:block;">
+		    </div>
+		</div>
+		
+		<!--  收藏人数添加 .pro-fav-pop -->
+		<div class="pro-fav-oper J-pro-fav-oper f-right">
+		    <div class="ui-btn-fav J_myFav_tag J_myFavBrand_10025929 z-fav-liked" mars_sead="te_list_normal_colbrd_btn">
+		    <a class="ui-btn-fav-like" role="button" href="javascript:;">
+		        <i class="vipFont"></i>
+		        <span class="fav-hidden">收藏品牌<i>（<em class="J_proFav_person_num">22,356</em>）</i></span>
+		    </a>
+		    <a class="ui-btn-fav-cancel" role="button" href="javascript:;">
+		        <span class="liked"><i class="vipFont"></i>已收藏<i>（<em class="J_proFav_person_num">22,356</em>）</i></span>
+		        <span class="cancel">取消收藏</span>
+		        <span class="liked-fail">收藏失败<i>（<em class="J_proFav_person_num">22,356</em>）</i></span>
+		        <span class="cancel-fail">取消收藏失败<i>（<em class="J_proFav_person_num">22,356</em>）</i></span>
+		    </a>
+		</div><!-- 加入收藏btn end-->
+		
+		</div>        </div><!-- 收藏品牌悬浮模块 end -->
+		        <!-- 促销信息 -->
+		        <div class="impress-hd">
+		        </div>
+		    </div>
+		<!--分类区-->
+		<div class="pro_choose" id="J_fileter_outFrame">
+			<div class="pro_cover"></div>
+			<div class="pro_search">
+			 <dl class="pro-sortbar-all pro-sortbar-category clearfix J-class" id="J-categoryWrap">
+			 	<dt class="pro-sortbar-name">分类</dt>
+			 	<dd class="pro-sortbar-cnt">
+			 		<ul class="pro-sortbar-choice list-category J-ctHeight" id="J-categoryCont">
+			 			<li class="list-cat-items J-lis-cat-items ">
+			 				<a href="/869471.html?q=0|0|0|0|0|1&amp;serial=-reco--/N-190022-search.brand.base-2/200--&amp;pp=Women&amp;ff=brand&amp;_mars_ref=11|brand|1476495&amp;lt;8&amp;lt;&amp;_mars_ref=11|brand|1476495383" id="J-category0" mars_sead="te_list_main_sort0" class="J-secondLink  cat-items-link  pro_selected" data-track="done">
+			 					<span class="cat-items-name">全部分类</span>        
+			 					<em class="cat-items-num">(594)</em>        
+			 					<span class="cat-arrow-up">           
+			 						<i class="vipFont"></i>       
+			 					</span>       
+			 					<span class="cat-arrow-down">           
+			 						<i class="vipFont"></i>        
+			 					</span>    
+			 				</a>    
+			 				<div class="drop-cat-poup J-third-catpoup"> 
+			 					<i class="bding J-cat-bding"></i>
+			 				</div>
+			 			</li>
+			 			<li class="list-cat-items J-lis-cat-items ">
+			 				<a href="/869471.html?q=0|314|0|0|0|1&amp;serial=-reco--/N-190022-search.brand.base-2/200--&amp;pp=Women&amp;ff=brand&amp;_mars_ref=11|brand|1476495&amp;lt;8&amp;lt;&amp;_mars_ref=11|brand|1476495383" id="J-category314" mars_sead="te_list_main_sort" class="J-secondLink J_firstsize cat-items-link " data-track="done"> 
+			 					<span class="cat-items-name">女式T恤</span> 
+			 					<em class="cat-items-num">(53)</em>  
+			 				</a>   
+			 				<div class="drop-cat-poup J-third-catpoup">   
+			 					<i class="bding J-cat-bding"></i>
+			 				</div>
+			 			</li>
+			 			<li class="list-cat-items J-lis-cat-items ">
+			 				<a href="/869471.html?q=0|314|0|0|0|1&amp;serial=-reco--/N-190022-search.brand.base-2/200--&amp;pp=Women&amp;ff=brand&amp;_mars_ref=11|brand|1476495&amp;lt;8&amp;lt;&amp;_mars_ref=11|brand|1476495383" id="J-category314" mars_sead="te_list_main_sort" class="J-secondLink J_firstsize cat-items-link " data-track="done"> 
+			 					<span class="cat-items-name">女式T恤</span> 
+			 					<em class="cat-items-num">(53)</em>  
+			 				</a>   
+			 				<div class="drop-cat-poup J-third-catpoup">   
+			 					<i class="bding J-cat-bding"></i>
+			 				</div>
+			 			</li>
+			 			<li class="list-cat-items J-lis-cat-items ">
+			 				<a href="/869471.html?q=0|314|0|0|0|1&amp;serial=-reco--/N-190022-search.brand.base-2/200--&amp;pp=Women&amp;ff=brand&amp;_mars_ref=11|brand|1476495&amp;lt;8&amp;lt;&amp;_mars_ref=11|brand|1476495383" id="J-category314" mars_sead="te_list_main_sort" class="J-secondLink J_firstsize cat-items-link " data-track="done"> 
+			 					<span class="cat-items-name">女式T恤</span> 
+			 					<em class="cat-items-num">(53)</em>  
+			 				</a>   
+			 				<div class="drop-cat-poup J-third-catpoup">   
+			 					<i class="bding J-cat-bding"></i>
+			 				</div>
+			 			</li>
+			 			
+			 		</ul>
+			 	</dd>
+			 </dl>
+				<dl class="pro-sortbar-all fn-ov-hidden clearfix J-class" id="J-cSizesWrap">
+					<dt class="pro-sortbar-name">尺码</dt>
+					<dd class="pro-sortbar-choice">
+						<ul class=""pro-sortbar-choice J-ctHeight>
+							<li>
+								<a class="J-link pro_selected" id="J-size0" mars_sead="te_list_main_size" data-track="done">
+									全部尺码
+								</a>
+							</li>
+							<li><a J-link pro_selected href="#">XS</a></li>
+							<li><a href="#">S</a></li>
+							<li><a href="#">M</a></li>
+							<li><a href="#">L</a></li>
+							<li><a href="#">XL</a></li>
+							<li><a href="#">XXL</a></li>
+							<li><a href="#">均码</a></li>
+							<li><a href="#">均码/F</a></li>
+						</ul>
+					</dd>
+				</dl>
+			</div>
+			
+			<div class="pro-list-oper" id="J-pro-list-fix">
+			<div class="pro-oper" id="J-proOper">
+				<div class="oper-hd-general J_oper_tag z-oper-current-selected" title="综合" id="J-operAll-hd" mars_sead="te_list_sort_default"> 
+					<div class="oper-hd-all ">    
+						<p>综合</p>  
+					</div>
+				</div>
+				<div class="oper-hd-price J_oper_tag " id="J-operPrice-hd" mars_sead="te_list_sort_price">  
+					<div class="oper-price-tc " title="价格由低到高"> 
+					<p class="oper-price-txt">   
+						<em>价格</em> 
+						<span class="db-arrow-change">
+							<i class="vipFont i-cat-dis i-cat-dis-down"></i>
+							<i class="vipFont i-cat-dis i-cat-dis-up"></i>
+						</span>     
+					</p>   
+					</div>
+				</div>
+				<div class="oper-hd-discot J_oper_tag " title="折扣由低到高" id="J-operdiscount-hd" mars_sead="te_list_sort_discount">
+					<p class="oper-discount-txt">       
+						<em>折扣</em> 
+						<span class="db-arrow-change">
+							<i class="vipFont i-cat-dis i-cat-dis-down"></i>
+							<i class="vipFont i-cat-dis i-cat-dis-up"></i>
+						</span>   
+					</p>
+				</div>
+				<div id="J-have-selected" class="J-select-stock oper-hd-hastock ">  
+					<p>      
+						<a href="/869471.html?q=0|0|0|1|0|1&amp;serial=-reco--/N-190022-search.brand.base-2/200--&amp;pp=Women&amp;ff=brand&amp;_mars_ref=11|brand|1476495&amp;lt;8&amp;lt;&amp;_mars_ref=11|brand|1476495383" id="J_fileter_hasStock" class="J-link" mars_sead="te_list_hastock" data-track="done">   
+							<span class="ui-checkbox">     
+								<input type="checkbox" class="ui-checkbox-normal">      
+								<label for="item1-1" class="ui-checkbox-simulation">
+									
+								</label> 
+							</span> 
+				         	  只看有货商品     
+						</a> 
+					</p>
+				</div>
+			</div>
+			<div class="page pro-paging" id="J_page_special">
+				<span class="page-total">
+					<em class="page-nub">594</em>
+					件商品
+				</span>
+				<span>
+					<em class="page-nub">1</em>/3
+				</span>
+				<span class="page-pre"><i>&lt;</i></span>
+				<a class="J-link page-next-txt" target="_self" mars_sead="te_list_main_head_p1" href="/869471.html?q=0|0|0|0|0|2&amp;serial=-reco--/N-190022-search.brand.base-2/200--&amp;pp=Women&amp;ff=brand&amp;_mars_ref=11|brand|1476495&amp;lt;8&amp;lt;&amp;_mars_ref=11|brand|1476495383" data-track="done">
+					下一页
+					<i>&gt;</i>
+				</a>
+			</div>
+		</div>
+		</div>
+				
+			<!--商品列表-->
+			<div class="goods-list">
+				<div class="goods-list-row">
+					<div class="goods-list-item c-goods"></div>
+				</div>
+			</div>
+		<!--右边侧栏-->
+		<div id="sidebar"></div>
+		<!--右边侧栏-->
+		<script src="../js/common/jquery-1.12.3.js"></script>
+		<script type="text/javascript" src="../js/common/common.js" ></script>
+		<script type="text/javascript" src="../js/common/move.js" ></script>
+		<script>
+			loadHtml("common/sidenav.html", "sidebar");
+		</script>
 	</body>
+	
 </html>

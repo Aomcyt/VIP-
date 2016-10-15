@@ -1,49 +1,318 @@
 //动态加载
 $(function(){
-	$.get("../data/index/list0.json",function(data){
-		// console.log(data);
-		for(var i in data){
-				$(".louti floor1").append(
-				' <div class="floor1-inner">'+
-					'<a href="#">'+
-						'<img class="floor1-img" src="'+data[i].src1+'" alt="JUZUI时光依存 凝聚风尚">'+
-					'</a>'+
-					'<a href="#" class="floor1-brand">'+
-						'<img src="'+data[i].src2+'" class="floor-brand-img"/>'+
-						'<p class="floor1-brand-name1">'+data[i].p1+'</p>'+
-						'<p class="floor1-brand-name2">'+data[i].p2+'</p>'+
-						'<div class="floor1-inner-hover" >'+
-							'<div class="inner-hover-list">'+
-								'<a href="#" class="list-item">'+
-									'<img class="inner-hover-img" src="'+data[i].src3+'"/>'+
-								'<p class="floor1-price">'+data[i].price+'</p>'+
+	load1("../data/index/floor1.json",".floor1");
+	load2("../data/index/floor2.json",".f2");
+	load3("../data/index/floor3.json",".f3");
+	load4("../data/index/floor4.json",".f4");
+	load5("../data/index/floor5.json",".f5");
+	load6("../data/index/floor6.json",".f6");
+	load7("../data/index/floor7.json",".f7");
+	load8("../data/index/floor8.json",".f8");
+	load9("../data/index/floor9.json",".f9");
+	load10("../data/index/floor10.json",".f10");
+	load11("../data/index/floor11.json",".f11");
+})
+	function load1(url,container){
+		$.get(url,function(data){
+			// console.log(data);
+			for(var i in data){
+					$(container).append(
+					' <div class="floor1-inner">'+
+						'<a href="#">'+
+							'<img class="floor1-img" src="'+data[i].src1+'" alt="JUZUI时光依存 凝聚风尚">'+
+						'</a>'+
+						'<a href="#" class="floor1-brand">'+
+							'<img src="'+data[i].src2+'" class="floor-brand-img"/>'+
+							'<p class="floor1-brand-name1">'+data[i].name1+'</p>'+
+							'<p class="floor1-brand-name2">'+data[i].name2+'</p>'+
+							'<div class="floor1-inner-hover" >'+
+								'<div class="inner-hover-list">'+
+									'<a href="#" class="list-item">'+
+										'<img class="inner-hover-img" src="'+data[i].src3+'"/>'+
+									'<p class="floor1-price">'+data[i].price+'</p>'+
+									'</a>'+
+									'<a href="#" class="list-item">'+
+										'<img class="inner-hover-img" src="'+data[i].src3+'"/>'+
+									'<p class="floor1-price">'+data[i].price+'</p>'+
+									'</a>'+
+									'<a href="#" class="list-item">'+
+										'<img class="inner-hover-img" src="'+data[i].src3+'"/>'+
+									'<p class="floor1-price">'+data[i].price+'</p>'+
+									'</a>'+
+								'</div>'+
+								'<a href="#" >'+
+									'<img class="floor1-inner-hover-logo" src="'+data[i].src4+'"/>'+
 								'</a>'+
-								'<a href="#" class="list-item">'+
-									'<img class="inner-hover-img" src="'+data[i].src3+'"/>'+
-								'<p class="floor1-price">'+data[i].price+'</p>'+
-								'</a>'+
-								'<a href="#" class="list-item">'+
-									'<img class="inner-hover-img" src="'+data[i].src3+'"/>'+
-								'<p class="floor1-price">'+data[i].price+'</p>'+
-								'</a>'+
+								'<span class="love"><img src="'+data[i].src5+'"/></span>'+
+								'<a href="#" class="ground">'+data[i].join+'</a>'+
 							'</div>'+
-							'<a href="#" >'+
-								'<img class="floor1-inner-hover-logo" src="'+data[i].src4+'"/>'+
-							'</a>'+
-							'<span class="love"><img src="'+data[i].src5+'"/></span>'+
-							'<a href="#" class="ground">'+data[i].join+'</a>'+
-						'</div>'+
-					'</a>'+
-				'</div>'
+						'</a>'+
+					'</div>'
+					)
+				}
+		})
+	}
+	function load2(url,container){
+		$.get(url,function(data){
+			for(var i in data){
+				$(container).append(
+					'<div class="brand-item">'+
+								'<a href="#" target="_blank">'+
+									'<img class="brand-img" src="'+data[i].src2+'"/>'+
+									'<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">'+
+										'<i class="item-icon">'+'</i>'+
+										'<span class="item-bottom-tip">'+data[i].p1+'</span>'+
+									'</div>'+
+									'<div class="brand-info">'+
+										'<span class="brand-discount">'+
+											'<span class="salebg2">'+data[i].p2+'</span>'+data[i].p3+'</span>'+
+										'<span class="brand-info-name">'+data[i].p4+'</span>'+
+											'<p class="brand-time">'+
+												'<i class="time-icon">'+'</i>'+
+												'<span class="time-day">'+data[i].p5+'</span>'+
+											'</p>'+
+									'</div>'+
+								'</a>'+
+							'</div>'
 				)
 			}
-	})
-})
-
-
-
-
-
+		})
+	}
+	function load3(url,container){
+		$.get(url,function(data){
+			for(var i in data){
+				$(container).append(
+					'<div class="brand-item">'+
+								'<a href="#" target="_blank">'+
+									'<img class="brand-img" src="'+data[i].src2+'"/>'+
+									'<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">'+
+										'<i class="item-icon">'+'</i>'+
+										'<span class="item-bottom-tip">'+data[i].p1+'</span>'+
+									'</div>'+
+									'<div class="brand-info">'+
+										'<span class="brand-discount">'+
+											'<span class="salebg2">'+data[i].p2+'</span>'+data[i].p3+'</span>'+
+										'<span class="brand-info-name">'+data[i].p4+'</span>'+
+											'<p class="brand-time">'+
+												'<i class="time-icon">'+'</i>'+
+												'<span class="time-day">'+data[i].p5+'</span>'+
+											'</p>'+
+									'</div>'+
+								'</a>'+
+							'</div>'
+				)
+			}
+		})
+	}
+	function load4(url,container){
+		$.get(url,function(data){
+			for(var i in data){
+				$(container).append(
+					'<div class="brand-item">'+
+								'<a href="#" target="_blank">'+
+									'<img class="brand-img" src="'+data[i].src2+'"/>'+
+									'<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">'+
+										'<i class="item-icon">'+'</i>'+
+										'<span class="item-bottom-tip">'+data[i].p1+'</span>'+
+									'</div>'+
+									'<div class="brand-info">'+
+										'<span class="brand-discount">'+
+											'<span class="salebg2">'+data[i].p2+'</span>'+data[i].p3+'</span>'+
+										'<span class="brand-info-name">'+data[i].p4+'</span>'+
+											'<p class="brand-time">'+
+												'<i class="time-icon">'+'</i>'+
+												'<span class="time-day">'+data[i].p5+'</span>'+
+											'</p>'+
+									'</div>'+
+								'</a>'+
+							'</div>'
+				)
+			}
+		})
+	}
+	function load5(url,container){
+		$.get(url,function(data){
+			for(var i in data){
+				$(container).append(
+					'<div class="brand-item">'+
+								'<a href="#" target="_blank">'+
+									'<img class="brand-img" src="'+data[i].src2+'"/>'+
+									'<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">'+
+										'<i class="item-icon">'+'</i>'+
+										'<span class="item-bottom-tip">'+data[i].p1+'</span>'+
+									'</div>'+
+									'<div class="brand-info">'+
+										'<span class="brand-discount">'+
+											'<span class="salebg2">'+data[i].p2+'</span>'+data[i].p3+'</span>'+
+										'<span class="brand-info-name">'+data[i].p4+'</span>'+
+											'<p class="brand-time">'+
+												'<i class="time-icon">'+'</i>'+
+												'<span class="time-day">'+data[i].p5+'</span>'+
+											'</p>'+
+									'</div>'+
+								'</a>'+
+							'</div>'
+				)
+			}
+		})
+	}
+	function load6(url,container){
+		$.get(url,function(data){
+			for(var i in data){
+				$(container).append(
+					'<div class="brand-item">'+
+								'<a href="#" target="_blank">'+
+									'<img class="brand-img" src="'+data[i].src2+'"/>'+
+									'<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">'+
+										'<i class="item-icon">'+'</i>'+
+										'<span class="item-bottom-tip">'+data[i].p1+'</span>'+
+									'</div>'+
+									'<div class="brand-info">'+
+										'<span class="brand-discount">'+
+											'<span class="salebg2">'+data[i].p2+'</span>'+data[i].p3+'</span>'+
+										'<span class="brand-info-name">'+data[i].p4+'</span>'+
+											'<p class="brand-time">'+
+												'<i class="time-icon">'+'</i>'+
+												'<span class="time-day">'+data[i].p5+'</span>'+
+											'</p>'+
+									'</div>'+
+								'</a>'+
+							'</div>'
+				)
+			}
+		})
+	}
+	function load7(url,container){
+		$.get(url,function(data){
+			for(var i in data){
+				$(container).append(
+					'<div class="brand-item">'+
+								'<a href="#" target="_blank">'+
+									'<img class="brand-img" src="'+data[i].src2+'"/>'+
+									'<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">'+
+										'<i class="item-icon">'+'</i>'+
+										'<span class="item-bottom-tip">'+data[i].p1+'</span>'+
+									'</div>'+
+									'<div class="brand-info">'+
+										'<span class="brand-discount">'+
+											'<span class="salebg2">'+data[i].p2+'</span>'+data[i].p3+'</span>'+
+										'<span class="brand-info-name">'+data[i].p4+'</span>'+
+											'<p class="brand-time">'+
+												'<i class="time-icon">'+'</i>'+
+												'<span class="time-day">'+data[i].p5+'</span>'+
+											'</p>'+
+									'</div>'+
+								'</a>'+
+							'</div>'
+				)
+			}
+		})
+	}
+	function load8(url,container){
+		$.get(url,function(data){
+			for(var i in data){
+				$(container).append(
+					'<div class="brand-item">'+
+								'<a href="#" target="_blank">'+
+									'<img class="brand-img" src="'+data[i].src2+'"/>'+
+									'<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">'+
+										'<i class="item-icon">'+'</i>'+
+										'<span class="item-bottom-tip">'+data[i].p1+'</span>'+
+									'</div>'+
+									'<div class="brand-info">'+
+										'<span class="brand-discount">'+
+											'<span class="salebg2">'+data[i].p2+'</span>'+data[i].p3+'</span>'+
+										'<span class="brand-info-name">'+data[i].p4+'</span>'+
+											'<p class="brand-time">'+
+												'<i class="time-icon">'+'</i>'+
+												'<span class="time-day">'+data[i].p5+'</span>'+
+											'</p>'+
+									'</div>'+
+								'</a>'+
+							'</div>'
+				)
+			}
+		})
+	}
+	function load9(url,container){
+		$.get(url,function(data){
+			for(var i in data){
+				$(container).append(
+					'<div class="brand-item">'+
+								'<a href="#" target="_blank">'+
+									'<img class="brand-img" src="'+data[i].src2+'"/>'+
+									'<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">'+
+										'<i class="item-icon">'+'</i>'+
+										'<span class="item-bottom-tip">'+data[i].p1+'</span>'+
+									'</div>'+
+									'<div class="brand-info">'+
+										'<span class="brand-discount">'+
+											'<span class="salebg2">'+data[i].p2+'</span>'+data[i].p3+'</span>'+
+										'<span class="brand-info-name">'+data[i].p4+'</span>'+
+											'<p class="brand-time">'+
+												'<i class="time-icon">'+'</i>'+
+												'<span class="time-day">'+data[i].p5+'</span>'+
+											'</p>'+
+									'</div>'+
+								'</a>'+
+							'</div>'
+				)
+			}
+		})
+	}
+	function load10(url,container){
+		$.get(url,function(data){
+			for(var i in data){
+				$(container).append(
+					'<div class="brand-item">'+
+								'<a href="#" target="_blank">'+
+									'<img class="brand-img" src="'+data[i].src2+'"/>'+
+									'<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">'+
+										'<i class="item-icon">'+'</i>'+
+										'<span class="item-bottom-tip">'+data[i].p1+'</span>'+
+									'</div>'+
+									'<div class="brand-info">'+
+										'<span class="brand-discount">'+
+											'<span class="salebg2">'+data[i].p2+'</span>'+data[i].p3+'</span>'+
+										'<span class="brand-info-name">'+data[i].p4+'</span>'+
+											'<p class="brand-time">'+
+												'<i class="time-icon">'+'</i>'+
+												'<span class="time-day">'+data[i].p5+'</span>'+
+											'</p>'+
+									'</div>'+
+								'</a>'+
+							'</div>'
+				)
+			}
+		})
+	}
+	function load11(url,container){
+		$.get(url,function(data){
+			for(var i in data){
+				$(container).append(
+					'<div class="brand-item">'+
+								'<a href="#" target="_blank">'+
+									'<img class="brand-img" src="'+data[i].src2+'"/>'+
+									'<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">'+
+										'<i class="item-icon">'+'</i>'+
+										'<span class="item-bottom-tip">'+data[i].p1+'</span>'+
+									'</div>'+
+									'<div class="brand-info">'+
+										'<span class="brand-discount">'+
+											'<span class="salebg2">'+data[i].p2+'</span>'+data[i].p3+'</span>'+
+										'<span class="brand-info-name">'+data[i].p4+'</span>'+
+											'<p class="brand-time">'+
+												'<i class="time-icon">'+'</i>'+
+												'<span class="time-day">'+data[i].p5+'</span>'+
+											'</p>'+
+									'</div>'+
+								'</a>'+
+							'</div>'
+				)
+			}
+		})
+	}
+		
 //楼梯
 	$(function(){
 		
@@ -100,42 +369,6 @@ $(function(){
 	})
 //导航鼠标移上-END
 
-//右边侧栏-top
-	$(".count-box").mouseover(function(){
-			$("#count-tip").stop().animate({right:"30px"},200);
-		})
-		$(".count-box").mouseout(function(){
-			$("#count-tip").stop().animate({right:"-300px"},200);
-		})
-		//右边鼠标移动上
-		$(".sidebar-nav-list li").mouseover(function(){
-			$(this).find("p").eq(0).stop().animate({right:"30px"},200);
-		})
-		$(".sidebar-nav-list li").mouseout(function(){
-			$(this).find("p").eq(0).stop().animate({right:"-300px"},200);
-	})
-//右边侧栏-top-end
-//右边侧栏-top-bottom
-	$(".vip-words").mouseover(function(){
-		$(".vip-inner").stop().animate({right:"30px"},200)
-		})
-		$(".vip-words").mouseout(function(){
-			$(".vip-inner").stop().animate({right:"-300px"},200)
-	})
-
-	//返回顶部
-	$(".return-top").mouseover(function(){
-		$("#return").stop().animate({right:"30px"},200)
-	})
-	$(".return-top").mouseout(function(){
-		$("#return").stop().animate({right:"-300px"},200)
-	})
-
-	$(".return-top").click(function(){
-		$("html body").scrollTop(0);
-	})
- //返回顶部--end
-//右边侧栏-top-bottom-end
 
 //轮播图
 
