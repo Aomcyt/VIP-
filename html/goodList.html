@@ -4,369 +4,16 @@
 	<meta charset="UTF-8">
 	<title>商品列表</title>
 	<link rel="stylesheet" href="../css/common/common.css" />
-	<link rel="stylesheet" href="../css/common/sidenav.css" />
+		<link rel="stylesheet" href="../css/common/header.css" />
+		<link rel="stylesheet" href="../css/common/footer.css" />
+		<link rel="stylesheet" href="../css/index.css"/>
+		<link rel="stylesheet" href="../css/common/sidenav.css" />
+		<link rel="stylesheet" href="../css/goodList.css" />
 	</head>
-	<style >
-		.wrapper{position: relative;}
-		.mst-pingou {position: relative; overflow: hidden; zoom:1;}
-		.mst-pingou-wrap { width: 1000px; margin: 0 auto; position: absolute; z-index: 10; top: 0; margin-left:-500px; left:50%;}
-		
-		.mst-pingou .mst-pingou-bg {width: auto; height: auto; position: relative; left: 50%; top:0; z-index: 1; display: block !important;}
-		.mst-pingou .link { position: absolute; background:url(about:blank);}
-		
-		.mst-pingou .mst-sale-out {width: 84px; height: 84px; margin: -42px 0 0 -42px; position: absolute; left: 50%; top: 50%;
-		    background-image: url('http://mst.vip.com/demo/pc/images/icon-sale-out.png');
-		    -webkit-background-size: cover;
-		    background-size: cover;
-		    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://mst.vip.com/demo/pc/images/icon-sale-out.png', sizingMethod='scale');
-		    background-image: none\9;
-		}
-		.pro-impress{width:1020px;margin: 0 auto;}
-		.pro-list-fav {
-		    height: 24px;
-		    padding: 9px 10px;
-		    background-color: #f5f5f5;
-		    margin-top: 15px;
-		    margin-bottom: 15px;
-		}
-		.pro-fav-name {
-		    font-size: 16px;
-		    float: left;
-		    margin-right: 10px;
-		}
-		.pro-fav-name dt {
-		    float: left;
-		    overflow: hidden;
-		    text-overflow: ellipsis;
-		    white-space: nowrap;
-		    margin-right: 10px;
-		    max-width: 214px;
-		    }
-		 .pro-fav-name dd {
-		    float: left;
-		    line-height: 25px;
-		    font-size: 18px;
-		}
-		.salebg2 {color: #f43499;}
-		.pro-fav-time-tip {margin: 0 10px;float: left;line-height: 25px;color: #000;font-size: 12px;}
-		.pro-fav-time-out .if-countdown, .pro-fav-time-tip .if-countdown {
-		    margin-right: 5px;
-		    vertical-align: top;
-		    color: #f10582;
-		}
-		.vipFont {
-		    font-family: vipFont;
-		    speak: none;
-		    font-style: normal;
-		    font-weight: 400;
-		    font-variant: normal;
-		    text-transform: none;
-		    font-size: 16px;
-		    -webkit-font-smoothing: antialiased;
-	    }
-	    .hidden {display:none;}
-		.pro-fav-share-phone {
-		    position: absolute;
-		    right: 0;
-		    bottom: 0;
-		    z-index: 101;
-		    width: 112px;
-		    height: 122px;
-		    border: 1px solid #dfdfdf;
-		    background-color: #fff;
-		    font-size: 14px;
-		    color: #666;
-		}
-		.f-right {float: right;}
-		.pro-fav-oper .ui-btn-fav {
-   		 display: inline-block;
-	     vertical-align: middle;
-		}
-	.z-fav-liked {color: #fff;}
-	.ui-btn-fav {
-	    display: block;
-	    width: auto;
-	    height: 21px;
-	    line-height: 21px;
-	    min-width: 34px;
-	    transition: .2s linear;
-	}
-	.ui-btn-fav {
-	   border-radius: 11px;
-	    font-size: 12px;
-	    background-color: #f2f2f2;
-	    text-align: center;
-	    overflow: hidden;
-	    transform: translateZ(0);
-	  }
-.pro-fav-oper .ui-btn-fav .ui-btn-fav-like {
-width: auto;
-}
-.z-fav-liked .ui-btn-fav-like {
-    display: none;
-}
-.ui-btn-fav .ui-btn-fav-like {
-    background: #ededed;
-    padding: 0 8px;
-    
-}
-.ui-btn-fav a {
-   transition: .3s;
-}
-.ui-btn-fav-like {
-   color: #f32b80;
-}
-.z-fav-liked .ui-btn-fav-cancel {
-    display: block;
-}
-.ui-btn-fav a {
-  transition: .3s;
-}
-.z-fav-liked .ui-btn-fav-cancel .liked {
-    padding: 0 5px;
-}
-.z-fav-liked .ui-btn-fav-cancel span {
-    color: #fff;
-}
-.z-fav-liked .liked {
-    background-color: #f32b80;
-}
-.ui-btn-fav-cancel span {
-	display: block;
-}
-.impress-hd {
-    background-color: #f5f5f5;
-    overflow: hidden;
-}
-.pro_choose{
-	 width: 1020px;
-    margin: 0 auto;
-    position: relative;
-    margin: 0 auto;
-    z-index: 9;
-}
-
-.pro_cover{
-	position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: #fff;
-    opacity: .85;
-  	z-index: -1;
-}
-.pro_search {
-    position: relative;
-    z-index: 12;
-    line-height: 22px;
-    box-shadow: none;
-    border-bottom: 1px solid #f0f0f0;
-}
-.pro-sortbar-all {
-    position: relative;
-    background-color: #fafafa;
-    border-top: #f0f0f0 1px solid;
-}
-.pro-sortbar-name {
-    float: left;
-    width: 88px;
-    text-align: center;
-    padding-top: 21px;
-    padding-bottom: 21px;
-    color: #999;
-}
-.pro-sortbar-cnt {
-    float: left;
-    width: 912px;
-    min-height: 68px;
-    background-color: #fff;
-    position: relative;
-}
-.pro-sortbar-category .list-category {
-    position: relative;
-    width: 860px;
-}
-.pro-sortbar-category .pro-sortbar-choice {
-   max-height: 100%;
-}
-.pro-sortbar-choice {
-    float: left;
-    min-height: 45px;
-}
-.pro-sortbar-choice {
-    padding: 25px 20px 0 20px;
-}
-.pro-sortbar-all ul li {
-    display: inline-block;
-    padding: 0 15px 8px 0;
-}
-.list-cat-items {
-    float: left;
-    width: 150px;
-    height: 30px;
-    margin-right: 1px;
-}
-.pro_search .pro_selected {
-    border: 1px solid #f43499;
-    background: #fef7fb;
-    color: #f10180;
-}
-.pro-sortbar-all ul li a {
-    padding: 2px 5px;
-  	border-radius: 2px;
-    line-height: 1.1;
-    display: inline-block;
-}
-.list-cat-items .cat-items-name {
-    float: left;
-    max-width: 72px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-.cat-items-num {
-    float: left;
-}
-.fn-ov-hidden {
-    overflow: hidden;
-}
-.pro-sortbar-all {
-    position: relative;
-    background-color: #fafafa;
-    border-top: #f0f0f0 1px solid;
-    height: 70px;
-}
-.pro-sortbar-choice a:hover{color: #F1037F;}
-.pro-list-oper {
-    min-height: 42px;
-    margin-bottom: 20px;
-    background-color: #f5f5f5;
-    position: relative;
-    zoom: 1;
-}
-.pro-oper{float: left;}
-.pro-paging {
-    float: right;
-    padding: 5px 8px 0 0;
-    font-size: 14px;
-}
-.z-oper-current-selected {
-    background-color: #ffe5f2;
-    color: #f10180;
-}
-.oper-hd-discot, .oper-hd-general, .oper-hd-price {
-    cursor: pointer;
-}
-.oper-hd-discot, .oper-hd-general, .oper-hd-price {
-    position: relative;
-    z-index: 3;
-    border-right: #fff 1px solid;
-}
-.oper-hd-discot, .oper-hd-general, .oper-hd-hastock, .oper-hd-price {
-    float: left;
-    height: 42px;
-    line-height: 42px;
-}
-.oper-discount-txt .db-arrow-change .i-cat-dis-down, .oper-price-txt .db-arrow-change .i-cat-dis-down {
-    position: absolute;
-    top: -11px;
-}
-.oper-hd-hastock {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-.oper-hd-discot, .oper-hd-general, .oper-hd-hastock, .oper-hd-price {
-    float: left;
-    height: 42px;
-    line-height: 42px;
-}
-.ui-checkbox {
-    display: inline-block;
-    vertical-align: middle;
-    margin-right: 5px;
-    font-size: 0;
-    line-height: 0;
-}
-:root .ui-checkbox-normal {
-    display: none;
-}
-.ui-checkbox-normal {
-    vertical-align: text-top;
-}
-
-:root .ui-checkbox-simulation {
-    display: block;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    background-image:url(../img/goodList/sprite.png);
-    background-position: -48px 0;
-    width: 19px;
-    height: 16px;
-    cursor:pointer;
-}
-.pro-paging {
-    float: right;
-    padding: 5px 8px 0 0;
-    font-size: 14px;
-}
-.page .page-total {
-    margin-right: 10px;
-    line-height: 12px;
-}
-.page a, .page span {
-    display: inline-block;
-}
-.page-nub {
-    color: #f10180;
-}
-.page-nub {
-    color: #f10180;
-}
-.page-next, .page-pre {
-    background: #fcfafc;
-    border: 1px solid #e5e3e5;
-    color: #e5e3e5;
-}
-.page .page-next-txt {
-    width: auto;
-    padding: 0 6px;
-    font-size: 14px;
-    font-family: Microsoft yahei;
-}
-.page a {
-    background-color: #fff;
-    border: 1px solid #b8b8b8;
-    color: #828282;
-}
-.goods-list{
-	width: 1020px;
-    margin: 0 auto;
-    background: red;
-    padding-bottom:10px;
-    background-color:  rgba(255,255,255,.85);
-    min-height: 300px;
-}
-.goods-list-row{
-	height: 375px;
-	zoom:1;
-}
-.goods-list-item {
-   float: left;
-   padding: 10px 7px 0 8px;
-   width: 235px;
-   background: #e1e1e1;
-   }
-.c-goods {
-    position: relative;
-    z-index: 1;
-    width: 235px;
-    min-height: 365px;
-}
-	</style>
+	
 	<body>
-		<div class="wrapper"></div>
+		<div id="header"></div>
+		<div class="wrapper">
 		<div class="plugin plugin-loaded" data-index="0" data-loaded="true" style="height: auto;">
 			<div class="plugin-pingou">
 			<div class="mst-pingou" style="height: 887px;">
@@ -433,6 +80,7 @@ width: auto;
 			</div>
 
 		</div></div>
+		</div>
 		<div class="pro-impress clearfix">
         <!-- 收藏品牌悬浮模块 .pro-list-fav-bottombar底部悬浮时 -->
         <div class="pro-list-fav" id="J_pro_list_fav">
@@ -446,10 +94,10 @@ width: auto;
 		<div class="pro-fav-time-tip">
 		    <em class="vipFont if-countdown"></em>
 		    剩余
-		    <em class="J_brand_countDownDay">7</em>天
-		    <em class="J_brand_countDownHour">16</em>小时
-		    <em class="J_brand_countDownMin">11</em>分
-		    <em class="J_brand_countDownSec">40</em>秒
+		    <em class="J_brand_countDownDay">7</em>
+		    <em class="J_brand_countDownHour">16</em>
+		    <em class="J_brand_countDownMin">11</em>
+		    <em class="J_brand_countDownSec">40</em>
 		    <i class="ico-time-countdown"></i>
 		</div>
 		<!-- 分享 -->
@@ -506,7 +154,7 @@ width: auto;
 			 					<i class="bding J-cat-bding"></i>
 			 				</div>
 			 			</li>
-			 			<li class="list-cat-items J-lis-cat-items ">
+			 			<!--<li class="list-cat-items J-lis-cat-items ">
 			 				<a href="/869471.html?q=0|314|0|0|0|1&amp;serial=-reco--/N-190022-search.brand.base-2/200--&amp;pp=Women&amp;ff=brand&amp;_mars_ref=11|brand|1476495&amp;lt;8&amp;lt;&amp;_mars_ref=11|brand|1476495383" id="J-category314" mars_sead="te_list_main_sort" class="J-secondLink J_firstsize cat-items-link " data-track="done"> 
 			 					<span class="cat-items-name">女式T恤</span> 
 			 					<em class="cat-items-num">(53)</em>  
@@ -532,15 +180,14 @@ width: auto;
 			 				<div class="drop-cat-poup J-third-catpoup">   
 			 					<i class="bding J-cat-bding"></i>
 			 				</div>
-			 			</li>
-			 			
+			 			</li>-->
 			 		</ul>
 			 	</dd>
 			 </dl>
-				<dl class="pro-sortbar-all fn-ov-hidden clearfix J-class" id="J-cSizesWrap">
+			<dl class="pro-sortbar-all fn-ov-hidden clearfix J-class" id="J-cSizesWrap" style="height:70px;">
 					<dt class="pro-sortbar-name">尺码</dt>
-					<dd class="pro-sortbar-choice">
-						<ul class=""pro-sortbar-choice J-ctHeight>
+					<dd class="pro-sortbar-cnt">
+						<ul class="pro-sortbar-choice J-ctHeight">
 							<li>
 								<a class="J-link pro_selected" id="J-size0" mars_sead="te_list_main_size" data-track="done">
 									全部尺码
@@ -618,19 +265,89 @@ width: auto;
 		</div>
 				
 			<!--商品列表-->
-			<div class="goods-list">
-				<div class="goods-list-row">
-					<div class="goods-list-item c-goods"></div>
+		<div class="goods-list">
+				<!--第一行-->
+				<!--<div class="goods-list-row">
+					<div class="goods-list-item c-goods J_pro_item  has-goods-slide">
+						<div class="goodslist-inner J-item_handle_height">
+							<div class="goods-slide J_item_mouseout_warp">
+								<div class="goods-image">
+									<a href="#" class="goods-image-link">
+										<img class="J_first_pic" src="../img/goodList/goodsimage105.jpg"/>
+										<div class="goods-business-tag J_businessTag">
+										<img src="../img/goodList/goodsimage104.png" width="45" height="45"/>
+									</div>
+									</a>
+									<div class="goods-corner-tag"></div>
+									<div class="prepay-item-tag u-hidden">预定</div>
+								</div>
+								<div class="goods-images">
+									<div id="J_imgThumbNormal126716903" class="J_goodsThumb goods-thumb  is-goods-thumb-current" data-id="126716903" data-img-type="normal">        
+										<a href="//www.vip.com/detail-869471-126716903.html?_mars_ref=11|brand|1476495383" class="goods-thumb-link" data-track="done">           
+											<img src="../img/goodList/goodsimage113.jpg" width="54" height="69"> 
+										</a>           
+									</div>
+									<div class="J_goodsThumb goods-thumb" data-id="126716903" data-img-type="back">   
+										<a href="//www.vip.com/detail-869471-126716903.html?_mars_ref=11|brand|1476495383" class="goods-thumb-link" data-track="done">     
+											<img src="../img/goodList/goodsimage134.jpg" width="54" height="69" alt="牛仔蓝休闲宽松款连衣裙">    
+										</a>                 
+									</div>
+									<div class="J_goodsThumb goods-thumb" data-id="126716903" data-img-type="side">  
+										<a href="//www.vip.com/detail-869471-126716903.html?_mars_ref=11|brand|1476495383" class="goods-thumb-link" data-track="done">   
+											<img src="../img/goodList/goodsimage158.jpg" width="54" height="69" alt="牛仔蓝休闲宽松款连衣裙">
+										</a>    
+									</div>
+								</div>
+						</div>
+						<div class="goods-info goods-price-info ">    
+							<span class="goods-discount">2.4折</span>     
+								<em class="goods-sells-price">
+									<span class="u-yen  currency-symbol">¥</span>
+									<span class="price">175</span>
+								</em>              
+								<del class="goods-market-price">
+									<span class="u-yen  currency-symbol">¥</span>
+									719
+								</del> 
+						</div>
+						<div class="goods-info prepay-promo-info u-hidden">  
+							<span class="goods-promo-price"></span>  
+						</div>
+						<h4 class="goods-info goods-title-info">      
+							<a href="//www.vip.com/detail-869471-126716903.html?_mars_ref=11|brand|1476495383" mars_sead="te_list_list_name1" target="_blank" data-track="done">
+								秋壳&nbsp;牛仔蓝休闲宽松款连衣裙
+							</a> 
+						</h4>
+						<div class="goods-info  goods-membership-benefits-info" id="J_list_warm_mprice_con_126716903" data-ismp="false">
+						</div>
+					</div>
 				</div>
-			</div>
+			</div>-->
+		</div>
+		
+			<div class="page list-define-page" id="J_bottom_page">
+            <div id="J-pagingWrap"><span class="total-item-nums">共3页</span>
+            	<a target="_self" class="J-link" mars_sead="te_list_main_head_p1" href="/869471.html?q=0|0|0|0|0|1&amp;ff=6|11|2|1|5" data-track="done">1</a>
+            	<span class="page-select">2</span>
+            	<a target="_self" class="J-link" mars_sead="te_list_main_head_p3" href="/869471.html?q=0|0|0|0|0|3&amp;ff=6|11|2|1|5" data-track="done">3</a>
+            </div>
+            <div class="fr"></div>
+        </div>
 		<!--右边侧栏-->
 		<div id="sidebar"></div>
 		<!--右边侧栏-->
+		<div id="footer"></div>
 		<script src="../js/common/jquery-1.12.3.js"></script>
 		<script type="text/javascript" src="../js/common/common.js" ></script>
 		<script type="text/javascript" src="../js/common/move.js" ></script>
+		<script type="text/javascript" src="../js/goodList.js" ></script>
+		<script src="http://www.lanrenzhijia.com/ajaxjs/jquery.min.js"></script>
+		<script src="http://www.lanrenzhijia.com/ajaxjs/jquery.page.js"></script>
+		
 		<script>
-			loadHtml("common/sidenav.html", "sidebar");
+			loadHtml("common/header.html", "header");
+			loadHtml("common/footer.html", "footer");
+			loadHtml("common/sidenav.html", "sidebar")
 		</script>
 	</body>
 	

@@ -57,7 +57,7 @@ $(function(){
 			for(var i in data){
 				$(container).append(
 					'<div class="brand-item">'+
-								'<a href="#" target="_blank">'+
+								'<a href="goodList.html" target="_blank">'+
 									'<img class="brand-img" src="'+data[i].src2+'"/>'+
 									'<div class="brand-item-bottom" title="跨专场，购物满598减80，上不封顶">'+
 										'<i class="item-icon">'+'</i>'+
