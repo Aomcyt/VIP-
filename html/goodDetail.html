@@ -2,15 +2,93 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>属性选择器</title>
+	<title>商品详情</title>
 		<link rel="stylesheet" href="../css/common/common.css" />
 		<link rel="stylesheet" href="../css/common/header.css" />
 		<link rel="stylesheet" href="../css/common/footer.css" />
 		<link rel="stylesheet" href="../css/index.css"/>
 		<link rel="stylesheet" href="../css/common/sidenav.css" />
+		<link rel="stylesheet" href="../css/goodDetail.css" />
+
 	</head>
 	</body>
 	<div id="header"></div>
+	<div id="container">
+		<div class="title">
+			<a href="index.html">首页&nbsp;>&nbsp;</a>
+			<a href="javascript;void(0)">秋壳女装混合专场</a>&nbsp;&nbsp;>
+			<span title="黑色欧美时尚黑色大衣">黑色欧美时尚黑色大衣</span>
+		</div>
+		<div class="goods-detail">
+			<!--左边-->
+			<div class="left-box">
+				<div class="big-box">
+					<a href="javascript:void(0)">
+						<img src="../img/goodDetail/good-D.jpg"/>
+					</a>
+					<div class="zoom"></div>
+					<div class="zoom-window">
+						<img src="../img/goodDetail/good-D.jpg" />
+					</div>
+					<div class="zom-load"></div>
+					<em class="icon-a"></em>
+				</div>
+				<!--下面-->
+				<div class="small-box">
+					<ul class="small-box-list">
+						<li><img src="../img/goodDetail/small-box-list1.jpg"/></li>
+						<li><img src="../img/goodDetail/small-box-list2.jpg"/></li>
+						<li><img src="../img/goodDetail/small-box-list3.jpg"/></li>
+						<li><img src="../img/goodDetail/small-box-list4.jpg"/></li>
+						<li><img src="../img/goodDetail/small-box-list5.jpg"/></li>
+						<li><img src="../img/goodDetail/small-box-list6.jpg"/></li>
+					</ul>
+				</div>
+				<!--商品编码-->
+			<div class="goods-text">
+					<p class="text-one">商品编码：75412240080005</p>
+					<div class="text-collect" id="goods-collect">
+	                    <div class="goods-fav-collect" id="J_add_fav_button" data-hover="goods-fav-collect-hover" mars_sead="onsaledetails-col-btn">
+	                        <i class="star-icon star-empty-icon"></i>
+	                        <span class="collect-tips">收藏商品</span>
+	                    </div>
+	                    <div class="goods-fav-collected" id="J_remove_fav_button" data-hover="goods-fav-collected-hover" mars_sead="cancel_onsaledetails-col-btn">
+	                        <i class="star-icon star-full-icon"></i>
+	                        <span class="collect-tips had-collected">已收藏</span>
+	                        <span class="collect-tips cancel-collected">取消收藏</span>
+	                    </div>
+                	</div>
+			                	<!--分享容器-->
+						<div class="share-box" id="share">
+							<span class="car-share-box">
+								<i class="tit-icon"></i>
+								<span class="share-text">分享到</span>
+								<i class="tit-arrow"></i>
+							</span>
+							<span class="share-list">
+								<a class="vips_qzone  share_gap " href="#" data-sns="qzone" data-original-title="分享到QQ空间" mars_sead="sns_m_shopdetail_share_qzone_link"></a>
+								<a class="vips_qq  share_gap " href="#" data-sns="qq" data-original-title="分享到QQ好友" mars_sead="sns_m_shopdetail_share_qq_link"></a>
+								<a class="vips_weixin  share_gap " href="#" data-sns="weixin" data-original-title="分享到微信" mars_sead="sns_m_shopdetail_share_weixin_link"></a>
+								<a class="vips_tsina J_widget_share share_gap share_gap_last" href="#" data-sns="tsina" data-original-title="分享到新浪微博" mars_sead="sns_m_shopdetail_share_sinaweibo_link"></a>
+							</span>
+						</div>
+			</div>
+			</div>
+			
+			<!--右边-->
+			<div class="right-box">
+				<div class="right-box-content">
+					<div class="title-box">
+						<span class="title-time"></span>
+						<div class="title-left"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--右边侧栏-->
+	<div id="sidebar"></div>
+	<!--尾部-->
 	<div id="footer"></div>
 		<script src="../js/common/jquery-1.12.3.js"></script>
 		<script type="text/javascript" src="../js/common/common.js" ></script>

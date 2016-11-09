@@ -314,7 +314,6 @@ $(function(){
 		$(this).addClass("page-select").siblings().removeClass("page-select").addClass("J-link");
 		$(".goods-list").html("");
 		var i = $(this).index();
-//		console.log(i);
 		var target = "../data/goodList/list"+i+".json";
 		load(target,".goods-list");
 		

@@ -338,37 +338,6 @@ $(function(){
 				
 			})
 	})
-//吸顶
-	$(function(){
-		var fixTop=$("#box-header-nav").offset().top;
-			$(window).scroll(function(){
-					var scrollTop=$(this).scrollTop();
-					if(scrollTop>=fixTop){
-						$("#box-header-nav").css({position:"fixed",top:0});
-						
-					}else{
-						$("#box-header-nav").css({position:"static"});
-					}
-				})
-				
-	})
-//导航鼠标移上
-	$(function(){
-		$(".more").mouseover(function(){
-			$(".nav-list-more").css({display:"block"});
-		})
-		$(".more").mouseout(function(){
-			$(".nav-list-more").css({display:"none"});
-		})
-		$(".channel-item").mouseover(function(){
-			$(this).find("div").eq(0).stop().animate({top:3},200)
-		})
-		$(".channel-item").mouseout(function(){
-			$(this).find("div").eq(0).stop().animate({top:38},200)
-		})
-	})
-//导航鼠标移上-END
-
 
 //淡入淡出轮播图
 	
@@ -431,4 +400,19 @@ $(function(){
 					startMove(sliderlist[iNow],{opacity:100});
 				
 			}
+	
+//吸顶
+	$(function(){
+		var fixTop=$("#box-header-nav").offset().top;
+			$(window).scroll(function(){
+					var scrollTop=$(this).scrollTop();
+					if(scrollTop>=fixTop){
+						$("#box-header-nav").css({position:"fixed",top:0});
+						
+					}else{
+						$("#box-header-nav").css({position:"static"});
+					}
+				})
+				
+	})
 	

@@ -231,15 +231,6 @@ a:hover {
 .vipFontStrat {
 	color: red
 }
-
-@font-face {
-	font-family: vipFont;
-	src: url(//bootstrap.vipstatic.com/font/vipFont.eot?4090b14c);
-	src: url(//bootstrap.vipstatic.com/font/vipFont.eot?4090b14c?#iefix) format('embedded-opentype'), url(//bootstrap.vipstatic.com/font/vipFont.svg?767458a2#vipFont) format('svg'), url(//bootstrap.vipstatic.com/font/vipFont.woff?da200a23) format('woff'), url(//bootstrap.vipstatic.com/font/vipFont.ttf?dfd6e085) format('truetype');
-	font-weight: 400;
-	font-style: normal
-}
-
 .vipFont {
 	font-family: vipFont;
 	speak: none;
@@ -2893,7 +2884,7 @@ div.ui-quantity {
 	float: left;
 	_display: inline;
 	margin-right: 8px;
-	background-image: url(//member-ssl.vipstatic.com/img/passport/sprite.png?b4434e18);
+	background-image:url(../img/login/loginshare.png);
 	width: 24px;
 	height: 24px
 }
@@ -3016,7 +3007,7 @@ body .u-link:hover {
 
 .u-logo {
 	float: left;
-	background-image: url(//member-ssl.vipstatic.com/img/passport/sprite.png?b4434e18);
+	background-image:url(../img/login/loginshare.png);
 	background-position: 0 0;
 	width: 313px;
 	height: 53px
@@ -3025,7 +3016,7 @@ body .u-link:hover {
 .u-promise {
 	float: right;
 	margin-top: 12.5px;
-	background-image: url(//member-ssl.vipstatic.com/img/passport/sprite.png?b4434e18);
+	background-image:url(../img/login/loginshare.png);
 	background-position: -317px 0;
 	width: 445px;
 	height: 28px

@@ -301,6 +301,7 @@
 			
 			.regForm {
 				width: 344px;
+				height: 396px;
 				float: left;
 				border-right: dotted 1px #bfbfbf;
 				margin: 0 20px 0 75px;
@@ -743,6 +744,7 @@
 				overflow: hidden;
 				zoom: 1;
 				line-height: 16px;
+				height: 16px;
 			}
 			
 			.regHeaderTip .fl.on {
@@ -1386,10 +1388,12 @@
 			
 			.register-form {
 				padding-top: 3px;
+				height: 335px;
 			}
 			
 			.control-group {
 				margin-bottom: 25px;
+				height: 32px;
 			}
 			
 			.control-group .ui-input {
@@ -1491,7 +1495,7 @@
 			.mb0 {
 				margin-bottom: 0;
 			}
-			/* å¯†ç å¼ºåº¦æŽ§ä»¶ */
+			
 			
 			.register-form .strength-indicator {
 				display: none;
@@ -1567,6 +1571,8 @@
 			
 			#reg-form-wrapper {
 				text-align: left;
+				height:335px;
+				position: relative;
 			}
 			
 			.control-group .third_div_link {
@@ -4299,7 +4305,8 @@
 				margin-left: 5px
 			}
 			
-			.z-ui-form-item-warning .ui-dropdown-hd,
+			/*点击变红*/
+			/*.z-ui-form-item-warning .ui-dropdown-hd,
 			.z-ui-form-item-warning .ui-dropdown-hd:hover,
 			.z-ui-form-item-warning .ui-input,
 			.z-ui-form-item-warning .ui-input:hover,
@@ -4309,7 +4316,7 @@
 			.z-ui-form-item-warning .ui-textarea:focus {
 				border-color: #fca1a5;
 				background-color: #ffe6e7
-			}
+			}*/
 			
 			.z-ui-form-item-success .ui-input-success {
 				visibility: visible;
@@ -4549,4 +4556,87 @@
 			.vipFontEnd {
 				color: red
 			}
+
+/*右边表单	*/
+.tip-warn1{
+	position: absolute;
+	top:-20px;
+	width: 100px;
+	height:20px;
+	background-color: #fffbf3;
+    border: 1px solid #f8dcb0;
+    line-height:20px;
+    font-size: 12px;
+    border-radius:3px;
+    display: none;
+    background: url(../img/regist/default.png) no-repeat center left;
+    padding-left: 15px;
+    }
+.tip-warn2{
+	display: none;
+	position: absolute;
+	top:-40px;
+	width: 100px;
+	height:30px;
+	border: 1px solid #00BFFF;
+	line-height: 30px;
+	border-radius:3px;
+	font-size: 12px;
+	background:#FFFFFF url(../img/regist/error.png) no-repeat center left;
+    padding-left: 20px;
+}
+.reg-input{
+	width: 248px;
+	height: 18px;
+    line-height: 18px;
+    padding: 6px 10px;
+    font: 14px/20px tahoma, arial, Hiragino Sans GB, WenQuanYi Micro Hei, '\5FAE\8F6F\96C5\9ED1', '\5B8B\4F53', sans-serif;
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #b2b2b2;
+    border-radius: 3px;
+    outline: 0;
+    margin-bottom: 25px;
+}
+/*失焦的时候*/
+.reg-input2{
+	width: 248px;
+	height: 18px;
+    line-height: 18px;
+    padding: 6px 10px;
+    font: 14px/20px tahoma, arial, Hiragino Sans GB, WenQuanYi Micro Hei, '\5FAE\8F6F\96C5\9ED1', '\5B8B\4F53', sans-serif;
+    color: #333;
+    border-radius: 3px;
+    outline: 0;
+    margin-bottom: 25px;
+	border-color: #fca1a5;
+    background-color: #ffe6e7;
+}
+.control-group .reg-msg{
+	width: 118px;
+}
+.control-group i {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    
+}
+.reg-moblie i{
+	background:url(../img/regist/right.png) no-repeat center center;
+	position: absolute;
+	top:6%;
+	margin-top: -10px;
+	right: 80px;
+	display: none;
 	
+}
+.reg-pwd i{
+	background: url(../img/regist/qiang.png) no-repeat center center;
+	position: absolute;
+	top:31%;
+	margin-top: -10px;
+	left: 0;
+	display: block;
+}
+

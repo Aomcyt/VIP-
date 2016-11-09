@@ -1,0 +1,285 @@
+#container{
+	width: 1000px;
+    margin:0 auto;
+    margin-top: 50px;
+    }
+.title{
+	width: 1000px;
+	height: 40px;
+    /*padding: 11px 0;*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.goods-detail{
+	height: 1000px;
+}
+.left-box{
+	width: 420px;
+    float: left;
+    position: relative;
+}
+.left-box .big-box{
+	width: 420px;
+    height: 531px;
+    position: relative;
+    z-index: 99;
+    margin-bottom: 5px
+}
+.left-box .big-box img{
+	width: 420px;
+	height: 531px;
+}
+.zoom{
+    display: block;
+    top: 328px;
+    left: 259px;
+    width: 160px;
+    height: 202px;
+    position: absolute;
+    border-width: 1px;
+    overflow: hidden;
+    background-color: #fff;
+    opacity: .6;
+    border: 1px solid #ccc;
+    z-index: 101;
+    cursor: crosshair;
+}
+.zoom-window{
+	position: absolute;
+    left: 0;
+    top: 0;
+    background: #fff;
+    width: 420px;
+    height: 531px;
+    z-index: 110;
+    display: block;
+}
+.left-box .big-box .zoom-window img{
+	width:100%;
+	height: 531px;
+	display: block;
+	position: relative;
+	overflow: hidden;
+	z-index: 110;
+}
+.zom-load{
+	visibility: hidden;
+	top: 244px;
+	left: 165px;
+	position: absolute;
+	opacity: 0.8;
+	color: #333;
+	font-size: 12px;
+	text-decoration: none;
+	border: 1px solid #ccc;
+	background-color: #fff;
+	padding: 8px;
+    text-align: center;
+    z-index: 110;
+    width: 90px;
+    height: 43px;
+  }
+.icon-a {
+   	position: absolute;
+    width: 20px;
+    height: 20px;
+    bottom: 0;
+    right: 0;
+    display: block;
+    z-index: 100;
+    background:url(../img/goodDetail/good-D2.png) no-repeat -50px 0;
+}
+.small-box{
+    position: relative;
+    width: 420px;
+    height: 79px;
+    margin-right: 1px;
+    overflow: hidden;
+}
+
+.small-box-list{
+	position: absolute;
+    width: 426px;
+    left: 0px;
+}
+.small-box-list li{
+	width: 62px;
+	height: 73px;
+	float: left;
+	cursor: pointer;
+	overflow: hidden;
+	position: relative;
+	border: 1px solid #F2F2F2;
+	margin: 0 7px 0 0;
+}
+.small-box-list li img{
+	width: 62px;
+	height: 78px;
+	position: absolute;
+	z-index: 10;
+	vertical-align: bottom;
+}
+.small-box-list li.active{
+	border:1px solid #F10180;
+}
+.goods-text{
+	width:420px;
+	height: 46px;
+	clear: both;
+}
+.text-one{
+	width: 160px;
+    color: #999;
+    line-height: 32px;
+    display: inline-block;
+    font-size: 12px;
+    float: left;
+}
+.text-collect{
+    line-height: 16px;
+    cursor: pointer;
+    width: 70px;
+    padding: 6px 0 1px 2px;
+    display: inline-block;
+    font-size: 12px;
+    margin-left: 18px;
+    float: left;
+}
+.goods-fav-collect, .goods-fav-collected {
+    font-size: 0;
+}
+.goods-fav-collect {
+    color: #999;
+}
+.goods-fav-collected{
+	display: none;
+}
+.text-collect .star-icon {
+    display: inline-block;
+    margin-right: 5px;
+    vertical-align: top;
+}
+.star-full-icon {
+    background-image: url(../img/goodDetail/good-D3.png);
+    background-position: -401px -124px;
+    width: 16px;
+    height: 15px;
+}
+.star-empty-icon {
+    background-image: url(../img/goodDetail/good-D3.png);
+    background-position: -381px -124px;
+    width: 16px;
+    height: 15px;
+}
+.collect-tips {
+    font-size: 12px;
+}
+.collect-tips:hover{color: #F10280;}
+.cancel-collected{display:none;}
+.share-box{
+	 width: 95px;
+    height: 22px;
+	border:solid 1px #c2c2c2;
+	float: right;
+}
+.car-share-box {
+    width: 95px;
+    height: 22px;
+    line-height: 22px;
+    display: inline-block;
+    background: #fafafa;
+    border: solid 1px #c2c2c2;
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+    z-index: 100;
+    transition: border .3s;
+}
+.share-text{
+	font-size: 12px;
+	height: 22px;
+	line-height: 22px;
+}
+.tit-arrow{
+	border: solid 3px transparent;
+    border-top-color: #999;
+    margin-left: 2px;
+    top: 0;
+    display: inline-block;
+    height: 0;
+    line-height: 0;
+    position: relative;
+}
+.share-list{
+	width:124px;
+	display:none;
+	padding:5px 9px;
+	position: absolute;
+	border: solid 1px #C2C2C2;
+	border-top-left-radius: 0;
+    background: #fff;
+}
+.share-box:hover .share-list{display:block;}
+.share-list .share_gap{
+	margin-right: 8px;
+	width: 20px;
+	height: 20px;
+}
+.share-list .vips_qzone{
+	background-position: -30px -40px;
+}
+.share-list .vips_qq {
+    background-position: -240px -40px;
+}
+.share-list .vips_weixin {
+    background-position: -210px -40px;
+}
+.share_gap_last {
+    margin-right: 0;
+}
+
+.vips_tsina {
+    background-position: 0 -40px;
+}
+.vips_qzone,.vips_qq,.vips_weixin,.vips_tsina{
+	display: inline-block;
+    position: relative;
+    font-size: 18px;
+    outline: 0;
+    text-decoration: none;
+    background: url(../img/goodDetail/good-Dshare.png) no-repeat;
+    cursor: pointer;
+    vertical-align: top;
+    margin: 0;
+    padding: 0;
+    float: none;
+}
+/*右盒子*/
+.right-box{
+    float: right;
+    width: 550px;
+    position: relative;
+    z-index: 100;
+    min-height: 634px;
+    height: 700px;
+    background: red;
+}
+.right-box-content{
+	min-height: 538px;
+}
+.title-box{width: 550px;height: 20px;}
+.title-time{
+    float: right;
+    line-height: 18px;
+    background: #333;
+    color: #fff;
+    padding: 0 5px 0 13px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+.title-left{
+    width: 390px;
+    color: #4d4d4d;
+    margin-bottom: 10px;
+}
