@@ -1,5 +1,5 @@
 /*右边侧栏导航*/
-  		#sidebar{position: fixed;right: 0;top: 0;z-index: 101px;width: 36px;height: 100%;font-family: "Microsoft YaHei";}
+  		#sidebar{position: fixed;right: 0;top: 0;z-index:51;width: 36px;height: 100%;font-family: "Microsoft YaHei";}
 		#sidebar .sidebar-nav{position: relative;background: #262626;height: 100%;}
 		#sidebar .sidebar-nav .sidebar-nav-top{margin-top: -200px;height: 400px;position: absolute;top: 38%;right: 0;}
 		.count,.asset,.brand,.goods.shop-cart{width: 36px;position: relative;}				    

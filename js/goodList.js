@@ -32,6 +32,20 @@ function GetRTime(){
    setInterval(GetRTime,1000);
 //倒计时--end
 
+
+//$(function(){
+	function bangding(){
+		$(".goods-thumb-link").mouseover(function(){
+//			$(this).addClass("is-goods-thumb-current").siblings().removeClass("is-goods-thumb-current");
+			console.log(1);
+		})
+	}
+	
+//})
+
+
+
+
 //动态加载
 $(function(){
 	load("../data/goodList/list1.json",".goods-list");
@@ -247,6 +261,7 @@ function load(url,container){
 					)
 				}
 		})
+	bangding();
 	}
 function list(url,container){
 	$.get(url,function(data){
@@ -266,7 +281,124 @@ function list(url,container){
 	})
 }
 //动态加载--end
+//吸顶
+$(function(){
+	var fixTop=$(".pro-list-oper").offset().top;
+	$(window).scroll(function(){
+		var scrollTop=$(this).scrollTop();
+		if(scrollTop>=fixTop){
+			$(".pro-list-oper").css({position:"fixed",top:0});
+		}else{
+			$(".pro-list-oper").css({position:"static"});
+		}
+	})
+})
+//吸顶-end
+//选项卡
+//$(function(){
+//	$.each($(".goods-images img"), function(index,ele){
+//		$(this).on("mouseover",function(index,ele){
+//			$(".goods-thumb-link").removeClass();
+//			$(this).parents(".goods-thumb-link").addClass("active");
+//			$(".goods-image .J_first_pic").attr("src","../img/goodList/goodsimage113.jpg");
+//		})
+//	})
+//})
 
+
+//选项卡--end
 //分页
+$(function(){
+	$("#J-pagingWrap a").click(function(){
+		$(this).removeClass();
+		$(this).addClass("page-select").siblings().removeClass("page-select").addClass("J-link");
+		$(".goods-list").html("");
+		var i = $(this).index();
+//		console.log(i);
+		var target = "../data/goodList/list"+i+".json";
+		load(target,".goods-list");
+		
+	})
+})
+//无缝轮播
+	$(function(){
+				 var $wrap=$(".wrap-block");
+				 var len=$wrap.length;
+				 var wrapWidth=$wrap.eq(0).outerWidth();
+				 var index=2;//即将显示图片索引
+				 var timer=null;
+				 var $first=$wrap.eq(0).clone(true);
+				 var $last=$wrap.eq(len-1).clone(true);
+				 //改变后的长度
+				 len+=2;
+				 $(".body-wrap").append($first);
+				 $(".body-wrap").prepend($last);
+				 $(".body-wrap").width(len*wrapWidth);
+				 //上面页数的点击
+				 $(".pages-left").click(function(){
+				 	if($(".body-wrap").is(":animated"))
+				 	return;
+				 	index-=2;
+				 	move();
+				 })
+				 $(".pages-right").click(function(){
+				 	//防止连续点击的时候出现空白
+				 	if($(".body-wrap").is(":animated"))
+				 	return;
+				 	move();
+				 })
+				 //上面页数123
+				 for(var i=0;i<len-2;i++){
+				 	 $(".pages-num").eq(0).addClass("curr").end().on("click",function(){
+				 	index=$(this).index();
+				 	move();
+					 })
+				 }
+				
+				 //前后翻页
+				 $(".handle-right").click(function(){
+				 	//防止连续点击的时候出现空白
+				 	if($(".body-wrap").is(":animated"))
+				 	return;
+				 	move();
+				 })
+				 $(".handle-left").click(function(){
+				 	if($(".body-wrap").is(":animated"))
+				 	return;
+				 	index-=2;
+				 	move();
+				 })
+				 //鼠标移动事件
+				 $(".reco-body").hover(function(){
+				 	clearInterval(timer);
+				 },function(){
+				 	timer=setInterval(move,5000);
+				 }).trigger("mouseleave");//触发事件的执行
+//				 timer=setInterval(move,500);
+				//初始设置显示
+				$(".body-wrap").css("left",-wrapWidth);
+			 	function move(){
+				 	var iLeft=-1*index*wrapWidth;
+				 	//计算小圆点索引
+				 	var curr=index>len-2 ? 0: index-1;
+				 	$(".pages-num").eq(curr).addClass("curr").siblings().removeClass("curr");
+				 	index++;
+//				 	if(index>=len){
+//				 		index=0;
+//				 	}
+				 	 $(".body-wrap").animate({left:iLeft},function(){
+				 	 	if(index===len){
+				 	 		$(".body-wrap").css("left",-wrapWidth);
+					 	 	index=2;
+					 	}else if(index===1){
+					 		$(".body-wrap").css("left",-1*(len-2)*wrapWidth);
+					 		index=len-1;
+					 	}
+					 	
+					});
+				}
+				
+			})
+//无缝轮播--end
 
 

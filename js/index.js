@@ -370,15 +370,15 @@ $(function(){
 //导航鼠标移上-END
 
 
-//轮播图
-
+//淡入淡出轮播图
+	
 			var oBox=document.getElementById("banner");
 			var oSlider=document.getElementsByClassName("slider")[0];
 			var sliderlist=document.getElementsByClassName("slider-list");
 			var oUl=document.getElementsByClassName("slider-bottom-list")[0];
 			var aLi=oUl.getElementsByTagName("li");
-			var oPre=document.getElementsByClassName("prev");
-			var oNext=document.getElementsByClassName("next");
+			var oPre=document.getElementsByClassName("prev")[0];
+			var oNext=document.getElementsByClassName("next")[0];
 			var iNow=0;//当前图片索引
 		for(var i=0;i<aLi.length;i++){
 			aLi[i].index=i;
@@ -390,18 +390,26 @@ $(function(){
 			autoPlay();//打开就自动播放
 			oNext.onclick=function(){
 				iNow++;
+				if(iNow>3)
+				iNow=0;
 				tab();
 			}
 			oPre.onclick=function(){
 				iNow--;
+				if(iNow<0)
+				iNow=3;
 				tab();
 			}
 			oSlider.onmouseover=function(){
 				clearInterval(oSlider.timer);
+				oPre.style.left="0px";
+				oNext.style.right="0px";
 				
 			}
 			oSlider.onmouseout=function(){
 				autoPlay();
+				oPre.style.left="-65px";
+				oNext.style.right="-65px";
 				
 			}
 			function autoPlay(){
@@ -423,3 +431,4 @@ $(function(){
 					startMove(sliderlist[iNow],{opacity:100});
 				
 			}
+	

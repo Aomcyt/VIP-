@@ -19,9 +19,10 @@
 				    text-align: center;
 				    -webkit-transition: all .3s ease-in;
 		   			 }
-		.prev, .next {width:50px; height:50px; position:absolute; top:0; bottom:0; margin:auto 0; background:black; cursor: pointer; font:50px/50px "宋体"; color:white; text-align: center; opacity: 0;}
-		.next {right:0px;}
-		.slider-bottom{
+	.prev,.next {width:30px; height:60px; opacity:0.5;position:absolute; top:0; bottom:0; margin:auto 0; background:black; cursor: pointer; font:50px/50px "宋体"; color:white; text-align: center;}
+	.next {right:-65px;}
+	.prev{left: -65px;}
+	.slider-bottom{
 				    text-align: center;
 				    width: 976px;
 				    left: 50%;
@@ -33,9 +34,9 @@
 				    background: #fff;
 				    cursor: pointer;
 				}
-		.slider-bottom-list{width: 100%;height:40px;text-align: center;}
-		.slider-bottom-list li{float: left;width: 195px;height:40px;line-height: 40px;padding-left: 40px;}
-		.active{border-bottom: #e6057d 3px solid;}
+	.slider-bottom-list{width: 100%;height:40px;text-align: center;}
+	.slider-bottom-list li{float: left;width: 195px;height:40px;line-height: 40px;padding-left: 40px;}
+	.active{border-bottom: #e6057d 3px solid;}
 		
 	/*楼梯*/
 		#loutiNav{
