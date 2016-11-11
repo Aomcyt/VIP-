@@ -296,14 +296,16 @@ $(function(){
 //吸顶-end
 //选项卡
 //$(function(){
-//	$.each($(".goods-images img"), function(index,ele){
-//		$(this).on("mouseover",function(index,ele){
-//			$(".goods-thumb-link").removeClass();
-//			$(this).parents(".goods-thumb-link").addClass("active");
+//	$.each($(".goods-images div"), function(index,ele){
+//		$(this).on("mouseover",function(){
+//			$(this).next("a").removeClass();
+//			$(this).next("a").addClass("active");
 //			$(".goods-image .J_first_pic").attr("src","../img/goodList/goodsimage113.jpg");
 //		})
 //	})
 //})
+
+
 
 
 //选项卡--end

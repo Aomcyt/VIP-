@@ -64,3 +64,16 @@ $(function(){
 		})
 	})
 //导航鼠标移上-END
+
+//显示用户名
+$(function(){
+var ret = JSON.parse(localStorage.getItem('user'));
+var user = ret.name;
+if(ret){
+	$("#ret").html("您好:"+user).show();
+	
+}
+else{
+	$("#ret").hide();
+}
+});

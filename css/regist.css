@@ -4561,14 +4561,14 @@
 .tip-warn1{
 	position: absolute;
 	top:-20px;
-	width: 100px;
+	width: 140px;
 	height:20px;
 	background-color: #fffbf3;
     border: 1px solid #f8dcb0;
     line-height:20px;
     font-size: 12px;
     border-radius:3px;
-    display: none;
+    display:none;
     background: url(../img/regist/default.png) no-repeat center left;
     padding-left: 15px;
     }
@@ -4631,12 +4631,28 @@
 	display: none;
 	
 }
-.reg-pwd i{
+#tu3{
+	background: url(../img/regist/ruo.png) no-repeat center center;
+	position: absolute;
+	top:31%;
+	margin-top: -10px;
+	left: 50px;
+	display: block;
+}
+#tu2{
+	background: url(../img/regist/zhong.png) no-repeat center center;
+	position: absolute;
+	top:31%;
+	margin-top: -10px;
+	left: 100px;
+	display: block;
+}
+#tu1{
 	background: url(../img/regist/qiang.png) no-repeat center center;
 	position: absolute;
 	top:31%;
 	margin-top: -10px;
-	left: 0;
-	display: block;
+	left: 150px;
+	display:block;
 }
 
