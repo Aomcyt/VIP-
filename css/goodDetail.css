@@ -32,7 +32,7 @@
 	height: 531px;
 }
 .zoom{
-    display: block;
+    display: none;
     top: 328px;
     left: 259px;
     width: 160px;
@@ -46,41 +46,7 @@
     z-index: 101;
     cursor: crosshair;
 }
-.zoom-window{
-	position: absolute;
-    left: 0;
-    top: 0;
-    background: #fff;
-    width: 420px;
-    height: 531px;
-    z-index: 110;
-    display: block;
-}
-.left-box .big-box .zoom-window img{
-	width:100%;
-	height: 531px;
-	display: block;
-	position: relative;
-	overflow: hidden;
-	z-index: 110;
-}
-.zom-load{
-	visibility: hidden;
-	top: 244px;
-	left: 165px;
-	position: absolute;
-	opacity: 0.8;
-	color: #333;
-	font-size: 12px;
-	text-decoration: none;
-	border: 1px solid #ccc;
-	background-color: #fff;
-	padding: 8px;
-    text-align: center;
-    z-index: 110;
-    width: 90px;
-    height: 43px;
-  }
+
 .icon-a {
    	position: absolute;
     width: 20px;
@@ -90,6 +56,24 @@
     display: block;
     z-index: 100;
     background:url(../img/goodDetail/good-D2.png) no-repeat -50px 0;
+}
+.large-box{
+	display: none;
+	width: 420px;
+    height: 531px;
+    position: absolute;
+    border:1px solid #F0F0F0;
+   	top: 0;
+    left: 420px;
+    z-index:99;
+    overflow: hidden;
+  }
+.large-box img{
+	width: 840px;
+	height:1062px ;
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 .small-box{
     position: relative;
@@ -261,7 +245,7 @@
     float: right;
     width: 550px;
     position: relative;
-    z-index: 100;
+    /*z-index: 100;*/
     height: 540px;
   
 }
@@ -302,7 +286,7 @@
     margin-bottom: 10px;
     padding-bottom: 5px;
     position: relative;
-    z-index: 11;
+    /*z-index: 11;*/
     }
 .price-show{
     font-family: arial;
@@ -316,7 +300,7 @@
 .yan{font-size: 20px;}
 .price-sale{
     display: inline-block;
-    z-index: 30;
+    /*z-index: 30;*/
     position: relative;
     vertical-align: top;
     margin-top: 24px;
@@ -372,7 +356,7 @@ address, caption, cite, code, dfn, em, optgroup, th, var {
 }
 .attr-box {
     position: relative;
-    z-index: 10;
+    /*z-index: 10;*/
     height: 363px;
 }
 .attr-box-inner{
@@ -430,7 +414,7 @@ address, caption, cite, code, dfn, em, optgroup, th, var {
     margin: 0 15px 9px 0;
     list-style: none;
 }
-.color-list-item a {
+.attr-box-inner-color .color-list-item a {
     display: inline-block;
     width: 34px;
     height: 43px;
@@ -457,9 +441,12 @@ address, caption, cite, code, dfn, em, optgroup, th, var {
     background-image:url(../img/goodDetail/good-D2.png);
     background-repeat: no-repeat;
 }
-/*售完标志*/
-.hidden {
-    display:none;
+/*勾*/
+.attr-box-inner-color .color-list .selected .i-select {
+    display: block;
+    bottom: 2px;
+    right: 2px;
+    z-index: 2;
 }
 .sold-out{
     position: absolute;
@@ -473,16 +460,12 @@ address, caption, cite, code, dfn, em, optgroup, th, var {
     text-align: center;
     filter: alpha(opacity=90);
     opacity: .9;
+    display: none;
+    
 }
-.color-list .selected {
-    padding: 0;
-    border: 2px solid #f43499;
-}
-.color-list .selected .i-select {
-    display: block;
-    bottom: 2px;
-    right: 2px;
-    z-index: 2;
+/*售完标志*/
+.active-show{
+    display:block;
 }
 .attr-box-inner-size{
     padding: 12px 11px 0;
@@ -1329,7 +1312,7 @@ table {
 .item-zp, .item-zp:hover {
     background-position: 0 -100px;
 }
-.il-item{
+.il-item,.au-top{
 	background-image: url(../img/goodDetail/detail_about_imgs.png);
     background-repeat: no-repeat;
     display: inline-block;
@@ -1353,4 +1336,36 @@ table {
 }
 .item-yj {
     background-position: -300px 0;
+}
+/*.logo-list-inner .au-main{display:block;}*/
+.active-pannel{display: block;}
+.au-top-zp {
+    background-position: 0 -200px;
+}
+.au-top {
+    width: 1000px;
+    height: 63px;
+}
+.au-con {
+    width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+.au-top-xl {
+    background-position: 0 -300px;
+}
+.au-top-tk {
+    background-position: 0 -400px;
+}
+.au-top-ps {
+    background-position: 0 -500px;
+}
+.au-top-kf {
+    background-position: 0 -600px;
+}
+.au-top-pp {
+    background-position: 0 -700px;
+}
+.au-top-yj {
+    background-position: 0 -800px;
 }

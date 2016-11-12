@@ -1,11 +1,56 @@
-//放大镜选项卡
+//放大镜
 $(function(){
+	 var zoomWidth=$(".zoom").width();
+	 var zoomHeight=$(".zoom").height();
+	 var boxWidth=$(".big-box").width();
+	 var boxHeight=$(".big-box").height();
+	 var largeWidth=$(".large-box").width();
+	 var largeHeight=$(".large-box").height();
+//	 鼠标事件
+	 $(".big-box").hover(function(){
+	 	$(".large-box").show();
+	 	$(".zoom").show();
+	},function(){
+		$(".large-box").hide();
+		$(".zoom").hide();
+	}).on("mousemove",function(e){
+		var x=e.pageX;
+		var y=e.pageY;
+		$(".zoom").offset({
+			top:y-zoomHeight/2,
+			left:x-zoomWidth/2
+		})
+		//获取镜头相对其父元素的坐标
+			var cor=$(".zoom").position();
+			var _top=cor.top;
+			var _left=cor.left;
+			//临界值
+			if(_top<0){
+				_top=0;
+			}else if(_top>boxHeight-zoomHeight){
+				_top=boxHeight-zoomHeight;
+			}
+			if(_left<0){
+				_left=0;
+			}else if(_left>boxWidth-zoomWidth){
+				_left=boxWidth-zoomWidth;
+			}
+			$(".zoom").css({
+				top:_top,
+				left:_left
+			})
+			$(".large-box img").css({
+				top:-2*_top,
+				left:-2*_left
+			})
+	})
+	//放大镜选项卡
 	$.each($(".small-box-list img"),function(index,ele){
 		$(this).on("click",function(){
 			$(".small-box-list li").removeClass();
 			$(this).parents("li").addClass("active");
 			$(".big-box img").attr("src","../img/goodDetail/small-box-list"+(index+1)+".jpg");
-			
+			$(".large-box img").attr("src","../img/goodDetail/small-box-list"+(index+1)+".jpg");
 		})
 	})
 })
@@ -65,83 +110,106 @@ var isClick=false;
 		}
 			
 	})
-
 //轮播图
-	$(function(){
-				 var $recos=$(".reco-listbox-inner");
-				 var len=$recos.length;
-				 var recoWidth=$recos.eq(0).outerWidth();
-				 var index=2;//即将显示图片索引
-				 var timer=null;
-				 var $first=$recos.eq(0).clone(true);
-				 var $last=$recos.eq(len-1).clone(true);
-				 //改变后的长度
-				 len+=2;
-				 $(".dt-reco-listbox").append($first);
-				 $(".dt-reco-listbox").prepend($last);
-				 $(".dt-reco-listbox").width(len*recoWidth);
-				 //上面页数的点击
-//				 $("#left").click(function(){
-//				 	if($(".dt-reco-listbox").is(":animated"))
-//				 	return;
-//				 	index-=2;
-//				 	move();
-//				 })
-//				 $("#right").click(function(){
-//				 	//防止连续点击的时候出现空白
-//				 	if($(".dt-reco-listbox").is(":animated"))
-//				 	return;
-//				 	move();
-//				 })
-				 //上面页数123
-				 for(var i=0;i<len-2;i++){
-				 	 $(".J_fake_a").eq(1).addClass("color").end().on("click",function(){
-				 	index=$(this).index();
-				 	move();
-					 })
-				 }
-				//前后翻页
-//				 $("#btn-next").eq(1).click(function(){
-//				 	console.log(11)
-//				 	//防止连续点击的时候出现空白
-//				 	if($(".dt-reco-listbox").is(":animated"))
-//				 	return;
-//				 	move();
-//				 })
-//				 $("#btn-prev").eq(0).click(function(){
-//				 	if($(".dt-reco-listbox").is(":animated"))
-//				 	return;
-//				 	index-=2;
-//				 	move();
-//				 })
-				 //鼠标移动事件
-				 $(".dt-reco-middle-box").hover(function(){
-				 	clearInterval(timer);
-				 },function(){
-				 	timer=setInterval(move,5000);
-				 }).trigger("mouseleave");//触发事件的执行
+$(function(){
+	 var recos=$(".reco-listbox-inner");
+	 var len=recos.length;
+	 var recoWidth=recos.eq(0).outerWidth();
+	 var index=2;//即将显示图片索引
+	 var timer=null;
+	 var first=recos.eq(0).clone(true);
+	 var last=recos.eq(len-1).clone(true);
+	 //改变后的长度
+	 len+=2;
+	 $(".dt-reco-listbox").append(first);
+	 $(".dt-reco-listbox").prepend(last);
+	 $(".dt-reco-listbox").width(len*recoWidth);
+
+	 //前后翻页的点击
+	 $(".J_reco_perv").click(function(){
+	 	if($(".dt-reco-listbox").is(":animated"))
+	 	return;
+	 	index-=2;
+	 	move();
+	 })
+	 $(".J_reco_next").click(function(){
+	 	//防止连续点击的时候出现空白
+	 	if($(".dt-reco-listbox").is(":animated"))
+	 	return;
+	 	move();
+	 })
+	 //上面页数123
+	 $(".page-num a").on("click",function(){
+	 	index=$(this).index()+1;
+	 	move();
+	});
+
+
+	 //鼠标移动事件
+	 $(".dt-reco-middle-box").hover(function(){
+	 	clearInterval(timer);
+	 },function(){
+	 	timer=setInterval(move,5000);
+	 }).trigger("mouseleave");//触发事件的执行
 //				 timer=setInterval(move,500);
-				//初始设置显示
-				$(".dt-reco-listbox").css("left",-recoWidth);
-			 	function move(){
-				 	var iLeft=-1*index*recoWidth;
-				 	//计算小圆点索引
-				 	var curr=index>len-2 ? 0: index-1;
-				 	$(".J_fake_a").eq(curr).addClass("color").siblings().removeClass("color");
-				 	index++;
+	//初始设置显示
+	$(".dt-reco-listbox").css("left",-recoWidth);
+ 	function move(){
+	 	var iLeft=-1*index*recoWidth;
+	 	//计算小圆点索引
+	 	var curr=index>len-2 ? 0: index-1;
+	 	$(".page-num a").eq(curr).addClass("color").siblings().removeClass("color");
+	 	index++;
 //				 	if(index>=len){
 //				 		index=0;
 //				 	}
-				 	 $(".dt-reco-listbox").animate({left:iLeft},function(){
-				 	 	if(index===len){
-				 	 		$(".dt-reco-listbox").css("left",-recoWidth);
-					 	 	index=2;
-					 	}else if(index===1){
-					 		$(".dt-reco-listbox").css("left",-1*(len-2)*recoWidth);
-					 		index=len-1;
-					 	}
-					 	
-					});
-				}
-				
-			})
+	 	 $(".dt-reco-listbox").animate({left:iLeft},function(){
+	 	 	if(index===len){
+	 	 		$(".dt-reco-listbox").css("left",-recoWidth);
+		 	 	index=2;
+		 	}else if(index===1){
+		 		$(".dt-reco-listbox").css("left",-1*(len-2)*recoWidth);
+		 		index=len-1;
+		 	}
+		});
+	}
+})
+	
+	//选项卡
+$("#aboutUs-logo li").mouseover(function(){
+	$(".logo-list-inner .au-main").eq($(this).index()).css({display:"block"}).siblings().css({display:"none"})
+})
+
+//购物车
+$("#cartAdd-sumbit").click(function(){
+	//获取数据
+	var _name=$(".title-left-text").html();
+	var _price=$("price-num").html();
+	var _size=$(".size-list-item-name").html();
+	var _color=$(".color-list-item").html();
+	//创建对象
+	var product={
+		name:_name,
+		price:_price,
+		size:_size,
+		_color:color,
+		amount:1
+	}
+	//将当前选购的商品信息保存到cookie中
+	$.cookie.json=true;//插件配置
+	var products=$.cookie("products");
+	if(!product)
+		product=[];
+		//判断是否存在已选商品信息，若有，则修改数量
+		var index=exists(_name,products);
+		if(index!==-1){//存在，修改数量
+			products[index].amount++;
+		}else{
+			products.push(product);
+		}
+		//保存到cookie中
+		$.cookie("products", products, {expires:7, path:"/"});
+})
+function exist(class,products){
+	var 
+}

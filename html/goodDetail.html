@@ -60,6 +60,10 @@
 					<div class="zoom"></div>
 					<em class="icon-a"></em>
 				</div>
+				<!--放大镜-->
+				<div class="large-box">
+					<img src="../img/goodDetail/good-D.jpg"/>
+				</div>
 				<!--下面-->
 				<div class="small-box">
 					<ul class="small-box-list sp-wrap">
@@ -169,17 +173,20 @@
 								<dd class="color-list">
 									<ul class="color-list-ul">
 										<li class="color-list-item">
-											<a href="###">
+											<!--增加selected-->
+											<a href="###" class="selected">
 												<img class="f1" src="../img/goodDetail/goods-list1.jpg"/>
+												<!--增加i-select-->
 												<span></span>
-												<span class="sold-out hidden">售完</span>
+												<!--增加active-show-->
+												<span class="sold-out">售完</span>
 											</a>
 										</li>
 										<li class="color-list-item">
-											<a href="###" class="selected">
+											<a href="###">
 												<img class="f1" src="../img/goodDetail/goods-list1.jpg"/>
-												<span class="i-select"></span>
-												<span class="sold-out hidden">售完</span>
+												<span class="i-selected"></span>
+												<span class="sold-out">售完</span>
 											</a>
 										</li>
 										<li class="color-list-item">
@@ -1195,6 +1202,7 @@
             </div>
 			</div>
 			<!--3楼--end-->
+			<!--4楼-->
 			<div class="louti">
 				<div class="louti-reco-titlte">
 					<h3 class="dt-reco-title">关于我们</h3>
@@ -1234,8 +1242,41 @@
 							</a>
 						</li>
 					</ul>
+					<div class="logo-list-inner">
+						<div class="au-main au-main-content" style="display: block;">
+							<div class="au-top au-top-zp"></div>
+							<div class="au-con">
+								<img src="../img/goodDetail/detail_about_zp.jpg" class="" alt="" width="1000" height="810">
+							</div>
+						</div>
+						<div class="au-main au-main-content"style="display: none;" >
+			                <div class="au-top au-top-xl"></div>
+			                <div class="au-con"><img src="../img/goodDetail/detail_about_xl.jpg" class="" alt="" width="1000" height="810"></div>
+            			</div>
+						<div class="au-main au-main-content">
+			                <div class="au-top au-top-tk"></div>
+			                <div class="au-con"><img src="../img/goodDetail/detail_about_tk.jpg" class="" alt="" width="1000" height="810"></div>
+            			</div>
+						<div class="au-main au-main-content">
+			                <div class="au-top au-top-ps"></div>
+			                <div class="au-con"><img src="../img/goodDetail/detail_about_ps.jpg" class="" alt="" width="1000" height="810"></div>
+           			    </div>
+						<div class="au-main au-main-content">
+			                <div class="au-top au-top-kf"></div>
+			                <div class="au-con"><img src="../img/goodDetail/detail_about_kf.jpg" class="lazy" data-original="//shop.vipstatic.com/img/te/resource/detail_about_kf.jpg?12016102801" alt="" width="1000" height="810"></div>
+            			</div>
+						<div class="au-main au-main-content">
+			                <div class="au-top au-top-pp"></div>
+			                <div class="au-con"><img src="../img/goodDetail/detail_about_pp.jpg" class="lazy" data-original="//shop.vipstatic.com/img/te/resource/detail_about_pp.jpg?12016102801" alt="" width="1000" height="810"></div>
+           			    </div>
+						<div class="au-main au-main-content">
+		                <div class="au-top au-top-yj"></div>
+		                <div class="au-con"><img src="../img/goodDetail/detail_about_yj.jpg" class="lazy" data-original="//shop.vipstatic.com/img/te/resource/detail_about_yj.jpg?12016102801" alt="" width="1000" height="810"></div>
+            			</div>
+					</div>
 				</div>
 			</div>
+			<!--4楼-->
 		</div>
 		<!--商品详情楼梯--end-->
 	</div>
@@ -1364,6 +1405,7 @@
 		<script type="text/javascript" src="../js/common/common.js" ></script>
 		<script type="text/javascript" src="../js/common/move.js" ></script>
 		<script type="text/javascript" src="../js/goodDetail.js" ></script>
+		<script type="text/javascript" src="../js/common/jquery.cookie.js" ></script>
 		<!--<script>window.jQuery || document.write('<script src="../js/common/jquery-1.12.3.js"><\/script>')</script>
 		<script type="text/javascript" src="../js/common/smoothproducts.min.js"></script>-->
 		<script>

@@ -1,0 +1,70 @@
+		.sp-header{
+			height: 78px;
+		    border-bottom: 2px solid #f3168a;
+		    background-color: #fff;
+		}
+		.sp-header-inner{
+			position: relative;
+			z-index: 1;
+			margin-right: auto;
+			margin-left: auto;
+			width: 960px;
+		}
+		.sp-header-logo{
+			float: left;
+			padding: 16px 0 12px;
+			height: 50px;
+		}
+		.sp-header-list{
+			float: right;
+			padding-top: 10px;
+			padding-right: 5px;
+			height: 18px;
+			color: gray;
+			width: 560px;
+			line-height: 18px;
+		}
+		.sp-list-item{
+			float:left;
+			height: 24px;
+			line-height: 24px;
+		}
+		.logo-link{
+			display: block;
+			line-height: 999999px;
+			background-image: url(../img/shopCar/shopcar-logo.png);
+			background-position: -464px -146px;
+			width: 121px;
+			height:50px;
+			overflow: hidden;
+		}
+		.welcom-brand{
+			margin-left: 5px;
+			color: gray;
+			background-position:-10px -54px;
+			width: 16px;
+			height: 21px;
+			display: inline-block;
+			background-image: url(../img/shopCar/comm_level.png);
+			background-repeat: no-repeat;
+			line-height: 9999em;
+			overflow: hidden;
+		}
+		.out,.order,.line,.tel,.online,.sever{margin-left: 15px;}
+		.item-tel{
+			line-height: 18px;
+		}
+		.welcom{
+			margin-top: -3px;
+		}
+		.sp-helper-small{
+		    position: absolute;
+		    right: 100px;
+		    top:50px;
+		    z-index: 1;
+		    height: 20px;
+		}
+		.help-small-item{
+			float: left;
+			margin-left: 25px;
+		}
