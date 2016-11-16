@@ -4,8 +4,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-	<link rel="stylesheet" href="../css/login.css" />
-	
+		 <link rel="icon" href="http://s16.mogucdn.com/new1/v1/bmisc/3ce382db3c8aaca5d07bd36711e77134/171169993508.ico" type="image/x-icon" />
+		<link rel="stylesheet" href="../css/login.css" />
 	</head>
 	<body>
 		<div class="g-wrap">
@@ -16,31 +16,31 @@
 			</div>
 			<div class="g-content J-ads" data-adsid="ADSJ867S" data-bg="true" style="background-image:url(../img/login/login.jpg)">
 				<div class="m-single-function" id="J_single_function">
-					<div class="u-form-top-tip" id="J_head_tip"><b>AomizM...</b>，欢迎回来！请登录</div>
+					<div class="u-form-top-tip" id="J_head_tip">欢迎回来！请登录</div>
+					
 					<div id="J_single_login" class="m-login-panel clearfix">
-						<div class="u-form-item">
+						<!--手机号登录-->
+						<p class="tip-mobile1"></p>
+						<div class="u-form-item login-mobile">
 							<input id="J_login_name" type="text" class="ui-input" name="loginName" placeholder="邮箱/手机号/QQ号">
+							<i></i>
 						</div>
-						<p class="u-form-tip"></p>
-						<div class="u-form-item">
+						<p class="u-form-tip tip-mobile2"></p>
+						<!--手机号登录end-->
+						<!--密码验证-->
+						<p class="tip-pwd1"></p>
+						<div class="u-form-item login-pwd">
 							<input id="J_login_pwd" type="password" class="ui-input" name="password" maxlength="20" placeholder="密码">
-							<div class="ui-tooltips ui-tooltips-info ui-tooltips-left-arrow u-capslock-tip" id="J_capslock_tip">
-								<div class="ui-tooltips-arrow">
-									<i class="arrow arrow-out">◆</i>
-									<i class="arrow">◆</i>
-								</div>
-								<div class="ui-tooltips-content f-nowrap">
-									<p>请注意，键盘大写已开启</p>
-								</div>
-							</div>
+							<i></i>
 						</div>
-						<p class="u-form-tip"></p>
-						<div class="u-form-item f-hidden J_verify_code">
+						<p class="u-form-tip tip-pwd2"></p>
+						<!--密码验证end-->
+						<!--<div class="u-form-item f-hidden J_verify_code">
 							<input id="J_login_code" type="text" class="ui-input u-captcha" name="captcha" maxlength="4" placeholder="验证码" autocomplete="off">
 							<span id="J_verify_img_wrap" class="u-code-img"></span>
 							<a href="javascript:;" role="button" id="J_change_code" class="u-change-code">换一张</a>
-						</div>
-						<p class="u-form-tip f-hidden J_verify_code"></p>
+						</div>-->
+						<!--<p class="u-form-tip f-hidden J_verify_code"></p>-->
 						<div class="u-form-submit">
 							<button type="submit" class="ui-btn-large ui-btn-primary ui-btn-loading u-submit-function" id="J_login_submit">
                             <span class="ui-btn-loading-before">登录</span>
@@ -141,10 +141,12 @@
 							<a href="//passport.vip.com/login/qq" target="_blank" title="QQ" class="u-third-qq" mars_sead="passport_bottom_qq_button"></a>
 							<a href="//passport.vip.com/login/alipay" target="_blank" title="支付宝" class="u-third-alipay" mars_sead="passport_bottom_alipay_button"></a>
 							<a href="//passport.vip.com/login/weixin" target="_blank" title="微信" class="u-third-wechat" mars_sead="passport_bottom_weixin_button"></a>
-							<a href="javascript:void(0);" role="button" class="u-third-more z-open" mars_sead="passport_bottom_more_button" id="J_more_third_control">更多<i class="arrow"></i></a>
+							<a href="javascript:void(0);" role="button" class="u-third-more z-open" mars_sead="passport_bottom_more_button" id="J_more_third_control">更多
+								<i class="arrow"></i>
+							</a>
 						</p>
+						<!--更多-->
 						<div class="m-more-third-way z-third-way-in" id="J_more_third_wrap">
-
 							<a href="//passport.vip.com/login/netease" target="_blank" title="网  易" mars_sead="passport_bottom_netease_button">网 易</a>|
 							<a href="//passport.vip.com/login/renren" target="_blank" title=" 人人网 " mars_sead="passport_bottom_renren_button"> 人人网 </a>|
 							<a href="//passport.vip.com/login/ccb" target="_blank" title="建行登录" mars_sead="passport_bottom_ccb_button">建行登录</a>|
@@ -153,6 +155,7 @@
 							<a href="//passport.vip.com/login/mobile139" target="_blank" title="中国移动" mars_sead="passport_bottom_139_button">中国移动</a>|
 							<a href="//passport.vip.com/login/bestpay" target="_blank" title="翼支付" mars_sead="bottom_yizhifu_button">翼支付</a>
 						</div>
+						<!--更多end-->
 					</div>
 				</div>
 			</div>

@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>商品详情</title>
+	 <link rel="icon" href="http://s16.mogucdn.com/new1/v1/bmisc/3ce382db3c8aaca5d07bd36711e77134/171169993508.ico" type="image/x-icon" />
 		<link rel="stylesheet" href="../css/common/common.css" />
 		<link rel="stylesheet" href="../css/common/header.css" />
 		<link rel="stylesheet" href="../css/common/footer.css" />
@@ -10,37 +11,7 @@
 		<link rel="stylesheet" href="../css/common/sidenav.css" />
 		<link rel="stylesheet" href="../css/goodDetail.css" />
 		<link rel="stylesheet" href="../css/tip.css" />
-		<!--<link rel="stylesheet" href="http://h.vipstatic.com/upload/upimg2/h5/act/act-main/css/open.css?v201611011106sv113">
-		<!--<link rel="stylesheet" href="../css/fdjcss/default.css" />-->
-		<!--<link rel="stylesheet" href="../css/fdjcss/smoothproducts.css" />-->
-		<!--<style type="text/css">
-	img {
-		border: none;
-	}
-	/*a:link,
-	a:visited {
-		color: #F0353A;
-	}
-	a:hover {
-		color: #8C0B0E;
-	}*/
-	ul {
-		overflow: hidden;
-	}
-	pre {
-		background: #333;
-		padding: 10px;
-		overflow: auto;
-		color: #BBB7A9;
-	}
-	.demo {
-		text-align: center;
-		padding: 30px 0
-	}
-	.clear {
-		clear: both;
-	}
-	</style>-->
+		
 </head>
 	</body>
 	<div id="header"></div>
@@ -126,8 +97,8 @@
 						<span class="title-time">
 							<span class="title-time-inner">
 								剩余：
-								<em id="day">4天</em>
-								<em id="hour">00天</em>
+								<em id="day">天</em>
+								<em id="hour">时</em>
 								<em id="min">分</em>
 								<em id="sec">秒</em>
 							</span>
@@ -177,7 +148,7 @@
 											<a href="###" class="selected">
 												<img class="f1" src="../img/goodDetail/goods-list1.jpg"/>
 												<!--增加i-select-->
-												<span></span>
+												<span class="i-select"></span>
 												<!--增加active-show-->
 												<span class="sold-out">售完</span>
 											</a>
@@ -185,14 +156,14 @@
 										<li class="color-list-item">
 											<a href="###">
 												<img class="f1" src="../img/goodDetail/goods-list1.jpg"/>
-												<span class="i-selected"></span>
+												<span class="i-select"></span>
 												<span class="sold-out">售完</span>
 											</a>
 										</li>
 										<li class="color-list-item">
 											<a href="###">
 												<img class="f1" src="../img/goodDetail/goods-list1.jpg"/>
-												<span></span>
+												<span class="i-select"></span>
 												<span class="sold-out">售完</span>
 											</a>
 										</li>
@@ -204,9 +175,9 @@
 								<dd class="notice-msg">请选择尺码</dd>
 								<dd class="size-list">
 									<ul>
-										<li class="size-list-item">
+										<li class="size-list-item .sli-selected">
 											<span class="size-list-item-name">xs</span>
-											<span></span>
+											<span class="i-select"></span>
 											<span></span>
 											<span class="J-size-waitlist size-waitlist" mars_sead="te_goods_buy_waitlist_order"></span>
 											<div class="ul-tooltip size-guide-tooltips"style="margin-left: -194.5px;">
@@ -236,7 +207,7 @@
 										</li>
 										<li class="size-list-item">
 											<span class="size-list-item-name">S</span>
-											<span></span>
+											<span class="i-select"></span>
 											<span></span>
 											<span class="J-size-waitlist size-waitlist" mars_sead="te_goods_buy_waitlist_order"></span>
 											<div class="ul-tooltip size-guide-tooltips"style="margin-left: -194.5px;">
@@ -266,7 +237,7 @@
 										</li>
 										<li class="size-list-item">
 											<span class="size-list-item-name">M</span>
-											<span></span>
+											<span class="i-select"></span>
 											<span></span>
 											<span class="J-size-waitlist size-waitlist" mars_sead="te_goods_buy_waitlist_order"></span>
 											<div class="ul-tooltip size-guide-tooltips"style="margin-left: -194.5px;">
@@ -296,7 +267,7 @@
 										</li>
 										<li class="size-list-item">
 											<span class="size-list-item-name">L</span>
-											<span></span>
+											<span class="i-select"></span>
 											<span></span>
 											<span class="J-size-waitlist size-waitlist" mars_sead="te_goods_buy_waitlist_order"></span>
 											<div class="ul-tooltip size-guide-tooltips"style="margin-left: -194.5px;">
@@ -351,7 +322,7 @@
 							</dl>
 							<div class="car-button">
 								<div id="car-button-box" class="button-box">
-									<button type="submit" id="cartAdd-sumbit" class="ui-btn-large ui-btn-primary ui-btn-loading">
+									<a id="cartAdd-sumbit" class="ui-btn-large ui-btn-primary ui-btn-loading">
 										<span class="ui-btn-loading-before">
 											<i class=""></i>
 											加入购物袋
@@ -360,7 +331,7 @@
 											<i class="ii-loading-gray-16x16"></i>
 											<span class="ui-btn-txt">处理中...</span>
 										</span>
-									</button>
+									</a>
 								</div>
 							</div>
 							<div class="vip-point">
@@ -1401,21 +1372,14 @@
 	<!--尾部-->
 	<div id="footer"></div>
 		<script src="../js/common/jquery-1.12.3.js"></script>
-		<!--<script type="text/javascript" src="../js/login.js" ></script>-->
+		<script type="text/javascript" src="../js/common/jquery.cookie.js" ></script>
 		<script type="text/javascript" src="../js/common/common.js" ></script>
 		<script type="text/javascript" src="../js/common/move.js" ></script>
 		<script type="text/javascript" src="../js/goodDetail.js" ></script>
-		<script type="text/javascript" src="../js/common/jquery.cookie.js" ></script>
-		<!--<script>window.jQuery || document.write('<script src="../js/common/jquery-1.12.3.js"><\/script>')</script>
-		<script type="text/javascript" src="../js/common/smoothproducts.min.js"></script>-->
 		<script>
-			
 			loadHtml("common/footer.html", "footer");
 			loadHtml("common/sidenav.html", "sidebar");
 			loadHtml("common/header.html", "header");
-//			$(window).load(function() {
-//				$('.sp-wrap').smoothproducts();
-//			});
 		</script>
 	</body>
 </html>

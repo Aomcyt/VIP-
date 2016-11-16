@@ -163,13 +163,13 @@
 .collect-tips:hover{color: #F10280;}
 .cancel-collected{display:none;}
 .share-box{
-	 width: 95px;
+	 width: 54px;
     height: 22px;
 	border:solid 1px #c2c2c2;
 	float: right;
 }
 .car-share-box {
-    width: 95px;
+    width: 54px;
     height: 22px;
     line-height: 22px;
     display: inline-block;
@@ -431,19 +431,25 @@ address, caption, cite, code, dfn, em, optgroup, th, var {
 }
 /*js添加*/
  .i-select,.i-recommand{
+ 	 display: block;
     position: absolute;
     bottom: 0;
     right: 0;
     width: 17px;
     height: 16px;
     background-position: -50px -100px;
-    display: block;
     background-image:url(../img/goodDetail/good-D2.png);
     background-repeat: no-repeat;
 }
+/*大边框*/
+.sli-selected {
+    border: 2px solid #f43499;
+    height: 26px;
+    color: #f43499;
+    padding: 0 9px;}
 /*勾*/
 .attr-box-inner-color .color-list .selected .i-select {
-    display: block;
+    display: none;
     bottom: 2px;
     right: 2px;
     z-index: 2;

@@ -54,6 +54,22 @@ $(function(){
 		})
 	})
 })
+//倒计时
+function GetRTime(){
+       var EndTime= new Date('2016/11/20 10:00:00'); //截止时间
+       var NowTime = new Date();
+       var t =EndTime.getTime()-NowTime.getTime();
+       var d=Math.floor(t/1000/60/60/24);
+       var h=Math.floor(t/1000/60/60%24);
+       var m=Math.floor(t/1000/60%60);
+       var s=Math.floor(t/1000%60);
+	   document.getElementById("day").innerHTML = d + "天";
+       document.getElementById("hour").innerHTML = h + "时";
+       document.getElementById("min").innerHTML = m + "分";
+       document.getElementById("sec").innerHTML = s + "秒";
+   }
+   setInterval(GetRTime,500);
+//倒计时--end
 //点击尺码助手打开
 $(".size-helper-trigger").mouseover(function(){
 	$(".size-helper-notice").css("display","block");
@@ -174,42 +190,120 @@ $(function(){
 		});
 	}
 })
-	
-	//选项卡
+//选项卡
 $("#aboutUs-logo li").mouseover(function(){
 	$(".logo-list-inner .au-main").eq($(this).index()).css({display:"block"}).siblings().css({display:"none"})
 })
+//选择颜色类别
+var smallSrc="";
+$(".color-list-item").click(function(){
+
+	$(this).children("a").css("border","1px solid #f43499").parents(".color-list-item").siblings().children("a").css("border","1px solid #ccc");
+	$(this).children().children("span.i-select").parents(".color-list-item").siblings().children().children("span.i-select")
+	$(this).children().children("span.i-select").css({display:"block"}).parents(".color-list-item").siblings().children().children("span.i-select").css("display","none");
+		smallSrc = $(this).find(".f1").attr("src");console.log(smallSrc);
+})
+//选择尺码大小
+var currSize = null;
+$(".size-list-item").click(function(){
+	currSize = $(this).find(".size-list-item-name").html();
+	$(this).css("border","1px solid #f43499").siblings().css("border","1px solid #ccc");
+	$(this).children("span.i-select").parents(".size-list-item").siblings().children("span.i-select")
+	$(this).children("span.i-select").css({display:"block"}).parents(".size-list-item").siblings().children("span.i-select").css("display","none");
+	
+	
+})
+//加减数量
+//加
+var am =1;
+$(".num-add").click(function(){
+	am++;
+	if(am>10)
+	return;
+	$(".num-input").html(am);
+	//console.log(amount);
+})
+//减
+$(".num-reduce").click(function(){
+	if(am<=1){
+		return;
+	}
+	am--;
+	$(".num-input").html(am);
+	//console.log(amount);
+})
 
 //购物车
+var cart_num = 0;
 $("#cartAdd-sumbit").click(function(){
-	//获取数据
+	cart_num++;
+//获取数据
+console.log(cart_num)
 	var _name=$(".title-left-text").html();
-	var _price=$("price-num").html();
-	var _size=$(".size-list-item-name").html();
-	var _color=$(".color-list-item").html();
+	//console.log(_name);
+	var _price=$(".price-num").html();
+	//console.log(_price);
+	var _size=currSize;
+	//console.log(_size);
+	var _color=$(".f1").html();
+	//console.log(_color);
+	var _num=$(".num-input").html();
+	console.log(_num);
+	var _id = $(".goods-detail").attr("id");
+	//console.log(_id);
+	var _src = smallSrc;
+	var _amount = am;
+//	console.log(_src);
+
+	
 	//创建对象
 	var product={
+		id: _id,
 		name:_name,
 		price:_price,
 		size:_size,
-		_color:color,
-		amount:1
-	}
+		color:_color,
+		src: _src,
+		num: _num,
+		amount:_amount,
+		cart_num:cart_num
+	};
 	//将当前选购的商品信息保存到cookie中
+	//$.cookie("products",JSON.stringify(product),{"expires":10,"path":"/"});
 	$.cookie.json=true;//插件配置
-	var products=$.cookie("products");
-	if(!product)
-		product=[];
-		//判断是否存在已选商品信息，若有，则修改数量
-		var index=exists(_name,products);
-		if(index!==-1){//存在，修改数量
-			products[index].amount++;
-		}else{
-			products.push(product);
+	var products = $.cookie("products");
+	if(!products)
+		products = [];
+//判断是否存在已选商品信息，若有，则修改数量
+	var index=exists(_size,products);
+	if(index!==-1){//存在，修改数量
+		products[index].amount+= am;
+	}else{
+		products.push(product);
+		
+	}
+	//保存到cookie中
+	$.cookie("products", products, {expires:7, path:"/"});
+	console.log($.cookie("products"));
+});
+function exists(_size, products){
+	
+	var idx = -1; // 保存的是在数组中对应 id 元素存在时的下标
+	// 遍历 products 数组
+	// 每一个元素都会调用回调函数
+	// 回调函数中第一个参数为遍历元素的索引
+	// 第二个参数为遍历到的元素
+	// return false 相当于循环中的 break，表示退出循环
+	$.each(products, function(index, element){
+		if (element.size == _size) {
+			idx = index;
+			return ;
 		}
-		//保存到cookie中
-		$.cookie("products", products, {expires:7, path:"/"});
-})
-function exist(class,products){
-	var 
+	});
+	return idx;
 }
+//点击购物袋
+$().click(function(){
+	console.log(111)
+	location.assign("shopCar.html");
+})

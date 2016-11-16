@@ -17,9 +17,9 @@
 
 //倒计时
 function GetRTime(){
-       var EndTime= new Date('2016/10/26 10:00:00'); //截止时间
+       var EndTime= new Date('2016/11/26 10:00:00'); //截止时间
        var NowTime = new Date();
-       var t =EndTime.getTime() - NowTime.getTime();
+       var t =EndTime.getTime()-NowTime.getTime();
        var d=Math.floor(t/1000/60/60/24);
        var h=Math.floor(t/1000/60/60%24);
        var m=Math.floor(t/1000/60%60);
@@ -29,7 +29,7 @@ function GetRTime(){
        document.getElementsByClassName("J_brand_countDownMin")[0].innerHTML = m + "分";
        document.getElementsByClassName("J_brand_countDownSec")[0].innerHTML = s + "秒";
    }
-   setInterval(GetRTime,1000);
+   setInterval(GetRTime,500);
 //倒计时--end
 
 
@@ -61,7 +61,7 @@ function load(url,container){
 								'<div class="goodslist-inner J-item_handle_height">'+
 									'<div class="goods-slide J_item_mouseout_warp">'+
 										'<div class="goods-image">'+
-											'<a href="#" class="goods-image-link">'+
+											'<a href="'+data[i].href0+'" class="goods-image-link">'+
 												'<img class="J_first_pic" src="'+data[i].src1+'"/>'+
 												'<div class="goods-business-tag J_businessTag">'+
 												'<img src="'+data[i].src2+'" width="45" height="45"/>'+

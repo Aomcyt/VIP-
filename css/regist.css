@@ -4564,7 +4564,7 @@
 	width: 140px;
 	height:20px;
 	background-color: #fffbf3;
-    border: 1px solid #f8dcb0;
+    border: 1px solid #fca1a5;
     line-height:20px;
     font-size: 12px;
     border-radius:3px;
@@ -4578,8 +4578,34 @@
 	top:-40px;
 	width: 100px;
 	height:30px;
-	border: 1px solid #00BFFF;
+	border: 1px solid #F10582;
 	line-height: 30px;
+	border-radius:3px;
+	font-size: 12px;
+	background:#FFFFFF url(../img/regist/error.png) no-repeat center left;
+    padding-left: 20px;
+}
+.tip-warn3 {
+    width: 80px;
+    height: 25px;
+    position: absolute;
+    top: 5px;
+    right: -10px;
+    font-size: 12px;
+    line-height: 25px;
+    color: #F10280;
+    display: none;
+}
+/*提交时候*/
+.tip-warn4{
+	display:none;
+	position: absolute;
+	top:-20px;
+	left: 0;
+	width: 100px;
+	height:20px;
+	border: 1px solid #F10582;
+	line-height: 20px;
 	border-radius:3px;
 	font-size: 12px;
 	background:#FFFFFF url(../img/regist/error.png) no-repeat center left;
@@ -4629,30 +4655,29 @@
 	margin-top: -10px;
 	right: 80px;
 	display: none;
-	
 }
-#tu3{
-	background: url(../img/regist/ruo.png) no-repeat center center;
+.reg-pwd i{
+	background:url(../img/regist/right.png) no-repeat center center;
 	position: absolute;
-	top:31%;
-	margin-top: -10px;
-	left: 50px;
-	display: block;
+	top:6%;
+	margin-top: 50px;
+	right: 80px;
+	display: none;
 }
-#tu2{
-	background: url(../img/regist/zhong.png) no-repeat center center;
+.reg-pwd2 i{
+	background:url(../img/regist/right.png) no-repeat center center;
 	position: absolute;
-	top:31%;
-	margin-top: -10px;
-	left: 100px;
-	display: block;
+	top:6%;
+	margin-top:105px;
+	right: 80px;
+	display: none;
 }
-#tu1{
-	background: url(../img/regist/qiang.png) no-repeat center center;
+.ui-form-item-group i{
+	background:url(../img/regist/wa.png) no-repeat center center;
 	position: absolute;
-	top:31%;
-	margin-top: -10px;
-	left: 150px;
-	display:block;
+	top:6%;
+	margin-top:5px;
+	left: -20px;
+	display: none;
 }
 

@@ -3080,23 +3080,20 @@ body .u-link:hover {
 	transition: transform .36s, opacity .36s;
 	display: none;
 }
-
 .u-third-more .arrow {
-	display: inline-block;
-	font-size: 0;
-	height: 0;
-	overflow: hidden;
-	border-width: 4px;
-	border-style: solid dashed dashed dashed;
-	border-color: #666 transparent transparent transparent;
-	vertical-align: -2px;
-	margin-left: 2px
+    font-size: 0;
+    height: 0;
+    overflow: hidden;
+    border-width: 4px;
+    border-style: solid dashed dashed dashed;
+    border-color: #666 transparent transparent transparent;
+    vertical-align: -2px;
+    margin-left: 2px;
 }
-
 .u-third-more:hover .arrow {
 	border-top-color: #f10180
 }
-
+/*点击的时候三角形变化*/
 .u-third-more.z-open .arrow {
 	border-style: dashed dashed solid dashed;
 	border-color: transparent transparent #666 transparent;
@@ -3332,13 +3329,57 @@ body .u-link:hover {
 	margin-right: 15px
 }
 
-.u-form-tip {
+.u-form-tip{
 	height: 25px;
 	line-height: 25px;
 	margin-top: -25px;
-	color: #f20266
+	color: #fca1a5;
 }
-
+.tip-mobile1{
+	display: none;
+	width: 120px;
+	height: 25px;
+	border: 1px solid #fca1a5;
+	line-height: 25px;
+	margin-top: 25px;
+	color: #fca1a5;
+	font-size: 12px;
+	position: absolute;
+	right: 225px;
+	top: 155px;
+}
+i{
+	width: 20px;
+	height: 20px;
+}
+.login-mobile i{
+	background:url(../img/login/right.png) no-repeat center center;
+	position: absolute;
+	top:6%;
+	margin-top: 5px;
+	right: 10px;
+	display: none;
+}
+.tip-pwd1{
+	display: none;
+	width: 120px;
+	height: 23px;
+	border: 1px solid #fca1a5;
+	line-height: 23px;
+	color: #fca1a5;
+	font-size: 12px;
+	position: absolute;
+	right: 225px;
+	top: 244px;
+	}
+.login-pwd i{
+	background:url(../img/login/right.png) no-repeat center center;
+	position: absolute;
+	top:6%;
+	margin-top: 5px;
+	right: 10px;
+	display: none;
+}
 .u-form-item {
 	position: relative;
 	margin-bottom: 25px
@@ -3589,4 +3630,3 @@ button.u-submit-function {
 	50% {
 		border-color: #f20266
 	}
-}

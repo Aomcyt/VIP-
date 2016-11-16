@@ -39,7 +39,7 @@
 		    font-size: 18px;
 		}
 		.salebg2 {color: #f43499;}
-		.pro-fav-time-tip {margin: 0 10px;float: left;line-height: 25px;color: #000;font-size: 12px;}
+		.pro-fav-time-tip {margin: 0 10px;float: left;line-height: 25px;color:#F10280;font-weight:20px;font-size: 14px;}
 		.pro-fav-time-out .if-countdown, .pro-fav-time-tip .if-countdown {
 		    margin-right: 5px;
 		    vertical-align: top;

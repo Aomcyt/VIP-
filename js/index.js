@@ -11,6 +11,7 @@ $(function(){
 	load9("../data/index/floor9.json",".f9");
 	load10("../data/index/floor10.json",".f10");
 	load11("../data/index/floor11.json",".f11");
+	
 })
 	function load1(url,container){
 		$.get(url,function(data){
@@ -339,67 +340,66 @@ $(function(){
 			})
 	})
 
-//淡入淡出轮播图
-	
-			var oBox=document.getElementById("banner");
-			var oSlider=document.getElementsByClassName("slider")[0];
-			var sliderlist=document.getElementsByClassName("slider-list");
-			var oUl=document.getElementsByClassName("slider-bottom-list")[0];
-			var aLi=oUl.getElementsByTagName("li");
-			var oPre=document.getElementsByClassName("prev")[0];
-			var oNext=document.getElementsByClassName("next")[0];
-			var iNow=0;//当前图片索引
-		for(var i=0;i<aLi.length;i++){
-			aLi[i].index=i;
-			aLi[i].onmouseover=function(){
-				iNow=this.index;
-				tab();
-			}
+//JS淡入淡出轮播图
+		var oBox=document.getElementById("banner");
+		var oSlider=document.getElementsByClassName("slider")[0];
+		var sliderlist=document.getElementsByClassName("slider-list");
+		var oUl=document.getElementsByClassName("slider-bottom-list")[0];
+		var aLi=oUl.getElementsByTagName("li");
+		var oPre=document.getElementsByClassName("prev")[0];
+		var oNext=document.getElementsByClassName("next")[0];
+		var iNow=0;//当前图片索引
+	for(var i=0;i<aLi.length;i++){
+		aLi[i].index=i;
+		aLi[i].onmouseover=function(){
+			iNow=this.index;
+			tab();
 		}
-			autoPlay();//打开就自动播放
-			oNext.onclick=function(){
-				iNow++;
-				if(iNow>3)
-				iNow=0;
-				tab();
-			}
-			oPre.onclick=function(){
-				iNow--;
-				if(iNow<0)
-				iNow=3;
-				tab();
-			}
-			oSlider.onmouseover=function(){
-				clearInterval(oSlider.timer);
-				oPre.style.left="0px";
-				oNext.style.right="0px";
-				
-			}
-			oSlider.onmouseout=function(){
-				autoPlay();
-				oPre.style.left="-65px";
-				oNext.style.right="-65px";
-				
-			}
-			function autoPlay(){
-				clearInterval(oSlider.timer);
-				oSlider.timer=setInterval(function(){
-					iNow++;//图片变换
-					if(iNow==aLi.length){
-						iNow=0;
-					}
-					tab();
-				},3000)
-			}
-			function tab(){//切换函数
-				for(var i=0;i<aLi.length;i++){
-					aLi[i].className="";
-					startMove(sliderlist[i],{opacity:0});
+	}
+		autoPlay();//打开就自动播放
+		oNext.onclick=function(){
+			iNow++;
+			if(iNow>3)
+			iNow=0;
+			tab();
+		}
+		oPre.onclick=function(){
+			iNow--;
+			if(iNow<0)
+			iNow=3;
+			tab();
+		}
+		oSlider.onmouseover=function(){
+			clearInterval(oSlider.timer);
+			oPre.style.left="0px";
+			oNext.style.right="0px";
+			
+		}
+		oSlider.onmouseout=function(){
+			autoPlay();
+			oPre.style.left="-65px";
+			oNext.style.right="-65px";
+			
+		}
+		function autoPlay(){
+			clearInterval(oSlider.timer);
+			oSlider.timer=setInterval(function(){
+				iNow++;//图片变换
+				if(iNow==aLi.length){
+					iNow=0;
 				}
-					aLi[iNow].className="active";
-					startMove(sliderlist[iNow],{opacity:100});
-				
+				tab();
+			},3000)
+		}
+		function tab(){//切换函数
+			for(var i=0;i<aLi.length;i++){
+				aLi[i].className="";
+				startMove(sliderlist[i],{opacity:0});
 			}
+				aLi[iNow].className="active";
+				startMove(sliderlist[iNow],{opacity:100});
+			
+		}
 	
 //吸顶
 	$(function(){

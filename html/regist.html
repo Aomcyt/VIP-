@@ -3,9 +3,9 @@
 <head>
 		<meta charset="UTF-8">
 		<title></title>
+		 <link rel="icon" href="http://s16.mogucdn.com/new1/v1/bmisc/3ce382db3c8aaca5d07bd36711e77134/171169993508.ico" type="image/x-icon" />
 		<link rel="stylesheet" href="../css/regist.css" />
-		
-	</head>
+</head>
 
 	<body class="regSingle">
 		<div class="layout">
@@ -32,25 +32,30 @@
 							</div>
 							<div class="tip-warn1">请输入11位手机号</div>
 							<div class="tip-warn2">手机号不能为空</div>
+							<div class="tip-warn3">用户名已存在</div>
 							<!--密码验证-->
 							<div class="control-group clearfix reg-pwd">
 								<input type="password" id="pwd" class="reg-input" placeholder="密码由6-20位字母，数字和符号组成"/>
 								<em id="tu1"></em><em id="tu2"></em><em id="tu3"></em>
+								<i></i>
 							</div>
 							<!--密码再次验证-->
-							<div class="control-group clearfix">
+							<div class="control-group clearfix reg-pwd2">
 								<input type="password"  id="pwd2" class="reg-input" placeholder="请再次输入上面的密码"/>
+								<i></i>
 							</div>
+							
 							<!--邮箱验证-->
-							<div class="control-group clearfix">
+							<!--<div class="control-group clearfix">
 								<input type="text"  id="mail" class="reg-input" placeholder="请输入邮箱"/>
-							</div>
+							</div>-->
 							<!--短信提示-->
-							<div class="control-group clearfix">
+							<!--<div class="control-group clearfix">
 								<input type="text"  id="msg" class="reg-input reg-msg" placeholder="短信验证码"/>
 								<a href="javascript:;" role="button" id="J_mobile_verifycode_btn" class="ui-btn-medium btn-verify-code ui-btn-disable" mars_sead="125|2|1|7">获取验证码</a>
-							</div>
+							</div>-->
 							<!--注册-->
+							<div class="tip-warn4">请填写信息</div>
 							<div class="control-group clearfix">
 								<a href="javascript:;" role="button" id="J_mobile_reg_button" class="ui-btn-large ui-btn-primary ui-btn-loading reg-form-btn form-submit" mars_sead="125|2|1|9">
 						          <span class="ui-btn-loading-before">立即注册</span>
@@ -64,6 +69,7 @@
 							<!--条款-->
 							<div class="control-group clearfix">
 						    	<div class="ui-form-item-group">
+						    		<i></i>
 						    		<div class="ui-tooltips ui-tooltips-warning validator-tooltips-warning ui-tooltips-bottom-left-arrow">
 						    			<div class="ui-tooltips-arrow"><i class="arrow arrow-out">◆</i><i class="arrow">◆</i>
 						    			</div>
