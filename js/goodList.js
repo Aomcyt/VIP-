@@ -31,11 +31,42 @@ function GetRTime(){
    }
    setInterval(GetRTime,500);
 //倒计时--end
+
 //动态加载
 $(function(){
 	load("../data/goodList/list1.json",".goods-list");
 	list("../data/goodList/list0.json",".list-category");
 })
+//选项卡
+function bangding(){
+	$(".goods-list-item").each(function(){
+		var src1 = [];
+		var j = 0;
+		$(this).mouseenter(function(){
+			src1.shift();
+			src1[j] = $(this).find(".goods-image").find(".J_first_pic").attr("src");
+			console.log(src1);
+			
+		});
+		//console.log($(this).find(".goods-images a"));
+		$(this).find(".goods-images a").mouseenter(function(){
+			//j++;
+			var src = $(this).find("img").attr("src");
+			console.log(src);
+			$(this).parents(".J_item_mouseout_warp").children().find(".J_first_pic").attr({"src":src});
+			$(this).css({borderColor:"#f10180"}).parents("div").siblings().children("a").css({borderColor:"#e5e5e5"});
+	//		console.log(src1);
+		});
+		$(this).mouseleave(function(){
+			$(this).find(".goods-image").find(".J_first_pic").attr({"src":src1[0]});
+			console.log(src1);
+			src1.shift();
+			//console.log(src1);
+		});
+
+	});
+}
+//选项卡--end
 function load(url,container){
 		$.get(url,function(data){
 			// console.log(data);
@@ -46,7 +77,7 @@ function load(url,container){
 								'<div class="goodslist-inner J-item_handle_height">'+
 									'<div class="goods-slide J_item_mouseout_warp">'+
 										'<div class="goods-image">'+
-											'<a href="'+data[i].href0+'" class="goods-image-link">'+
+											'<a href="'+data[i].href0+'" class="goods-image-link" target="_blank">'+
 												'<img class="J_first_pic" src="'+data[i].src1+'"/>'+
 												'<div class="goods-business-tag J_businessTag">'+
 												'<img src="'+data[i].src2+'" width="45" height="45"/>'+
@@ -96,7 +127,7 @@ function load(url,container){
 								'<div class="goodslist-inner J-item_handle_height">'+
 									'<div class="goods-slide J_item_mouseout_warp">'+
 										'<div class="goods-image">'+
-											'<a href="#" class="goods-image-link">'+
+											'<a href="'+data[i].href0+'" class="goods-image-link"  target="_blank">'+
 												'<img class="J_first_pic" src="'+data[i].src1+'"/>'+
 												'<div class="goods-business-tag J_businessTag">'+
 												'<img src="'+data[i].src2+'" width="45" height="45"/>'+
@@ -146,7 +177,7 @@ function load(url,container){
 								'<div class="goodslist-inner J-item_handle_height">'+
 									'<div class="goods-slide J_item_mouseout_warp">'+
 										'<div class="goods-image">'+
-											'<a href="#" class="goods-image-link">'+
+											'<a href="'+data[i].href0+'" class="goods-image-link"  target="_blank">'+
 												'<img class="J_first_pic" src="'+data[i].src1+'"/>'+
 												'<div class="goods-business-tag J_businessTag">'+
 												'<img src="'+data[i].src2+'" width="45" height="45"/>'+
@@ -196,7 +227,7 @@ function load(url,container){
 								'<div class="goodslist-inner J-item_handle_height">'+
 									'<div class="goods-slide J_item_mouseout_warp">'+
 										'<div class="goods-image">'+
-											'<a href="#" class="goods-image-link">'+
+											'<a href="'+data[i].href0+'" class="goods-image-link" target="_blank">'+
 												'<img class="J_first_pic" src="'+data[i].src1+'"/>'+
 												'<div class="goods-business-tag J_businessTag">'+
 												'<img src="'+data[i].src2+'" width="45" height="45"/>'+
@@ -244,7 +275,7 @@ function load(url,container){
 						'</div>'+
 					'</div>'
 					)
-				}
+				}bangding();
 		})
 	}
 function list(url,container){
@@ -278,24 +309,6 @@ $(function(){
 	})
 })
 //吸顶-end
-
-//选项卡
-//function select(){
-//	$.each($(".goods-images div"), function(index,ele){
-//		$(this).on("mouseover",function(){
-//			console.log(111);
-//			$(this).next("a").removeClass();
-//			$(this).next("a").addClass("active");
-//			$(".goods-image .J_first_pic").attr("src","../img/goodList/goodsimage113.jpg");
-//		})
-//	})
-//$(".goods-thumb-link").mouseover(function(){
-//	console.log(1);
-//	$(this).addClass("is-goods-thumb-current").siblings().removeClass("is-goods-thumb-current");
-//	console.log(1);
-//})
-//}
-//选项卡--end
 //分页
 $(function(){
 	$("#J-pagingWrap a").click(function(){
