@@ -645,7 +645,9 @@ em, i {
     height: 39px;
     cursor: pointer;
     display: inline-block;
+    position: absolute;
+    top: -40px;
 }
-.reco-handle .handle-box .handle-right {margin-left: 20px;}
+.reco-handle .handle-box .handle-right {margin-left: 60px;}
 .reco-handle .handle-box .handle-left .handle-img{width: 39px;height: 39px;background:url(../img/goodList/goodlisthandle.png) 0px -300px no-repeat;}
 .reco-handle .handle-box .handle-right .handle-img{width: 39px;height: 39px;background:url(../img/goodList/goodlisthandle.png) 0px -350px no-repeat;}

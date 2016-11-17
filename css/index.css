@@ -125,7 +125,7 @@
 			
 		}
 		.floor1-inner .floor1-img{width: 490px;height: 300px;}
-	
+		.floor1-inner:hover .floor1-img{-webkit-filter: blur(15px);}
 		.floor1-inner .floor1-brand {
 		    position: absolute;
 		    bottom: 20px;
@@ -210,7 +210,11 @@
 			    background: #fff;
 			    
 			    }	
-		.brand-img{width: 490px;height: 235px;opacity: 1;}	
+		.brand-img{width: 490px;height: 235px;opacity: 1;}
+		.brand-img:hover{
+			-webkit-mask-image: -webkit-radial-gradient(50% 50%,rgba(0,0,0,0),rgba(0,0,0,1));
+    		-webkit-mask-position: -150px 65px;
+    		}
 		.brand-item-bottom{
 			    position: absolute;
 			    top: 205px;

@@ -31,21 +31,6 @@ function GetRTime(){
    }
    setInterval(GetRTime,500);
 //倒计时--end
-
-
-//$(function(){
-	function bangding(){
-		$(".goods-thumb-link").mouseover(function(){
-//			$(this).addClass("is-goods-thumb-current").siblings().removeClass("is-goods-thumb-current");
-			console.log(1);
-		})
-	}
-	
-//})
-
-
-
-
 //动态加载
 $(function(){
 	load("../data/goodList/list1.json",".goods-list");
@@ -261,7 +246,6 @@ function load(url,container){
 					)
 				}
 		})
-	bangding();
 	}
 function list(url,container){
 	$.get(url,function(data){
@@ -294,20 +278,23 @@ $(function(){
 	})
 })
 //吸顶-end
+
 //选项卡
-//$(function(){
+//function select(){
 //	$.each($(".goods-images div"), function(index,ele){
 //		$(this).on("mouseover",function(){
+//			console.log(111);
 //			$(this).next("a").removeClass();
 //			$(this).next("a").addClass("active");
 //			$(".goods-image .J_first_pic").attr("src","../img/goodList/goodsimage113.jpg");
 //		})
 //	})
+//$(".goods-thumb-link").mouseover(function(){
+//	console.log(1);
+//	$(this).addClass("is-goods-thumb-current").siblings().removeClass("is-goods-thumb-current");
+//	console.log(1);
 //})
-
-
-
-
+//}
 //选项卡--end
 //分页
 $(function(){
@@ -401,5 +388,3 @@ $(function(){
 				
 			})
 //无缝轮播--end
-
-

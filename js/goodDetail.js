@@ -196,12 +196,13 @@ $("#aboutUs-logo li").mouseover(function(){
 })
 //选择颜色类别
 var smallSrc="";
+var _this=null;
 $(".color-list-item").click(function(){
-
+	_this=$(this);
 	$(this).children("a").css("border","1px solid #f43499").parents(".color-list-item").siblings().children("a").css("border","1px solid #ccc");
 	$(this).children().children("span.i-select").parents(".color-list-item").siblings().children().children("span.i-select")
 	$(this).children().children("span.i-select").css({display:"block"}).parents(".color-list-item").siblings().children().children("span.i-select").css("display","none");
-		smallSrc = $(this).find(".f1").attr("src");console.log(smallSrc);
+		smallSrc = $(this).find(".f1").attr("src");console.log(_this)
 })
 //选择尺码大小
 var currSize = null;
@@ -210,8 +211,6 @@ $(".size-list-item").click(function(){
 	$(this).css("border","1px solid #f43499").siblings().css("border","1px solid #ccc");
 	$(this).children("span.i-select").parents(".size-list-item").siblings().children("span.i-select")
 	$(this).children("span.i-select").css({display:"block"}).parents(".size-list-item").siblings().children("span.i-select").css("display","none");
-	
-	
 })
 //加减数量
 //加
@@ -236,6 +235,21 @@ $(".num-reduce").click(function(){
 //购物车
 var cart_num = 0;
 $("#cartAdd-sumbit").click(function(){
+	//飞入购物车
+	var imgOffset=_this.offset();
+	 var flyer = $("<img class='u-flyer' src="+_this.find('img').attr('src')+">"); 
+	 var end=$(".i-shop-cart").offset();
+	 flyer.appendTo(_this).css({
+	 	position:"fixed",
+	 	right:imgOffset.left,
+	 	top:imgOffset.top
+	 }).animate({
+	 	right:-50,
+	 	top:600
+	 },function(){
+	 	flyer.remove()
+	 });
+	 
 	cart_num++;
 //获取数据
 console.log(cart_num)
@@ -254,8 +268,6 @@ console.log(cart_num)
 	var _src = smallSrc;
 	var _amount = am;
 //	console.log(_src);
-
-	
 	//创建对象
 	var product={
 		id: _id,
@@ -302,8 +314,3 @@ function exists(_size, products){
 	});
 	return idx;
 }
-//点击购物袋
-$().click(function(){
-	console.log(111)
-	location.assign("shopCar.html");
-})

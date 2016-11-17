@@ -1,5 +1,6 @@
 //动态加载
 $(function(){
+	
 	load1("../data/index/floor1.json",".floor1");
 	load2("../data/index/floor2.json",".f2");
 	load3("../data/index/floor3.json",".f3");
@@ -11,8 +12,7 @@ $(function(){
 	load9("../data/index/floor9.json",".f9");
 	load10("../data/index/floor10.json",".f10");
 	load11("../data/index/floor11.json",".f11");
-	
-})
+})	
 	function load1(url,container){
 		$.get(url,function(data){
 			// console.log(data);
@@ -313,18 +313,19 @@ $(function(){
 			}
 		})
 	}
-		
+	
 //楼梯
 	$(function(){
-		
 			var isClick=false;
 			$("#loutiNav ul li").click(function(){
 				isClick=true;
 				$(this).find("span").addClass("active").parent().siblings().find("span").removeClass("active");
 	//			获取当前滚动高度
 				var iTop=$(".louti").eq($(this).index()).offset().top;
-				$("html,body").scrollTop(iTop);
-					 isClick=false;
+				$("html,body").stop().animate({scrollTop:iTop},200,function(){
+					isClick=false;
+					});
+					 
 				})
 			
 			$(window).scroll(function(){

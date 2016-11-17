@@ -98,6 +98,7 @@
 	    }
 	    .list-inner td,.list-inner th{
 	    	text-align: center;
+	    	font-size: 14px;
 	    }
 	    thead {
 		    display: table-header-group;
@@ -156,6 +157,7 @@
 		}
 		tfoot .subtotal .m-price {
     		color: #f10180;
+    		font-size: 14px;
 			}
 		.pay-way-box{
 			margin-bottom: 60px;

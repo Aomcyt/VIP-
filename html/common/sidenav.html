@@ -3,6 +3,9 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<style>
+		.u-flyer{display: block;width: 50px;height: 50px;border-radius: 50px;position: fixed;z-index: 9999;} 
+ 		</style>
 	</head>
 	<body>
 		<div id="sidebar">
@@ -36,7 +39,7 @@
 										</P>
 										<P class="mymsg">
 											<i class="mymsg-count">0</i>
-											<a href="" target="_blank">
+											<a href="javascript:void(0)" target="_blank">
 												<i class="mymsg-logo"></i>
 												我的消息
 											</a>
@@ -70,9 +73,9 @@
 					<li class="shop-cart">
 						<a href="shopCar.html" target="_blank">
 							<div class="shop-cart-box">
-								<i class="i-shop-cart"></i>
+								<i class="i-shop-cart" id="end"></i>
 								<p class="shop-cart-text">购物袋</p>
-								<i id="cart-count" class="cart-num">0</i>
+								<i id="cart-count" class="cart-num"></i>
 							</div>
 						</a>
 					</li>
