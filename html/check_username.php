@@ -3,7 +3,7 @@ header('Content-Type:text/html;charset=utf-8');
 header("Access-Control-Allow-Origin:*"); //允许任何访问(包括ajax跨域) 
 $host='localhost';//主机  
 $user='root';//数据库账号  
-$password='123456';//数据库密码
+$password='root';//数据库密码18702
 $database='online';//数据库名
 @mysql_connect($host,$user,$password) or die("error");//连接数据库管理系统  
 @mysql_select_db($database);//选择操作数据库  

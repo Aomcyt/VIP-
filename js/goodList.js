@@ -74,6 +74,7 @@ function load(url,container){
 					$(container).append(
 						'<div class="goods-list-row">'+
 							'<div class="goods-list-item c-goods J_pro_item  has-goods-slide">'+
+							// '<input type="hidden" class="hidden-img" data-src="'+ +'" data-img="'+ +'" data-pic="'+ +'"/>'+
 								'<div class="goodslist-inner J-item_handle_height">'+
 									'<div class="goods-slide J_item_mouseout_warp">'+
 										'<div class="goods-image">'+
@@ -124,6 +125,7 @@ function load(url,container){
 							'</div>'+
 						'</div>'+
 						'<div class="goods-list-item c-goods J_pro_item  has-goods-slide">'+
+						// '<input type="hidden" class="hidden-img" data-src="'+ +'" data-img="'+ +'" data-pic="'+ +'"/>'+
 								'<div class="goodslist-inner J-item_handle_height">'+
 									'<div class="goods-slide J_item_mouseout_warp">'+
 										'<div class="goods-image">'+
@@ -174,6 +176,7 @@ function load(url,container){
 							'</div>'+
 						'</div>'+
 						'<div class="goods-list-item c-goods J_pro_item  has-goods-slide">'+
+						// '<input type="hidden" class="hidden-img" data-src="'+ +'" data-img="'+ +'" data-pic="'+ +'"/>'+
 								'<div class="goodslist-inner J-item_handle_height">'+
 									'<div class="goods-slide J_item_mouseout_warp">'+
 										'<div class="goods-image">'+
@@ -224,6 +227,7 @@ function load(url,container){
 							'</div>'+
 						'</div>'+
 						'<div class="goods-list-item c-goods J_pro_item  has-goods-slide">'+
+						// '<input type="hidden" class="hidden-img" data-src="'+ +'" data-img="'+ +'" data-pic="'+ +'"/>'+
 								'<div class="goodslist-inner J-item_handle_height">'+
 									'<div class="goods-slide J_item_mouseout_warp">'+
 										'<div class="goods-image">'+
@@ -401,3 +405,24 @@ $(function(){
 				
 			})
 //无缝轮播--end
+
+
+//点击商品进入详情页
+$('.J_pro_item').off("click").on("click",function(){
+	var imgs = $(this).find('.hidden-img')[0];
+	var img0 = imgs.attr("data-src");
+	var img1 = imgs.attr("data-img");
+	var img2 = imgs.attr("data-pic");
+	var img3 = $(".goods-images").find('img').eq(0);
+	var img4 = $(".goods-images").find('img').eq(1);
+	var img5 = $(".goods-images").find('img').eq(2);
+	var goodsList = {};
+	goodsList.img0 = img0;
+	goodsList.img1 = img1;
+	goodsList.img2 = img2;
+	goodsList.img3 = img3;
+	goodsList.img4 = img4;
+	goodsList.img5 = img5;
+	console.log(goodsList);
+	$.cookie('the_cookie', goodsList, { expires: 7, path: '/' }); 
+})
