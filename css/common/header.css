@@ -73,7 +73,7 @@
 		.top-nav-list .top-more-box p a{border: none;background: #FFF;}
 		/*分享--end*/		
 		/*logo*/
-		.header-logo-left{cursor:pointer;width: 266px;height: 78px;background:url("../../img/index/vip_03.png") no-repeat center center;position: absolute;top:18px;left:-50px;}
+		.header-logo-left{cursor:pointer;width: 266px;height: 78px;background:url("../../img/index/vip_3.png") no-repeat center center;position: absolute;top:10px;left:-50px;}
 		.header-logo-right{width:111px;height: 29px;z-index:12;padding-left:10px;padding-top:10px;float:right;border:1px solid #FFFFFF;background-color: #FFFFFF;;margin-right:0px;margin-top: 30px;}
 		.header-logo-right:hover .header-logo-right-tip{display:block;}
 		.header-logo-right:hover{cursor:pointer;border-top:solid 1px #999999;border-right:solid 1px #999999;border-left:solid 1px #999999;border-bottom: solid 1px #FFFFFF;}
