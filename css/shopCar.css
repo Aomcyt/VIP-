@@ -32,9 +32,9 @@
 		.logo-link{
 			display: block;
 			line-height: 999999px;
-			background-image: url(../img/shopCar/shopcar-logo.png);
-			background-position: -464px -146px;
-			width: 121px;
+			background: url(../img/shopCar/shoplogo.png) no-repeat 0 0;
+			/* background-position: -464px -146px; */
+			width: 121px;shoplogo
 			height:50px;
 			overflow: hidden;
 		}
