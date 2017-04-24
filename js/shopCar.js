@@ -47,7 +47,9 @@ $(function(){
 //			console.log(iId);
 			//删除页面中的节点
 			//获取对应索引
-			var good_index = $(this).parents("tr").index();			
+			var good_index = $(this).parents("tr").index();		
+			var iPri = $(this).parents("tr").find('.tb-discount').text().split('￥')[1];
+			$('.total-two-right strong').html(Number($('.total-two-right strong').text())-Number(iPri));
 			$(this).parents("tr").detach();
 			goods.splice(good_index,1);
 //			console.log(good_index)
@@ -112,3 +114,5 @@ for(var i=0;i<len;i++){
 	//$("#total-num").html(iSelect);
 	$(".total-two-right strong").html(iGoodAmount);
 }
+
+

@@ -30,12 +30,13 @@
 			line-height: 24px;
 		}
 		.logo-link{
-			display: block;
-			line-height: 999999px;
+			display: inline-block;
+			line-height:57px;
 			background: url(../img/shopCar/shoplogo.png) no-repeat 0 0;
 			/* background-position: -464px -146px; */
 			width: 121px;shoplogo
 			height:50px;
+			height: 57px;
 			overflow: hidden;
 		}
 		.welcom-brand{
