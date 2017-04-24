@@ -8,4 +8,8 @@ $(function(){
 	$(".u-price").html($(".u-price1").html()*$(".tb-quanity").html());
 	$(".J_other_need2pay").html($(".u-price1").html()*$(".tb-quanity").html());
 	$(".J_pay_amount").html(Number($(".u-price").html())+Number($(".J_goods_amount").html()));
+	$(".ui-btn-primary").on("click",function(){
+		alert("购买成功，谢谢支持");
+		
+	})
 })

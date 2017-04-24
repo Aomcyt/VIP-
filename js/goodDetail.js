@@ -56,7 +56,7 @@ $(function(){
 })
 //倒计时
 function GetRTime(){
-       var EndTime= new Date('2016/11/20 10:00:00'); //截止时间
+       var EndTime= new Date('2017/4/27 10:00:00'); //截止时间
        var NowTime = new Date();
        var t =EndTime.getTime()-NowTime.getTime();
        var d=Math.floor(t/1000/60/60/24);
@@ -245,7 +245,7 @@ $("#cartAdd-sumbit").click(function(){
 	 	top:imgOffset.top
 	 }).animate({
 	 	right:-50,
-	 	top:600
+	 	top:500
 	 },function(){
 	 	flyer.remove()
 	 });

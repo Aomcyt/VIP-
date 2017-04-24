@@ -4676,7 +4676,7 @@ div.ui-quantity {
 
 .star-empty-icon {
 	background-image: url(//shop.vipstatic.com/img/te/sprites.png?520f3b1b);
-	background-position: -381px -124px;
+	background-position: -377px -124px;
 	width: 16px;
 	height: 15px
 }
@@ -9610,7 +9610,7 @@ table .reco-size td {
 
 .size-helper-notice {
 	background-image: url(//shop.vipstatic.com/img/te/sprites.png?520f3b1b);
-	background-position: -295px 0;
+	background-position:0 0;
 	width: 140px;
 	height: 120px;
 	position: absolute;
@@ -9641,7 +9641,7 @@ table .reco-size td {
 
 .button-size-helper-notice-close {
 	background-image: url(//shop.vipstatic.com/img/te/sprites.png?520f3b1b);
-	background-position: -334px -124px;
+	background-position: -323px -178px;
 	width: 23px;
 	height: 23px;
 	position: absolute;
