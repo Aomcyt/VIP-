@@ -326,7 +326,7 @@ $(function(){
 					isClick=false;
 					});
 					 
-				})
+			})
 			
 			$(window).scroll(function(){
 				if(!isClick){

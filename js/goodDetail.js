@@ -297,10 +297,10 @@ console.log(cart_num)
 	//保存到cookie中
 	$.cookie("products", products, {expires:7, path:"/"});
 	console.log($.cookie("products"));
-});
+})
 function exists(_size, products){
-	
-	var idx = -1; // 保存的是在数组中对应 id 元素存在时的下标
+	var idx=-1;
+	// 保存的是在数组中对应 id 元素存在时的下标
 	// 遍历 products 数组
 	// 每一个元素都会调用回调函数
 	// 回调函数中第一个参数为遍历元素的索引
